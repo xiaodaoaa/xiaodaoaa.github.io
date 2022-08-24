@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="CMakeLists.txt基本通用模板。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CMakeLists.txt基本通用模板">
+<meta property="og:url" content="http://example.com/2022/01/13/CMakeListTemplate/index.html">
+<meta property="og:site_name" content="小道的博客">
+<meta property="og:description" content="CMakeLists.txt基本通用模板。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-13T09:44:38.000Z">
+<meta property="article:modified_time" content="2022-08-24T06:52:10.335Z">
+<meta property="article:author" content="xiaodaoaa">
+<meta property="article:tag" content="CMake">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/01/13/CMakeListTemplate/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/01/13/CMakeListTemplate/","path":"2022/01/13/CMakeListTemplate/","title":"CMakeLists.txt基本通用模板"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CMakeLists.txt基本通用模板 | 小道的博客</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?2d0a12eb08d435e714723fcd6264bbfe"></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小道的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">15</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">22</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="xiaodaoaa"
+      src="/images/Pig.jpg">
+  <p class="site-author-name" itemprop="name">xiaodaoaa</p>
+  <div class="site-description" itemprop="description">多睡觉的孩子长得高~</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaodaoaa" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaodaoaa" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xiaodaoaa@foxmail.com" title="E-Mail → mailto:xiaodaoaa@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/13/CMakeListTemplate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Pig.jpg">
+      <meta itemprop="name" content="xiaodaoaa">
+      <meta itemprop="description" content="多睡觉的孩子长得高~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小道的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CMakeLists.txt基本通用模板
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-13 17:44:38" itemprop="dateCreated datePublished" datetime="2022-01-13T17:44:38+08:00">2022-01-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-08-24 14:52:10" itemprop="dateModified" datetime="2022-08-24T14:52:10+08:00">2022-08-24</time>
+      </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2022/01/13/CMakeListTemplate/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2022/01/13/CMakeListTemplate/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+</div>
+
+            <div class="post-description">CMakeLists.txt基本通用模板。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.9)</span><br><span class="line">project(LevealDBTry)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">#设定编译参数</span></span><br><span class="line"><span class="built_in">set</span>(CMAKE_CXX_STANDARD 11)</span><br><span class="line"><span class="built_in">set</span>(CMAKE_BUILD_TYPE <span class="string">&quot;Debug&quot;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">#设定源码列表.cpp</span></span><br><span class="line"><span class="built_in">set</span>(SOURCE_FILES ./main.cc)</span><br><span class="line"><span class="comment">#设定所有源码列表 ：aux_source_directory(&lt;dir&gt; &lt;variable&gt;)</span></span><br><span class="line"><span class="comment">#比如:aux_source_directory($&#123;CMAKE_SOURCE_DIR&#125; DIR)  将$&#123;CMAKE_SOURCE_DIR&#125;目录下，也就是最顶级目录下所有的.cpp文件放入DIR变量中，后面的add_executable就可以很简化</span></span><br><span class="line"><span class="comment">#    add_executable(hello_world $&#123;DIR&#125;)</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">#设定头文件路径</span></span><br><span class="line">include_directories(../include/)</span><br><span class="line"><span class="comment">#include_directories(&quot;路径1&quot;  “路径2”...)</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">#设定链接库的路径（一般使用第三方非系统目录下的库）</span></span><br><span class="line">link_directories(../build/)</span><br><span class="line"><span class="comment">#link_directories(&quot;路径1&quot;  “路径2”...)</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">#添加子目录,作用相当于进入子目录里面，展开子目录的CMakeLists.txt</span></span><br><span class="line"><span class="comment">#同时执行，子目录中的CMakeLists.txt一般是编译成一个库，作为一个模块</span></span><br><span class="line"><span class="comment">#在父目录中可以直接引用子目录生成的库</span></span><br><span class="line"><span class="comment">#add_subdirectory(math)</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">#生成动/静态库</span></span><br><span class="line"><span class="comment">#add_library(动/静态链接库名称  SHARED/STATIC(可选，默认STATIC)  源码列表)</span></span><br><span class="line"><span class="comment">#可以单独生成多个模块</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">#生成可执行文件</span></span><br><span class="line">add_executable(myLevealDB   <span class="variable">$&#123;SOURCE_FILES&#125;</span> )</span><br><span class="line"><span class="comment">#比如：add_executable(hello_world    $&#123;SOURCE_FILES&#125;)</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">target_link_libraries(myLevealDB  pthred glog)<span class="comment">#就是g++ 编译选项中-l后的内容，不要有多余空格</span></span><br><span class="line"> </span><br><span class="line">ADD_CUSTOM_COMMAND( <span class="comment">#执行shell命令</span></span><br><span class="line">          TARGET myLevelDB </span><br><span class="line">          POST_BUILD <span class="comment">#在目标文件myLevelDBbuild之后，执行下面的拷贝命令，还可以选择PRE_BUILD命令将会在其他依赖项执行前执行  PRE_LINK命令将会在其他依赖项执行完后执行  POST_BUILD命令将会在目标构建完后执行。</span></span><br><span class="line">          COMMAND cp ./myLevelDB  ../</span><br><span class="line">) </span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>  cmake 常用变量</li>
+</ul>
+<p>1、<strong>CMAKE_BINARY_DIR</strong> ，<strong>PROJECT_BINARY_DIR _BINARY_DIR</strong></p>
+<p>这三个变量指代的内容是一致的，如果是in source 编译，指得就是工程顶层目录，如果是out-of-source 编译，指的是工程编译发生的目录。PROJECT_BINARY_DIR 跟其他指令稍有区别，现在，你可以理解为他们是一致的。</p>
+<p>２、<strong>CMAKE_SOURCE_DIR</strong>，<strong>PROJECT_SOURCE_DIR _SOURCE_DIR</strong></p>
+<p>这三个变量指代的内容是一致的，不论采用何种编译方式，都是工程顶层目录。</p>
+<p>也就是在in source 编译时，他跟CMAKE_BINARY_DIR 等变量一致。PROJECT_SOURCE_DIR 跟其他指令稍有区别，现在，你可以理解为他们是一致的。</p>
+<p>３、<strong>CMAKE_CURRENT_SOURCE_DIR</strong> </p>
+<p>指的是当前处理的CMakeLists.txt 所在的路径，比如上面我们提到的src子目录。</p>
+<p>４、<strong>CMAKE_CURRRENT_BINARY_DIR</strong></p>
+<p>如果是in-source 编译，它跟CMAKE_CURRENT_SOURCE_DIR 一致，如果是out-of-source 编译，他指的是target 编译目录。使用我们上面提到的ADD_SUBDIRECTORY(src bin) 可以更改这个变量的值。使用SET(EXECUTABLE_OUTPUT_PATH &lt; 新路径&gt;)并不会对这个变量造成影响，它仅仅修改了最终目标文件存放的路径。</p>
+<p>５、<strong>CMAKE_CURRENT_LIST_FILE</strong> </p>
+<p>输出调用这个变量的CMakeLists.txt 的完整路径。</p>
+<p>６、<strong>CMAKE_CURRENT_LIST_LINE</strong> </p>
+<p>输出这个变量所在的行。</p>
+<p> 7、<strong>CMAKE_MODULE_PATH</strong></p>
+<p>这个变量用来定义自己的cmake 模块所在的路径。如果你的工程比较复杂，有可能会自己编写一些cmake 模块，这些cmake 模块是随你的工程发布的，为了让cmake 在处理CMakeLists.txt 时找到这些模块，你需要通过SET指令，将自己的cmake 模块路径设置一下。</p>
+<p>比如：</p>
+<p><code>SET(CMAKE_MODULE_PATH $&#123;PROJECT_SOURCE_DIR&#125;/cmake)</code> 这时候你就可以通过INCLUDE 指令来调用自己的模块了。</p>
+<p>８、<strong>EXECUTABLE_OUTPUT_PATH</strong>，<strong>LIBRARY_OUTPUT_PATH</strong> </p>
+<p>分别用来重新定义最终结果的存放目录，前面我们已经提到了这两个变量。</p>
+<p> 9、<strong>PROJECT_NAME</strong> </p>
+<p>返回通过PROJECT 指令定义的项目名称。</p>
+<ul>
+<li>  cmake添加宏定义</li>
+</ul>
+<p>CMakeLists.txt文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.9)</span><br><span class="line">project(myProject)</span><br><span class="line">IF(GPU)</span><br><span class="line"><span class="comment">#在命令行中使用cmake -DGPU，会进入这一行，C++代码中自动会有#define GPU</span></span><br><span class="line">  ADD_DEFINITIONS(-DGPU) <span class="comment">#注意一定要有-D</span></span><br><span class="line">ENDIF(GPU)</span><br><span class="line"> </span><br><span class="line">add_executable(a.out testCmake.cc)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>testCmake.cc文件：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> GPU</span></span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;GPU&quot;</span>&lt;&lt;endl;<span class="comment">//定义了GPU输出这一行</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;CPU&quot;</span>&lt;&lt;endl;<span class="comment">//没有定义输出这一行</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;hello world&quot;</span>&lt;&lt;endl;<span class="comment">//无论定义与否都会执行</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>执行CMake的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake -DGPU=on ..</span><br></pre></td></tr></table></figure>
+
+
+
+<p>注意：一定是在GPU命令前加上D，不然无法识别。</p>
+<blockquote>
+<p>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/songchuwang1868/article/details/84774844">CMakeLists.txt基本通用模板_Likes的博客</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>来根辣条~</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="xiaodaoaa 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="xiaodaoaa 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/CMake/" rel="tag"># CMake</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/08/HungarianNotation/" rel="prev" title="匈牙利命名法">
+                  <i class="fa fa-chevron-left"></i> 匈牙利命名法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/24/SingletonTemplate/" rel="next" title="SingletonTemplate">
+                  SingletonTemplate <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiaodaoaa</span>
+</div>
+  <!-- <div class="powered-by">由 <a href="https://xiaodaoaa.github.io/" rel="noopener" target="_blank">xiaodaoaa</a> 强力驱动
+  </div> -->
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvNGhbRY","appkey":"3f07003b468babe3ce15ff4bd86f2c2b"}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+
+</body>
+</html>

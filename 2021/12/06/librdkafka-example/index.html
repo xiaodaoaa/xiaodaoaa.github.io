@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="librdkafka消费者示例。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="librdkafka消费者示例">
+<meta property="og:url" content="http://example.com/2021/12/06/librdkafka-example/index.html">
+<meta property="og:site_name" content="小道的博客">
+<meta property="og:description" content="librdkafka消费者示例。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-06T08:40:58.000Z">
+<meta property="article:modified_time" content="2022-08-24T06:52:10.402Z">
+<meta property="article:author" content="xiaodaoaa">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/12/06/librdkafka-example/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/12/06/librdkafka-example/","path":"2021/12/06/librdkafka-example/","title":"librdkafka消费者示例"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>librdkafka消费者示例 | 小道的博客</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?2d0a12eb08d435e714723fcd6264bbfe"></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小道的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">15</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">22</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#KafkaConsumerClient-h"><span class="nav-number">1.</span> <span class="nav-text">KafkaConsumerClient.h</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#KafkaConsumerClient-cpp"><span class="nav-number">2.</span> <span class="nav-text">KafkaConsumerClient.cpp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#main-cpp"><span class="nav-number">3.</span> <span class="nav-text">main.cpp</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="xiaodaoaa"
+      src="/images/Pig.jpg">
+  <p class="site-author-name" itemprop="name">xiaodaoaa</p>
+  <div class="site-description" itemprop="description">多睡觉的孩子长得高~</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaodaoaa" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaodaoaa" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xiaodaoaa@foxmail.com" title="E-Mail → mailto:xiaodaoaa@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/06/librdkafka-example/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Pig.jpg">
+      <meta itemprop="name" content="xiaodaoaa">
+      <meta itemprop="description" content="多睡觉的孩子长得高~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小道的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          librdkafka消费者示例
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-06 16:40:58" itemprop="dateCreated datePublished" datetime="2021-12-06T16:40:58+08:00">2021-12-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-08-24 14:52:10" itemprop="dateModified" datetime="2022-08-24T14:52:10+08:00">2022-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/12/06/librdkafka-example/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/12/06/librdkafka-example/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+</div>
+
+            <div class="post-description">librdkafka消费者示例。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="KafkaConsumerClient-h"><a href="#KafkaConsumerClient-h" class="headerlink" title="KafkaConsumerClient.h"></a>KafkaConsumerClient.h</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> KAFKACONSUMERCLIENT_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> KAFKACONSUMERCLIENT_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;csignal&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rdkafkacpp.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;atomic&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KafkaConsumerClient</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">KafkaConsumerClient</span><span class="params">(<span class="keyword">const</span> std::string &amp;brokers,</span></span></span><br><span class="line"><span class="params"><span class="function">                                 <span class="keyword">const</span> std::string &amp;topics,</span></span></span><br><span class="line"><span class="params"><span class="function">                                 std::string groupid,</span></span></span><br><span class="line"><span class="params"><span class="function">                                 <span class="keyword">int32_t</span> nPartition,</span></span></span><br><span class="line"><span class="params"><span class="function">                                 <span class="keyword">int64_t</span> offset)</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">virtual</span> ~<span class="built_in">KafkaConsumerClient</span>();</span><br><span class="line">	<span class="comment">//初始化</span></span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">Init</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//开始获取消息</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Run</span><span class="params">(<span class="keyword">int</span> timeout_ms)</span></span>;</span><br><span class="line">    <span class="comment">//开始</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//停止</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Stop</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">//获取运行状态</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isRun</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">//退出</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Quit</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取Offset</span></span><br><span class="line">    <span class="function"><span class="keyword">uint64_t</span> <span class="title">GetLastOffset</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Msg_consume</span><span class="params">(RdKafka::Message* message, <span class="keyword">void</span>* opaque)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ParseJsonMsg</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *strJsonMsg, <span class="keyword">const</span> <span class="keyword">int</span> len)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	std::string m_strBrokers;</span><br><span class="line">	std::string m_strTopics;</span><br><span class="line">	std::string m_strGroupid;</span><br><span class="line">    <span class="keyword">int64_t</span> m_nLastOffset&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    RdKafka::Consumer *m_pKafkaConsumer&#123;<span class="literal">nullptr</span>&#125;;</span><br><span class="line">    RdKafka::Topic    *m_pTopic&#123;<span class="literal">nullptr</span>&#125;;</span><br><span class="line">    <span class="keyword">int64_t</span>           m_nCurrentOffset&#123;RdKafka::Topic::OFFSET_STORED&#125;;</span><br><span class="line">    <span class="keyword">int32_t</span>           m_nPartition&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">atomic_bool</span> m_bRun&#123;<span class="literal">false</span>&#125;;</span><br><span class="line">    <span class="keyword">atomic_bool</span> m_bQuit&#123;<span class="literal">false</span>&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// KAFKACONSUMERCLIENT_H</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="KafkaConsumerClient-cpp"><a href="#KafkaConsumerClient-cpp" class="headerlink" title="KafkaConsumerClient.cpp"></a>KafkaConsumerClient.cpp</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;KafkaConsumerClient.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;ImageInfoVector.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;json.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;SpdlogHeader.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">KafkaConsumerClient::<span class="built_in">KafkaConsumerClient</span>(</span><br><span class="line">        <span class="keyword">const</span> std::string &amp;brokers,</span><br><span class="line">        <span class="keyword">const</span> std::string &amp;topics,</span><br><span class="line">        std::string groupid,</span><br><span class="line">        <span class="keyword">int32_t</span> nPartition,</span><br><span class="line">        <span class="keyword">int64_t</span> offset)	:</span><br><span class="line">    <span class="built_in">m_strBrokers</span>(brokers),</span><br><span class="line">	<span class="built_in">m_strTopics</span>(topics),</span><br><span class="line">	<span class="built_in">m_strGroupid</span>(groupid),</span><br><span class="line">    <span class="built_in">m_nCurrentOffset</span>(offset),</span><br><span class="line">    <span class="built_in">m_nPartition</span>(nPartition)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">KafkaConsumerClient::~<span class="built_in">KafkaConsumerClient</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">Quit</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">KafkaConsumerClient::Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	std::string errstr;</span><br><span class="line">	RdKafka::Conf *conf = RdKafka::Conf::<span class="built_in">create</span>(RdKafka::Conf::CONF_GLOBAL);</span><br><span class="line">	<span class="keyword">if</span> (!conf) &#123;</span><br><span class="line">		std::cerr &lt;&lt; <span class="string">&quot;RdKafka create global conf failed&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*设置broker list*/</span></span><br><span class="line">	<span class="keyword">if</span> (conf-&gt;<span class="built_in">set</span>(<span class="string">&quot;metadata.broker.list&quot;</span>, m_strBrokers, errstr) != RdKafka::Conf::CONF_OK) &#123;</span><br><span class="line">		std::cerr &lt;&lt; <span class="string">&quot;RdKafka conf set brokerlist failed ::&quot;</span> &lt;&lt; errstr.<span class="built_in">c_str</span>() &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*设置consumer group*/</span></span><br><span class="line">	<span class="keyword">if</span> (conf-&gt;<span class="built_in">set</span>(<span class="string">&quot;group.id&quot;</span>, m_strGroupid, errstr) != RdKafka::Conf::CONF_OK) &#123;</span><br><span class="line">		std::cerr &lt;&lt; <span class="string">&quot;RdKafka conf set group.id failed :&quot;</span> &lt;&lt; errstr.<span class="built_in">c_str</span>() &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	std::string strfetch_num = <span class="string">&quot;10240000&quot;</span>;</span><br><span class="line">	<span class="comment">/*每次从单个分区中拉取消息的最大尺寸*/</span></span><br><span class="line">	<span class="keyword">if</span> (conf-&gt;<span class="built_in">set</span>(<span class="string">&quot;max.partition.fetch.bytes&quot;</span>, strfetch_num, errstr) != RdKafka::Conf::CONF_OK) &#123;</span><br><span class="line">		std::cerr &lt;&lt; <span class="string">&quot;RdKafka conf set max.partition failed :&quot;</span> &lt;&lt; errstr.<span class="built_in">c_str</span>() &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*创建kafka consumer实例*/</span> <span class="comment">//Create consumer using accumulated global configuration.</span></span><br><span class="line">	m_pKafkaConsumer = RdKafka::Consumer::<span class="built_in">create</span>(conf, errstr);</span><br><span class="line">	<span class="keyword">if</span> (!m_pKafkaConsumer) &#123;</span><br><span class="line">		std::cerr &lt;&lt; <span class="string">&quot;failed to ceate consumer&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;% Created consumer &quot;</span> &lt;&lt; m_pKafkaConsumer-&gt;<span class="built_in">name</span>() &lt;&lt; std::endl;</span><br><span class="line">	<span class="keyword">delete</span> conf;</span><br><span class="line">	<span class="comment">/*创建kafka topic的配置*/</span></span><br><span class="line">	RdKafka::Conf *tconf = RdKafka::Conf::<span class="built_in">create</span>(RdKafka::Conf::CONF_TOPIC);</span><br><span class="line">	<span class="keyword">if</span> (!tconf) &#123;</span><br><span class="line">		std::cerr &lt;&lt; <span class="string">&quot;RdKafka create topic conf failed&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (tconf-&gt;<span class="built_in">set</span>(<span class="string">&quot;auto.offset.reset&quot;</span>, <span class="string">&quot;smallest&quot;</span>, errstr) != RdKafka::Conf::CONF_OK) &#123;</span><br><span class="line">		std::cerr &lt;&lt; <span class="string">&quot;RdKafka conf set auto.offset.reset failed:&quot;</span> &lt;&lt; errstr.<span class="built_in">c_str</span>() &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	* Create topic handle.</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	m_pTopic = RdKafka::Topic::<span class="built_in">create</span>(m_pKafkaConsumer, m_strTopics, tconf, errstr);</span><br><span class="line">	<span class="keyword">if</span> (!m_pTopic) &#123;</span><br><span class="line">		std::cerr &lt;&lt; <span class="string">&quot;RdKafka create topic failed :&quot;</span> &lt;&lt; errstr.<span class="built_in">c_str</span>() &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">delete</span> tconf;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	* Start consumer for topic+partition at start offset</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">    <span class="comment">//for (int i = 0; i &lt; 10; i++)</span></span><br><span class="line">	&#123;</span><br><span class="line">        RdKafka::ErrorCode resp = m_pKafkaConsumer-&gt;<span class="built_in">start</span>(m_pTopic, m_nPartition, m_nCurrentOffset);</span><br><span class="line">		<span class="keyword">if</span> (resp != RdKafka::ERR_NO_ERROR) &#123;</span><br><span class="line">			std::cerr &lt;&lt; <span class="string">&quot;failed to start consumer : &quot;</span> &lt;&lt; errstr.<span class="built_in">c_str</span>() &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">KafkaConsumerClient::Msg_consume</span><span class="params">(RdKafka::Message* message, <span class="keyword">void</span>* opaque)</span> </span>&#123;</span><br><span class="line">    (<span class="keyword">void</span>)(opaque);</span><br><span class="line">	<span class="built_in"><span class="keyword">switch</span></span> (message-&gt;<span class="built_in">err</span>()) &#123;</span><br><span class="line">	<span class="keyword">case</span> RdKafka::ERR__TIMED_OUT:</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">case</span> RdKafka::ERR_NO_ERROR:</span><br><span class="line">		<span class="comment">/* Real message */</span></span><br><span class="line">        <span class="comment">//std::cout &lt;&lt; &quot;Read msg at offset &quot; &lt;&lt; message-&gt;offset() &lt;&lt; std::endl;</span></span><br><span class="line">		<span class="keyword">if</span> (message-&gt;<span class="built_in">key</span>()) &#123;</span><br><span class="line">			std::cout &lt;&lt; <span class="string">&quot;Key: &quot;</span> &lt;&lt; *message-&gt;<span class="built_in">key</span>() &lt;&lt; std::endl;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//printf(&quot;partition:%d, offset:%ld\n&quot;, message-&gt;partition(), message-&gt;offset());</span></span><br><span class="line">        <span class="comment">//printf(&quot;%.*s\n&quot;, static_cast&lt;int&gt;(message-&gt;len()), static_cast&lt;const char *&gt;(message-&gt;payload()));</span></span><br><span class="line"></span><br><span class="line">		m_nLastOffset = message-&gt;<span class="built_in">offset</span>();</span><br><span class="line"></span><br><span class="line">        <span class="built_in">ParseJsonMsg</span>(<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">char</span> *&gt;(message-&gt;<span class="built_in">payload</span>()), <span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(message-&gt;<span class="built_in">len</span>()));</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">case</span> RdKafka::ERR__PARTITION_EOF:</span><br><span class="line">		<span class="comment">/* Last message */</span></span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;Reached the end of the queue, offset: &quot;</span> &lt;&lt; m_nLastOffset &lt;&lt; endl;</span><br><span class="line">		<span class="comment">//Stop();</span></span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> RdKafka::ERR__UNKNOWN_TOPIC:</span><br><span class="line">	<span class="keyword">case</span> RdKafka::ERR__UNKNOWN_PARTITION:</span><br><span class="line">		std::cerr &lt;&lt; <span class="string">&quot;Consume failed: &quot;</span> &lt;&lt; message-&gt;<span class="built_in">errstr</span>() &lt;&lt; std::endl;</span><br><span class="line">		<span class="built_in">Stop</span>();</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		<span class="comment">/* Errors */</span></span><br><span class="line">		std::cerr &lt;&lt; <span class="string">&quot;Consume failed: &quot;</span> &lt;&lt; message-&gt;<span class="built_in">errstr</span>() &lt;&lt; std::endl;</span><br><span class="line">		<span class="built_in">Stop</span>();</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">KafkaConsumerClient::ParseJsonMsg</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *strJsonMsg, <span class="keyword">const</span> <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    JSONCPP_STRING errs;</span><br><span class="line">    Json::Value root;</span><br><span class="line">    Json::CharReaderBuilder readerBuilder;</span><br><span class="line">    Json::CharReader *jsonReader = readerBuilder.<span class="built_in">newCharReader</span>();</span><br><span class="line">    <span class="keyword">if</span> (jsonReader-&gt;<span class="built_in">parse</span>(strJsonMsg, strJsonMsg + len, &amp;root, &amp;errs)) &#123;</span><br><span class="line">		<span class="comment">//TODO...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span> jsonReader;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">KafkaConsumerClient::Run</span><span class="params">(<span class="keyword">int</span> timeout_ms)</span> </span>&#123;</span><br><span class="line">	RdKafka::Message *msg = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(m_bRun)&#123;</span><br><span class="line">            msg = m_pKafkaConsumer-&gt;<span class="built_in">consume</span>(m_pTopic, m_nPartition, timeout_ms);</span><br><span class="line">            <span class="built_in">Msg_consume</span>(msg, <span class="literal">NULL</span>);</span><br><span class="line">            <span class="keyword">delete</span> msg;</span><br><span class="line">            m_pKafkaConsumer-&gt;<span class="built_in">poll</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(m_bQuit) <span class="keyword">break</span>;</span><br><span class="line">            <span class="built_in">sleep</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	m_pKafkaConsumer-&gt;<span class="built_in">stop</span>(m_pTopic, m_nPartition);</span><br><span class="line">	m_pKafkaConsumer-&gt;<span class="built_in">poll</span>(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (m_pTopic) &#123;</span><br><span class="line">		<span class="keyword">delete</span> m_pTopic;</span><br><span class="line">		m_pTopic = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (m_pKafkaConsumer) &#123;</span><br><span class="line">		<span class="keyword">delete</span> m_pKafkaConsumer;</span><br><span class="line">		m_pKafkaConsumer = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*销毁kafka实例*/</span> <span class="comment">//Wait for RdKafka to decommission.</span></span><br><span class="line">    RdKafka::<span class="built_in">wait_destroyed</span>(<span class="number">5000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">KafkaConsumerClient::Start</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    m_bRun = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">KafkaConsumerClient::Stop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    m_bRun = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">KafkaConsumerClient::isRun</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> m_bRun;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">KafkaConsumerClient::Quit</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">Stop</span>();</span><br><span class="line">    m_bQuit = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">uint64_t</span> <span class="title">KafkaConsumerClient::GetLastOffset</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>-&gt;m_nLastOffset;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="main-cpp"><a href="#main-cpp" class="headerlink" title="main.cpp"></a>main.cpp</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;KafkaConsumerClient.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    KafkaConsumerClient *KafkaConsumerClient_ = <span class="keyword">new</span> <span class="built_in">KafkaConsumerClient</span>(<span class="string">&quot;192.168.0.1:9092&quot;</span>, <span class="string">&quot;TEST_TOPIC&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="number">0</span>, RdKafka::Topic::OFFSET_STORED);<span class="comment">//OFFSET_BEGINNING,OFFSET_END</span></span><br><span class="line">    <span class="keyword">if</span> (!KafkaConsumerClient_-&gt;<span class="built_in">Init</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(stderr, <span class="string">&quot;kafka server initialize error\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    KafkaConsumerClient_-&gt;<span class="built_in">Run</span>(<span class="number">1000</span>);</span><br><span class="line">    KafkaConsumerClient_-&gt;<span class="built_in">Start</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>来根辣条~</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="xiaodaoaa 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="xiaodaoaa 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/C-C/" rel="tag"># C/C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/06/RabbitMQ-example/" rel="prev" title="RabbitMQ生产者及消费者示例">
+                  <i class="fa fa-chevron-left"></i> RabbitMQ生产者及消费者示例
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/08/tools-collection/" rel="next" title="软件工具合集">
+                  软件工具合集 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiaodaoaa</span>
+</div>
+  <!-- <div class="powered-by">由 <a href="https://xiaodaoaa.github.io/" rel="noopener" target="_blank">xiaodaoaa</a> 强力驱动
+  </div> -->
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvNGhbRY","appkey":"3f07003b468babe3ce15ff4bd86f2c2b"}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+
+</body>
+</html>
