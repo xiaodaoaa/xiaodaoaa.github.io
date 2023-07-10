@@ -1,0 +1,520 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>CMakeLists基础通用模板 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="CMakeLists.txt基本通用模板。">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="LibraryRpath.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../C++/">
+            
+                <a href="../C++/">
+            
+                    
+                    C++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../C++/Cpp11-Demo.html">
+            
+                <a href="../C++/Cpp11-Demo.html">
+            
+                    
+                    C++11 示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../C++/CppNewArrayInit.html">
+            
+                <a href="../C++/CppNewArrayInit.html">
+            
+                    
+                    new内存初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../C++/libcurl-down-file.html">
+            
+                <a href="../C++/libcurl-down-file.html">
+            
+                    
+                    利用libcurl下载文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Qt5/">
+            
+                <a href="../Qt5/">
+            
+                    
+                    Qt5
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Qt5/GridLayout.html">
+            
+                <a href="../Qt5/GridLayout.html">
+            
+                    
+                    网格示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="CMakeListTemplate.html">
+            
+                <a href="CMakeListTemplate.html">
+            
+                    
+                    CMakeLists基础通用模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="LibraryRpath.html">
+            
+                <a href="LibraryRpath.html">
+            
+                    
+                    动态库加载路径设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Other/">
+            
+                <a href="../Other/">
+            
+                    
+                    Other
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Other/GuoHomeLetter.html">
+            
+                <a href="../Other/GuoHomeLetter.html">
+            
+                    
+                    郭德纲家书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Other/ChickenSoup.html">
+            
+                <a href="../Other/ChickenSoup.html">
+            
+                    
+                    毒鸡汤
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >CMakeLists基础通用模板</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <pre><code class="lang-bash">cmake_minimum_required(VERSION 3.9)
+project(LevealDBTry)
+
+
+<span class="hljs-comment">#&#x8BBE;&#x5B9A;&#x7F16;&#x8BD1;&#x53C2;&#x6570;</span>
+<span class="hljs-built_in">set</span>(CMAKE_CXX_STANDARD 11)
+<span class="hljs-built_in">set</span>(CMAKE_BUILD_TYPE <span class="hljs-string">&quot;Debug&quot;</span>)
+
+<span class="hljs-comment">#&#x8BBE;&#x5B9A;&#x6E90;&#x7801;&#x5217;&#x8868;.cpp</span>
+<span class="hljs-built_in">set</span>(SOURCE_FILES ./main.cc)
+<span class="hljs-comment">#&#x8BBE;&#x5B9A;&#x6240;&#x6709;&#x6E90;&#x7801;&#x5217;&#x8868; &#xFF1A;aux_source_directory(&lt;dir&gt; &lt;variable&gt;)</span>
+<span class="hljs-comment">#&#x6BD4;&#x5982;:aux_source_directory(${CMAKE_SOURCE_DIR} DIR)  &#x5C06;${CMAKE_SOURCE_DIR}&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6700;&#x9876;&#x7EA7;&#x76EE;&#x5F55;&#x4E0B;&#x6240;&#x6709;&#x7684;.cpp&#x6587;&#x4EF6;&#x653E;&#x5165;DIR&#x53D8;&#x91CF;&#x4E2D;&#xFF0C;&#x540E;&#x9762;&#x7684;add_executable&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x7B80;&#x5316;</span>
+<span class="hljs-comment">#    add_executable(hello_world ${DIR})</span>
+
+
+<span class="hljs-comment">#&#x8BBE;&#x5B9A;&#x5934;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span>
+include_directories(../include/)
+<span class="hljs-comment">#include_directories(&quot;&#x8DEF;&#x5F84;1&quot;  &#x201C;&#x8DEF;&#x5F84;2&#x201D;...)</span>
+
+
+<span class="hljs-comment">#&#x8BBE;&#x5B9A;&#x94FE;&#x63A5;&#x5E93;&#x7684;&#x8DEF;&#x5F84;&#xFF08;&#x4E00;&#x822C;&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x975E;&#x7CFB;&#x7EDF;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x5E93;&#xFF09;</span>
+link_directories(../build/)
+<span class="hljs-comment">#link_directories(&quot;&#x8DEF;&#x5F84;1&quot;  &#x201C;&#x8DEF;&#x5F84;2&#x201D;...)</span>
+
+
+<span class="hljs-comment">#&#x6DFB;&#x52A0;&#x5B50;&#x76EE;&#x5F55;,&#x4F5C;&#x7528;&#x76F8;&#x5F53;&#x4E8E;&#x8FDB;&#x5165;&#x5B50;&#x76EE;&#x5F55;&#x91CC;&#x9762;&#xFF0C;&#x5C55;&#x5F00;&#x5B50;&#x76EE;&#x5F55;&#x7684;CMakeLists.txt</span>
+<span class="hljs-comment">#&#x540C;&#x65F6;&#x6267;&#x884C;&#xFF0C;&#x5B50;&#x76EE;&#x5F55;&#x4E2D;&#x7684;CMakeLists.txt&#x4E00;&#x822C;&#x662F;&#x7F16;&#x8BD1;&#x6210;&#x4E00;&#x4E2A;&#x5E93;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x6A21;&#x5757;</span>
+<span class="hljs-comment">#&#x5728;&#x7236;&#x76EE;&#x5F55;&#x4E2D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F15;&#x7528;&#x5B50;&#x76EE;&#x5F55;&#x751F;&#x6210;&#x7684;&#x5E93;</span>
+<span class="hljs-comment">#add_subdirectory(math)</span>
+
+
+<span class="hljs-comment">#&#x751F;&#x6210;&#x52A8;/&#x9759;&#x6001;&#x5E93;</span>
+<span class="hljs-comment">#add_library(&#x52A8;/&#x9759;&#x6001;&#x94FE;&#x63A5;&#x5E93;&#x540D;&#x79F0;  SHARED/STATIC(&#x53EF;&#x9009;&#xFF0C;&#x9ED8;&#x8BA4;STATIC)  &#x6E90;&#x7801;&#x5217;&#x8868;)</span>
+<span class="hljs-comment">#&#x53EF;&#x4EE5;&#x5355;&#x72EC;&#x751F;&#x6210;&#x591A;&#x4E2A;&#x6A21;&#x5757;</span>
+
+
+<span class="hljs-comment">#&#x751F;&#x6210;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;</span>
+add_executable(myLevealDB   <span class="hljs-variable">${SOURCE_FILES}</span> )
+<span class="hljs-comment">#&#x6BD4;&#x5982;&#xFF1A;add_executable(hello_world    ${SOURCE_FILES})</span>
+
+
+target_link_libraries(myLevealDB  pthred glog)<span class="hljs-comment">#&#x5C31;&#x662F;g++ &#x7F16;&#x8BD1;&#x9009;&#x9879;&#x4E2D;-l&#x540E;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4E0D;&#x8981;&#x6709;&#x591A;&#x4F59;&#x7A7A;&#x683C;</span>
+
+ADD_CUSTOM_COMMAND( <span class="hljs-comment">#&#x6267;&#x884C;shell&#x547D;&#x4EE4;</span>
+          TARGET myLevelDB 
+          POST_BUILD <span class="hljs-comment">#&#x5728;&#x76EE;&#x6807;&#x6587;&#x4EF6;myLevelDBbuild&#x4E4B;&#x540E;&#xFF0C;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x62F7;&#x8D1D;&#x547D;&#x4EE4;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x9009;&#x62E9;PRE_BUILD&#x547D;&#x4EE4;&#x5C06;&#x4F1A;&#x5728;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;&#x9879;&#x6267;&#x884C;&#x524D;&#x6267;&#x884C;  PRE_LINK&#x547D;&#x4EE4;&#x5C06;&#x4F1A;&#x5728;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;&#x9879;&#x6267;&#x884C;&#x5B8C;&#x540E;&#x6267;&#x884C;  POST_BUILD&#x547D;&#x4EE4;&#x5C06;&#x4F1A;&#x5728;&#x76EE;&#x6807;&#x6784;&#x5EFA;&#x5B8C;&#x540E;&#x6267;&#x884C;&#x3002;</span>
+          COMMAND cp ./myLevelDB  ../
+)
+</code></pre>
+<ul>
+<li>cmake &#x5E38;&#x7528;&#x53D8;&#x91CF;</li>
+</ul>
+<p>1&#x3001;<strong>CMAKE_BINARY_DIR</strong> &#xFF0C;<strong>PROJECT_BINARY_DIR _BINARY_DIR</strong></p>
+<p>&#x8FD9;&#x4E09;&#x4E2A;&#x53D8;&#x91CF;&#x6307;&#x4EE3;&#x7684;&#x5185;&#x5BB9;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x662F;in source &#x7F16;&#x8BD1;&#xFF0C;&#x6307;&#x5F97;&#x5C31;&#x662F;&#x5DE5;&#x7A0B;&#x9876;&#x5C42;&#x76EE;&#x5F55;&#xFF0C;&#x5982;&#x679C;&#x662F;out-of-source &#x7F16;&#x8BD1;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x5DE5;&#x7A0B;&#x7F16;&#x8BD1;&#x53D1;&#x751F;&#x7684;&#x76EE;&#x5F55;&#x3002;PROJECT_BINARY_DIR &#x8DDF;&#x5176;&#x4ED6;&#x6307;&#x4EE4;&#x7A0D;&#x6709;&#x533A;&#x522B;&#xFF0C;&#x73B0;&#x5728;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x4ED6;&#x4EEC;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;</p>
+<p>&#xFF12;&#x3001;<strong>CMAKE_SOURCE_DIR</strong>&#xFF0C;<strong>PROJECT_SOURCE_DIR _SOURCE_DIR</strong></p>
+<p>&#x8FD9;&#x4E09;&#x4E2A;&#x53D8;&#x91CF;&#x6307;&#x4EE3;&#x7684;&#x5185;&#x5BB9;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x4E0D;&#x8BBA;&#x91C7;&#x7528;&#x4F55;&#x79CD;&#x7F16;&#x8BD1;&#x65B9;&#x5F0F;&#xFF0C;&#x90FD;&#x662F;&#x5DE5;&#x7A0B;&#x9876;&#x5C42;&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x5728;in source &#x7F16;&#x8BD1;&#x65F6;&#xFF0C;&#x4ED6;&#x8DDF;CMAKE_BINARY_DIR &#x7B49;&#x53D8;&#x91CF;&#x4E00;&#x81F4;&#x3002;PROJECT_SOURCE_DIR &#x8DDF;&#x5176;&#x4ED6;&#x6307;&#x4EE4;&#x7A0D;&#x6709;&#x533A;&#x522B;&#xFF0C;&#x73B0;&#x5728;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x4ED6;&#x4EEC;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;</p>
+<p>&#xFF13;&#x3001;<strong>CMAKE_CURRENT_SOURCE_DIR</strong> </p>
+<p>&#x6307;&#x7684;&#x662F;&#x5F53;&#x524D;&#x5904;&#x7406;&#x7684;CMakeLists.txt &#x6240;&#x5728;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x6BD4;&#x5982;&#x4E0A;&#x9762;&#x6211;&#x4EEC;&#x63D0;&#x5230;&#x7684;src&#x5B50;&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#xFF14;&#x3001;<strong>CMAKE_CURRRENT_BINARY_DIR</strong></p>
+<p>&#x5982;&#x679C;&#x662F;in-source &#x7F16;&#x8BD1;&#xFF0C;&#x5B83;&#x8DDF;CMAKE_CURRENT_SOURCE_DIR &#x4E00;&#x81F4;&#xFF0C;&#x5982;&#x679C;&#x662F;out-of-source &#x7F16;&#x8BD1;&#xFF0C;&#x4ED6;&#x6307;&#x7684;&#x662F;target &#x7F16;&#x8BD1;&#x76EE;&#x5F55;&#x3002;&#x4F7F;&#x7528;&#x6211;&#x4EEC;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;ADD_SUBDIRECTORY(src bin) &#x53EF;&#x4EE5;&#x66F4;&#x6539;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x3002;&#x4F7F;&#x7528;SET(EXECUTABLE_OUTPUT_PATH &lt; &#x65B0;&#x8DEF;&#x5F84;&gt;)&#x5E76;&#x4E0D;&#x4F1A;&#x5BF9;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x9020;&#x6210;&#x5F71;&#x54CD;&#xFF0C;&#x5B83;&#x4EC5;&#x4EC5;&#x4FEE;&#x6539;&#x4E86;&#x6700;&#x7EC8;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>&#xFF15;&#x3001;<strong>CMAKE_CURRENT_LIST_FILE</strong> </p>
+<p>&#x8F93;&#x51FA;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x7684;CMakeLists.txt &#x7684;&#x5B8C;&#x6574;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>&#xFF16;&#x3001;<strong>CMAKE_CURRENT_LIST_LINE</strong> </p>
+<p>&#x8F93;&#x51FA;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x6240;&#x5728;&#x7684;&#x884C;&#x3002;</p>
+<p> 7&#x3001;<strong>CMAKE_MODULE_PATH</strong></p>
+<p>&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;cmake &#x6A21;&#x5757;&#x6240;&#x5728;&#x7684;&#x8DEF;&#x5F84;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;&#x5DE5;&#x7A0B;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x81EA;&#x5DF1;&#x7F16;&#x5199;&#x4E00;&#x4E9B;cmake &#x6A21;&#x5757;&#xFF0C;&#x8FD9;&#x4E9B;cmake &#x6A21;&#x5757;&#x662F;&#x968F;&#x4F60;&#x7684;&#x5DE5;&#x7A0B;&#x53D1;&#x5E03;&#x7684;&#xFF0C;&#x4E3A;&#x4E86;&#x8BA9;cmake &#x5728;&#x5904;&#x7406;CMakeLists.txt &#x65F6;&#x627E;&#x5230;&#x8FD9;&#x4E9B;&#x6A21;&#x5757;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x901A;&#x8FC7;SET&#x6307;&#x4EE4;&#xFF0C;&#x5C06;&#x81EA;&#x5DF1;&#x7684;cmake &#x6A21;&#x5757;&#x8DEF;&#x5F84;&#x8BBE;&#x7F6E;&#x4E00;&#x4E0B;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#xFF1A;</p>
+<p><code>SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)</code> &#x8FD9;&#x65F6;&#x5019;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;INCLUDE &#x6307;&#x4EE4;&#x6765;&#x8C03;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x6A21;&#x5757;&#x4E86;&#x3002;</p>
+<p>&#xFF18;&#x3001;<strong>EXECUTABLE_OUTPUT_PATH</strong>&#xFF0C;<strong>LIBRARY_OUTPUT_PATH</strong> </p>
+<p>&#x5206;&#x522B;&#x7528;&#x6765;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#x7684;&#x5B58;&#x653E;&#x76EE;&#x5F55;&#xFF0C;&#x524D;&#x9762;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x63D0;&#x5230;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x3002;</p>
+<p> 9&#x3001;<strong>PROJECT_NAME</strong> </p>
+<p>&#x8FD4;&#x56DE;&#x901A;&#x8FC7;PROJECT &#x6307;&#x4EE4;&#x5B9A;&#x4E49;&#x7684;&#x9879;&#x76EE;&#x540D;&#x79F0;&#x3002;</p>
+<ul>
+<li>cmake&#x6DFB;&#x52A0;&#x5B8F;&#x5B9A;&#x4E49;</li>
+</ul>
+<p>CMakeLists.txt&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-bash">cmake_minimum_required(VERSION 3.9)
+project(myProject)
+IF(GPU)
+<span class="hljs-comment">#&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x4F7F;&#x7528;cmake -DGPU&#xFF0C;&#x4F1A;&#x8FDB;&#x5165;&#x8FD9;&#x4E00;&#x884C;&#xFF0C;C++&#x4EE3;&#x7801;&#x4E2D;&#x81EA;&#x52A8;&#x4F1A;&#x6709;#define GPU</span>
+  ADD_DEFINITIONS(-DGPU) <span class="hljs-comment">#&#x6CE8;&#x610F;&#x4E00;&#x5B9A;&#x8981;&#x6709;-D</span>
+ENDIF(GPU)
+
+add_executable(a.out <span class="hljs-built_in">test</span>Cmake.cc)
+</code></pre>
+<p>testCmake.cc&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> GPU</span>
+    <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;GPU&quot;</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<span class="hljs-comment">//&#x5B9A;&#x4E49;&#x4E86;GPU&#x8F93;&#x51FA;&#x8FD9;&#x4E00;&#x884C;</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+    <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;CPU&quot;</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<span class="hljs-comment">//&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8FD9;&#x4E00;&#x884C;</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+    <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;hello world&quot;</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<span class="hljs-comment">//&#x65E0;&#x8BBA;&#x5B9A;&#x4E49;&#x4E0E;&#x5426;&#x90FD;&#x4F1A;&#x6267;&#x884C;</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>&#x6267;&#x884C;CMake&#x7684;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre><code class="lang-bash">mkdir build
+<span class="hljs-built_in">cd</span> build
+cmake -DGPU=on ..
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x4E00;&#x5B9A;&#x662F;&#x5728;GPU&#x547D;&#x4EE4;&#x524D;&#x52A0;&#x4E0A;D&#xFF0C;&#x4E0D;&#x7136;&#x65E0;&#x6CD5;&#x8BC6;&#x522B;&#x3002;</p>
+<blockquote>
+<p>  <a href="https://blog.csdn.net/songchuwang1868/article/details/84774844" target="_blank">CMakeLists.txt&#x57FA;&#x672C;&#x901A;&#x7528;&#x6A21;&#x677F;_Likes&#x7684;&#x535A;&#x5BA2;</a></p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Linux">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="LibraryRpath.html" class="navigation navigation-next " aria-label="Next page: 动态库加载路径设置">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"CMakeLists基础通用模板","date":"2022-01-13T17:44:38.000Z","tags":"CMake","categroies":"Linux","description":"CMakeLists.txt基本通用模板。","level":"1.4.1","depth":2,"next":{"title":"动态库加载路径设置","level":"1.4.2","depth":2,"path":"Linux/LibraryRpath.md","ref":"Linux/LibraryRpath.md","articles":[]},"previous":{"title":"Linux","level":"1.4","depth":1,"path":"Linux/README.md","ref":"Linux/README.md","articles":[{"title":"CMakeLists基础通用模板","level":"1.4.1","depth":2,"path":"Linux/CMakeListTemplate.md","ref":"Linux/CMakeListTemplate.md","articles":[]},{"title":"动态库加载路径设置","level":"1.4.2","depth":2,"path":"Linux/LibraryRpath.md","ref":"Linux/LibraryRpath.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Linux/CMakeListTemplate.md","mtime":"2023-07-10T11:50:38.565Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-10T12:07:08.496Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
