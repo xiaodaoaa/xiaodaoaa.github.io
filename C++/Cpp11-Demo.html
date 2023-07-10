@@ -1,0 +1,1082 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>C++11 Demo · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="C++11示例代码，乃学习测试时编写，如有问题请留言指正。">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Qt5/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    C++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="Cpp11-Demo.html">
+            
+                <a href="Cpp11-Demo.html">
+            
+                    
+                    C++11 Demo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Qt5/">
+            
+                <a href="../Qt5/">
+            
+                    
+                    Qt5
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Qt5/GridLayout.html">
+            
+                <a href="../Qt5/GridLayout.html">
+            
+                    
+                    Qt 网格布局示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Other/">
+            
+                <a href="../Other/">
+            
+                    
+                    Other
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Other/GuoHomeLetter.html">
+            
+                <a href="../Other/GuoHomeLetter.html">
+            
+                    
+                    郭德纲家书
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >C++11 Demo</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;map&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;functional&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;regex&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iterator&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;thread&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;chrono&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;atomic&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;ctime&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;future&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;tuple&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;random&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-keyword">namespace</span> TestFunctional {
+<span class="hljs-built_in">std</span>::function&lt; <span class="hljs-keyword">int</span>(<span class="hljs-keyword">int</span>)&gt; Functional;
+
+<span class="hljs-comment">// &#x666E;&#x901A;&#x51FD;&#x6570;</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">TestFunc</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span>
+</span>{
+    <span class="hljs-keyword">return</span> a;
+}
+
+<span class="hljs-comment">// Lambda&#x8868;&#x8FBE;&#x5F0F;</span>
+<span class="hljs-keyword">auto</span> lambda = [](<span class="hljs-keyword">int</span> a)-&gt;<span class="hljs-keyword">int</span>{ <span class="hljs-keyword">return</span> a; };
+
+<span class="hljs-comment">// &#x4EFF;&#x51FD;&#x6570;(functor)</span>
+<span class="hljs-keyword">class</span> Functor
+{
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span>
+    </span>{
+        <span class="hljs-keyword">return</span> a;
+    }
+};
+
+<span class="hljs-comment">// 1.&#x7C7B;&#x6210;&#x5458;&#x51FD;&#x6570;</span>
+<span class="hljs-comment">// 2.&#x7C7B;&#x9759;&#x6001;&#x51FD;&#x6570;</span>
+<span class="hljs-keyword">class</span> TestClass
+{
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">ClassMember</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span> </span>{ <span class="hljs-keyword">return</span> a; }
+    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">StaticMember</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span> </span>{ <span class="hljs-keyword">return</span> a; }
+};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestFunctional</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// &#x666E;&#x901A;&#x51FD;&#x6570;</span>
+    Functional = TestFunc;
+    <span class="hljs-keyword">int</span> result = Functional(<span class="hljs-number">10</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;&#x666E;&#x901A;&#x51FD;&#x6570;&#xFF1A;&quot;</span>&lt;&lt; result &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Lambda&#x8868;&#x8FBE;&#x5F0F;</span>
+    Functional = lambda;
+    result = Functional(<span class="hljs-number">20</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Lambda&#x8868;&#x8FBE;&#x5F0F;&#xFF1A;&quot;</span>&lt;&lt; result &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// &#x4EFF;&#x51FD;&#x6570;</span>
+    Functor testFunctor;
+    Functional = testFunctor;
+    result = Functional(<span class="hljs-number">30</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;&#x4EFF;&#x51FD;&#x6570;&#xFF1A;&quot;</span>&lt;&lt; result &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// &#x7C7B;&#x6210;&#x5458;&#x51FD;&#x6570;</span>
+    TestClass testObj;
+    Functional = <span class="hljs-built_in">std</span>::bind(&amp;TestClass::ClassMember, testObj, <span class="hljs-built_in">std</span>::placeholders::_1);
+    result = Functional(<span class="hljs-number">40</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;&#x7C7B;&#x6210;&#x5458;&#x51FD;&#x6570;&#xFF1A;&quot;</span>&lt;&lt; result &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// &#x7C7B;&#x9759;&#x6001;&#x51FD;&#x6570;</span>
+    Functional = TestClass::StaticMember;
+    result = Functional(<span class="hljs-number">50</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;&#x7C7B;&#x9759;&#x6001;&#x51FD;&#x6570;&#xFF1A;&quot;</span>&lt;&lt; result &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+}
+<span class="hljs-keyword">namespace</span> TestEnum {
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestEnum</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">enum</span> <span class="hljs-keyword">class</span> Options {None, One, All};
+    Options o = Options::All;
+    <span class="hljs-keyword">if</span>(Options::All == o)
+    {
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Options::All&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+}
+}
+<span class="hljs-keyword">namespace</span> TestForeach {
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestForeach</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-built_in">map</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v;
+    v.push_back(<span class="hljs-number">1</span>);
+    v.push_back(<span class="hljs-number">2</span>);
+    v.push_back(<span class="hljs-number">3</span>);
+    <span class="hljs-built_in">map</span>[<span class="hljs-string">&quot;one&quot;</span>] = v;
+
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; kvp : <span class="hljs-built_in">map</span>)
+    {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; kvp.first &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> v : kvp.second)
+        {
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; v &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        }
+    }
+
+    <span class="hljs-keyword">int</span> arr[] = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>};
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span>&amp; e : arr)
+    {
+        e = e*e;
+    }
+}
+}
+<span class="hljs-keyword">namespace</span> TConditionVariable {
+<span class="hljs-built_in">std</span>::mutex mtx;
+<span class="hljs-built_in">std</span>::condition_variable cv;
+<span class="hljs-keyword">bool</span> ready = <span class="hljs-literal">false</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print_id</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span> </span>{
+    <span class="hljs-built_in">std</span>::unique_lock&lt;<span class="hljs-built_in">std</span>::mutex&gt; lck(mtx);
+    <span class="hljs-keyword">while</span> (!ready) cv.wait(lck);
+    <span class="hljs-comment">// ...</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;thread &quot;</span> &lt;&lt; id &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">go</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-built_in">std</span>::unique_lock&lt;<span class="hljs-built_in">std</span>::mutex&gt; lck(mtx);
+    ready = <span class="hljs-literal">true</span>;
+    cv.notify_all();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestConditionVariable</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">std</span>::thread threads[<span class="hljs-number">10</span>];
+    <span class="hljs-comment">// spawn 10 threads:</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10</span>; ++i)
+        threads[i] = <span class="hljs-built_in">std</span>::thread(print_id,i);
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Ten threads be created.\n&quot;</span>;
+    this_thread::sleep_for(<span class="hljs-built_in">std</span>::chrono::seconds(<span class="hljs-number">3</span>));
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;10 threads ready to race...\n&quot;</span>;
+    go();                       <span class="hljs-comment">// go!</span>
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; th : threads) th.join();
+}
+}
+<span class="hljs-keyword">namespace</span> TestRegex {
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestRegex</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> s = <span class="hljs-string">&quot;Some people, when confronted with a problem, think &quot;</span>
+                    <span class="hljs-string">&quot;\&quot;I know, I&apos;ll use regular expressions.\&quot; &quot;</span>
+                    <span class="hljs-string">&quot;Now they have two problems.&quot;</span>;
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-function">regex <span class="hljs-title">self_regex</span><span class="hljs-params">(<span class="hljs-string">&quot;REGULAR EXPRESSIONS&quot;</span>,
+                          <span class="hljs-built_in">std</span>::regex_constants::ECMAScript | <span class="hljs-built_in">std</span>::regex_constants::icase)</span></span>;
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">std</span>::regex_search(s, self_regex)) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Text contains the phrase &apos;regular expressions&apos;\n&quot;</span>;
+    }
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-function">regex <span class="hljs-title">word_regex</span><span class="hljs-params">(<span class="hljs-string">&quot;(\\S+)&quot;</span>)</span></span>;
+    <span class="hljs-keyword">auto</span> words_begin =
+            <span class="hljs-built_in">std</span>::sregex_iterator(s.begin(), s.end(), word_regex);
+    <span class="hljs-keyword">auto</span> words_end = <span class="hljs-built_in">std</span>::sregex_iterator();
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Found &quot;</span>
+              &lt;&lt; <span class="hljs-built_in">std</span>::distance(words_begin, words_end)
+              &lt;&lt; <span class="hljs-string">&quot; words\n&quot;</span>;
+
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">6</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Words longer than &quot;</span> &lt;&lt; N &lt;&lt; <span class="hljs-string">&quot; characters:\n&quot;</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">std</span>::sregex_iterator i = words_begin; i != words_end; ++i) {
+        <span class="hljs-built_in">std</span>::smatch match = *i;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> match_str = match.str();
+        <span class="hljs-keyword">if</span> (match_str.size() &gt; N) {
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;  &quot;</span> &lt;&lt; match_str &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+        }
+    }
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-function">regex <span class="hljs-title">long_word_regex</span><span class="hljs-params">(<span class="hljs-string">&quot;(\\w{7,})&quot;</span>)</span></span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> new_s = <span class="hljs-built_in">std</span>::regex_replace(s, long_word_regex, <span class="hljs-string">&quot;[$&amp;]&quot;</span>);
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; new_s &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+}
+
+}
+<span class="hljs-keyword">namespace</span> TestLambda {
+<span class="hljs-comment">//[capture list] (parameter list) -&gt;return type { function body }</span>
+<span class="hljs-keyword">class</span> CLambda
+{
+<span class="hljs-keyword">public</span>:
+    CLambda() : m_nData(<span class="hljs-number">20</span>) { <span class="hljs-literal">NULL</span>; }
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestLambda</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vctTemp;
+        vctTemp.push_back(<span class="hljs-number">1</span>);
+        vctTemp.push_back(<span class="hljs-number">2</span>);
+
+        <span class="hljs-comment">// &#x65E0;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x53C2;&#x6570;&#xFF0C;&#x8F93;&#x51FA;&#xFF1A;1 2</span>
+        {
+            for_each(vctTemp.begin(), vctTemp.end(), [](<span class="hljs-keyword">int</span> v){ <span class="hljs-built_in">cout</span> &lt;&lt; v &lt;&lt; <span class="hljs-built_in">endl</span>; });
+        }
+
+        <span class="hljs-comment">// &#x4EE5;&#x503C;&#x65B9;&#x5F0F;&#x4F20;&#x9012;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x6240;&#x6709;&#x53EF;&#x89C1;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF08;&#x5305;&#x62EC;this&#xFF09;&#xFF0C;&#x8F93;&#x51FA;&#xFF1A;11 12</span>
+        {
+            <span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
+            for_each(vctTemp.begin(), vctTemp.end(), [=](<span class="hljs-keyword">int</span> v){ <span class="hljs-built_in">cout</span> &lt;&lt; v+a &lt;&lt; <span class="hljs-built_in">endl</span>; });
+        }
+
+        <span class="hljs-comment">// &#x4EE5;&#x5F15;&#x7528;&#x65B9;&#x5F0F;&#x4F20;&#x9012;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x6240;&#x6709;&#x53EF;&#x89C1;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF08;&#x5305;&#x62EC;this&#xFF09;&#xFF0C;&#x8F93;&#x51FA;&#xFF1A;11 13 12</span>
+        {
+            <span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
+            for_each(vctTemp.begin(), vctTemp.end(), [&amp;](<span class="hljs-keyword">int</span> v)<span class="hljs-keyword">mutable</span>{ <span class="hljs-built_in">cout</span> &lt;&lt; v+a &lt;&lt; <span class="hljs-built_in">endl</span>; a++; });
+            <span class="hljs-built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="hljs-built_in">endl</span>;
+        }
+
+        <span class="hljs-comment">// &#x4EE5;&#x503C;&#x65B9;&#x5F0F;&#x4F20;&#x9012;&#x5C40;&#x90E8;&#x53D8;&#x91CF;a&#xFF0C;&#x8F93;&#x51FA;&#xFF1A;11 13 10</span>
+        {
+            <span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
+            for_each(vctTemp.begin(), vctTemp.end(), [a](<span class="hljs-keyword">int</span> v)<span class="hljs-keyword">mutable</span>{ <span class="hljs-built_in">cout</span> &lt;&lt; v+a &lt;&lt; <span class="hljs-built_in">endl</span>; a++; });
+            <span class="hljs-built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="hljs-built_in">endl</span>;
+        }
+
+        <span class="hljs-comment">// &#x4EE5;&#x5F15;&#x7528;&#x65B9;&#x5F0F;&#x4F20;&#x9012;&#x5C40;&#x90E8;&#x53D8;&#x91CF;a&#xFF0C;&#x8F93;&#x51FA;&#xFF1A;11 13 12</span>
+        {
+            <span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
+            for_each(vctTemp.begin(), vctTemp.end(), [&amp;a](<span class="hljs-keyword">int</span> v){ <span class="hljs-built_in">cout</span> &lt;&lt; v+a &lt;&lt; <span class="hljs-built_in">endl</span>; a++; });
+            <span class="hljs-built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="hljs-built_in">endl</span>;
+        }
+
+        <span class="hljs-comment">// &#x4F20;&#x9012;this&#xFF0C;&#x8F93;&#x51FA;&#xFF1A;21 22</span>
+        {
+            for_each(vctTemp.begin(), vctTemp.end(), [<span class="hljs-keyword">this</span>](<span class="hljs-keyword">int</span> v){ <span class="hljs-built_in">cout</span> &lt;&lt; v+m_nData &lt;&lt; <span class="hljs-built_in">endl</span>; });
+        }
+
+        <span class="hljs-comment">// &#x9664;b&#x6309;&#x5F15;&#x7528;&#x4F20;&#x9012;&#x5916;&#xFF0C;&#x5176;&#x4ED6;&#x5747;&#x6309;&#x503C;&#x4F20;&#x9012;&#xFF0C;&#x8F93;&#x51FA;&#xFF1A;11 12 17</span>
+        {
+            <span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
+            <span class="hljs-keyword">int</span> b = <span class="hljs-number">15</span>;
+            for_each(vctTemp.begin(), vctTemp.end(), [=, &amp;b](<span class="hljs-keyword">int</span> v){ <span class="hljs-built_in">cout</span> &lt;&lt; v+a &lt;&lt; <span class="hljs-built_in">endl</span>; b++; });
+            <span class="hljs-built_in">cout</span> &lt;&lt; b &lt;&lt; <span class="hljs-built_in">endl</span>;
+        }
+        <span class="hljs-comment">// &#x64CD;&#x4F5C;&#x7B26;&#x91CD;&#x8F7D;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x6309;&#x5F15;&#x7528;&#x4F20;&#x9012;&#xFF0C;&#x8F93;&#x51FA;&#xFF1A;2 3</span>
+        {
+            for_each(vctTemp.begin(), vctTemp.end(), [](<span class="hljs-keyword">int</span> &amp;v){ v++; });
+            for_each(vctTemp.begin(), vctTemp.end(), [](<span class="hljs-keyword">int</span> v){ <span class="hljs-built_in">cout</span> &lt;&lt; v &lt;&lt; <span class="hljs-built_in">endl</span>; });
+        }
+        <span class="hljs-comment">// &#x7A7A;&#x7684;Lambda&#x8868;&#x8FBE;&#x5F0F;</span>
+        {
+            [](){}();    []{}();
+        }
+    }
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> m_nData;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestLambda</span><span class="hljs-params">()</span>
+</span>{
+    CLambda o;
+    o.TestLambda();
+}
+
+}
+<span class="hljs-keyword">namespace</span> TestInitializerList {
+<span class="hljs-keyword">class</span> MyNumber
+{
+<span class="hljs-keyword">public</span>:
+    MyNumber(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">initializer_list</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;v) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> itm : v) {
+            mVec.push_back(itm);
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> itm : mVec) {
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; itm &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
+        }
+    }
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; mVec;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestInitializerList</span><span class="hljs-params">()</span>
+</span>{
+    MyNumber m = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    m.print();
+}
+
+}
+<span class="hljs-keyword">namespace</span> TestAtomic {
+<span class="hljs-keyword">atomic_int</span> g_Count{<span class="hljs-number">0</span>};
+<span class="hljs-keyword">atomic_bool</span> g_Ready{<span class="hljs-literal">false</span>};
+atomic_flag g_Winner{ATOMIC_FLAG_INIT};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">IncreaseCount</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span>
+</span>{
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Thread #&quot;</span> &lt;&lt; id &lt;&lt; <span class="hljs-string">&quot; wait main process ready...\n&quot;</span>;
+
+    <span class="hljs-keyword">while</span> (!g_Ready) {
+        <span class="hljs-built_in">std</span>::this_thread::yield();
+    } <span class="hljs-comment">// &#x7B49;&#x5F85;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x8BBE;&#x7F6E; ready &#x4E3A; true.</span>
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Thread #&quot;</span> &lt;&lt; id &lt;&lt; <span class="hljs-string">&quot; running...&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; ++i) {
+        g_Count++;
+        <span class="hljs-comment">//cout &lt;&lt; &quot;g_Count:&quot; &lt;&lt; g_Count &lt;&lt; endl;</span>
+    } <span class="hljs-comment">// &#x8BA1;&#x6570;.</span>
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Thread #&quot;</span> &lt;&lt; id &lt;&lt; <span class="hljs-string">&quot; count over.&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// &#x5982;&#x679C;&#x67D0;&#x4E2A;&#x7EBF;&#x7A0B;&#x7387;&#x5148;&#x6267;&#x884C;&#x5B8C;&#x4E0A;&#x9762;&#x7684;&#x8BA1;&#x6570;&#x8FC7;&#x7A0B;&#xFF0C;&#x5219;&#x8F93;&#x51FA;&#x81EA;&#x5DF1;&#x7684; ID.</span>
+    <span class="hljs-comment">// &#x6B64;&#x540E;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x6267;&#x884C; test_and_set &#x662F; if &#x8BED;&#x53E5;&#x5224;&#x65AD;&#x4E3A; false&#xFF0C;</span>
+    <span class="hljs-comment">// &#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x8F93;&#x51FA;&#x81EA;&#x8EAB; ID.</span>
+    <span class="hljs-keyword">if</span> (!g_Winner.test_and_set()) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Thread #&quot;</span> &lt;&lt; id &lt;&lt; <span class="hljs-string">&quot; won!\n&quot;</span>;
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestAtomic</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Number of threads = &quot;</span> &lt;&lt;  <span class="hljs-built_in">std</span>::thread::hardware_concurrency() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::thread&gt; threads;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;spawning 10 threads that count to 1 million...\n&quot;</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span>; ++i)
+        threads.push_back(<span class="hljs-built_in">std</span>::thread(IncreaseCount, i));
+
+    <span class="hljs-built_in">std</span>::this_thread::sleep_for(<span class="hljs-built_in">std</span>::chrono::seconds(<span class="hljs-number">3</span>));
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Ready count.\n&quot;</span>;
+    g_Ready = <span class="hljs-literal">true</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;th : threads)
+        th.join();
+}
+
+}
+<span class="hljs-keyword">namespace</span> TestFuture {
+<span class="hljs-comment">// a non-optimized way of checking for prime numbers:</span>
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isPrime</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span>
+</span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt; x; ++i)
+    {
+        <span class="hljs-comment">//this_thread::sleep_for(std::chrono::milliseconds(1));</span>
+        <span class="hljs-keyword">if</span> (x % i == <span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestFuture</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// call function asynchronously:</span>
+    <span class="hljs-built_in">std</span>::future&lt;<span class="hljs-keyword">bool</span>&gt; fut = <span class="hljs-built_in">std</span>::async(isPrime, <span class="hljs-number">444444443</span>);
+    <span class="hljs-comment">//std::shared_future&lt;bool&gt; shafut = fut.share();</span>
+
+    <span class="hljs-comment">// do something while waiting for function to set future:</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;checking, please wait&quot;</span>;
+    <span class="hljs-built_in">std</span>::chrono::<span class="hljs-function">milliseconds <span class="hljs-title">span</span> <span class="hljs-params">(<span class="hljs-number">100</span>)</span></span>;
+    <span class="hljs-keyword">while</span> (fut.wait_for(span) == <span class="hljs-built_in">std</span>::future_status::timeout)
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&apos;.&apos;</span> &lt;&lt; <span class="hljs-built_in">std</span>::flush;
+
+    <span class="hljs-keyword">bool</span> x = fut.get();     <span class="hljs-comment">// retrieve return value</span>
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;\n444444443 &quot;</span> &lt;&lt; (x ? <span class="hljs-string">&quot;is&quot;</span> : <span class="hljs-string">&quot;is not&quot;</span>) &lt;&lt; <span class="hljs-string">&quot; prime.\n&quot;</span>;
+
+    <span class="hljs-comment">//std::cout &lt;&lt; &quot;shafut.get : &quot; &lt;&lt; (shafut.get() ? &quot;true&quot; : &quot;false&quot;) &lt;&lt; endl;</span>
+}
+
+}
+<span class="hljs-keyword">namespace</span> TestSharedptr {
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestSharedptr</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; p = <span class="hljs-literal">nullptr</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; pp = <span class="hljs-literal">nullptr</span>;
+    {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; p1 = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">10</span>);
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; p2(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>], <span class="hljs-built_in">std</span>::default_delete&lt;<span class="hljs-keyword">int</span>[]&gt;());
+
+        <span class="hljs-keyword">auto</span> deleteInt = [](<span class="hljs-keyword">int</span> *p){ <span class="hljs-keyword">delete</span> []p; <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Delete Int array.&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>; };
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; p3(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>], deleteInt);
+
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;p3.use_count : &quot;</span> &lt;&lt; p3.use_count() &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;p.use_count : &quot;</span> &lt;&lt; p.use_count() &lt;&lt; <span class="hljs-built_in">endl</span>;
+        p = <span class="hljs-built_in">std</span>::move(p3);
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;p3.use_count : &quot;</span> &lt;&lt; p3.use_count() &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;p.use_count : &quot;</span> &lt;&lt; p.use_count() &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; p4(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>], deleteInt);
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;p4.use_count : &quot;</span> &lt;&lt; p4.use_count() &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;pp.use_count : &quot;</span> &lt;&lt; pp.use_count() &lt;&lt; <span class="hljs-built_in">endl</span>;
+        pp = p4;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;p4.use_count : &quot;</span> &lt;&lt; p4.use_count() &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;pp.use_count : &quot;</span> &lt;&lt; pp.use_count() &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;O-pp.use_count : &quot;</span> &lt;&lt; pp.use_count() &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;TestSharedptr end.&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+
+}
+<span class="hljs-keyword">namespace</span> TestUsing {
+<span class="hljs-keyword">class</span> CSingleton
+{
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">static</span> CSingleton &amp;<span class="hljs-title">GetInstance</span><span class="hljs-params">()</span></span>{ <span class="hljs-keyword">static</span> CSingleton ins; <span class="hljs-keyword">return</span> ins; }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Print</span><span class="hljs-params">()</span></span>{ <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;CSingleton~!&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>; }
+};
+
+<span class="hljs-keyword">struct</span> tagUsingStruct
+{
+    <span class="hljs-keyword">int</span> a;
+    tagUsingStruct() {}
+};
+<span class="hljs-keyword">using</span> UsingStruct = tagUsingStruct;
+
+<span class="hljs-keyword">using</span> g_CSingleton = CSingleton;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestUsing</span><span class="hljs-params">()</span>
+</span>{
+    g_CSingleton::GetInstance().Print();
+
+    UsingStruct stUsingStruct;
+    stUsingStruct.a = <span class="hljs-number">99</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; stUsingStruct.a &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+
+}
+<span class="hljs-keyword">namespace</span> TestDecltype {
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestDecltype</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">33</span>;
+    <span class="hljs-keyword">decltype</span>(i) j = i * <span class="hljs-number">2</span>;
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;i and j are the same type? &quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::boolalpha
+              &lt;&lt; <span class="hljs-built_in">std</span>::is_same_v&lt;<span class="hljs-keyword">decltype</span>(i), <span class="hljs-keyword">decltype</span>(j)&gt; &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;i = &quot;</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;, &quot;</span>
+              &lt;&lt; <span class="hljs-string">&quot;j = &quot;</span> &lt;&lt; j &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+
+    <span class="hljs-keyword">auto</span> f = [](<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b) -&gt; <span class="hljs-keyword">int</span>
+    {
+        <span class="hljs-keyword">return</span> a * b;
+    };
+
+    <span class="hljs-keyword">decltype</span>(f) g = f; <span class="hljs-comment">// the type of a lambda function is unique and unnamed</span>
+    i = f(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
+    j = g(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>);
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;i = &quot;</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;, &quot;</span>
+              &lt;&lt; <span class="hljs-string">&quot;j = &quot;</span> &lt;&lt; j &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+}
+}
+<span class="hljs-keyword">namespace</span> TestUniqueptr {
+<span class="hljs-keyword">struct</span> Task {
+    <span class="hljs-keyword">int</span> mId;
+    Task(<span class="hljs-keyword">int</span> id ) :mId(id) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;Task::Constructor&quot;</span>&lt;&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+    ~Task() {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;Task::Destructor&quot;</span>&lt;&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestUniqueptr</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// &#x7A7A;&#x5BF9;&#x8C61; unique_ptr</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; ptr1;
+
+    <span class="hljs-comment">// &#x68C0;&#x67E5; ptr1 &#x662F;&#x5426;&#x4E3A;&#x7A7A;</span>
+    <span class="hljs-keyword">if</span>(!ptr1)
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;ptr1 is empty&quot;</span>&lt;&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// &#x68C0;&#x67E5; ptr1 &#x662F;&#x5426;&#x4E3A;&#x7A7A;</span>
+    <span class="hljs-keyword">if</span>(ptr1 == <span class="hljs-literal">nullptr</span>)
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;ptr1 is empty&quot;</span>&lt;&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// &#x4E0D;&#x80FD;&#x901A;&#x8FC7;&#x8D4B;&#x503C;&#x521D;&#x59CB;&#x5316;unique_ptr</span>
+    <span class="hljs-comment">// std::unique_ptr&lt;Task&gt; taskPtr2 = new Task(); // Compile Error</span>
+
+    <span class="hljs-comment">// &#x901A;&#x8FC7;&#x539F;&#x59CB;&#x6307;&#x9488;&#x521B;&#x5EFA; unique_ptr</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;Task&gt; taskPtr(<span class="hljs-keyword">new</span> Task(<span class="hljs-number">23</span>));
+
+    <span class="hljs-comment">// &#x68C0;&#x67E5; taskPtr &#x662F;&#x5426;&#x4E3A;&#x7A7A;</span>
+    <span class="hljs-keyword">if</span>(taskPtr != <span class="hljs-literal">nullptr</span>)
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;taskPtr is  not empty&quot;</span>&lt;&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// &#x8BBF;&#x95EE; unique_ptr&#x5173;&#x8054;&#x6307;&#x9488;&#x7684;&#x6210;&#x5458;</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>&lt;&lt;taskPtr-&gt;mId&lt;&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;Reset the taskPtr&quot;</span>&lt;&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// &#x91CD;&#x7F6E; unique_ptr &#x4E3A;&#x7A7A;&#xFF0C;&#x5C06;&#x5220;&#x9664;&#x5173;&#x8054;&#x7684;&#x539F;&#x59CB;&#x6307;&#x9488;</span>
+    taskPtr.reset();
+
+    <span class="hljs-comment">// &#x68C0;&#x67E5;&#x662F;&#x5426;&#x4E3A;&#x7A7A; / &#x68C0;&#x67E5;&#x6709;&#x6CA1;&#x6709;&#x5173;&#x8054;&#x7684;&#x539F;&#x59CB;&#x6307;&#x9488;</span>
+    <span class="hljs-keyword">if</span>(taskPtr == <span class="hljs-literal">nullptr</span>)
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;taskPtr is  empty&quot;</span>&lt;&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// &#x901A;&#x8FC7;&#x539F;&#x59CB;&#x6307;&#x9488;&#x521B;&#x5EFA; unique_ptr</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;Task&gt; taskPtr2(<span class="hljs-keyword">new</span> Task(<span class="hljs-number">55</span>));
+
+    <span class="hljs-keyword">if</span>(taskPtr2 != <span class="hljs-literal">nullptr</span>)
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;taskPtr2 is  not empty&quot;</span>&lt;&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// unique_ptr &#x5BF9;&#x8C61;&#x4E0D;&#x80FD;&#x590D;&#x5236;</span>
+    <span class="hljs-comment">//taskPtr = taskPtr2; //compile error</span>
+    <span class="hljs-comment">//std::unique_ptr&lt;Task&gt; taskPtr3 = taskPtr2;</span>
+
+    {
+        <span class="hljs-comment">// &#x8F6C;&#x79FB;&#x6240;&#x6709;&#x6743;&#xFF08;&#x628A;unique_ptr&#x4E2D;&#x7684;&#x6307;&#x9488;&#x8F6C;&#x79FB;&#x5230;&#x53E6;&#x4E00;&#x4E2A;unique_ptr&#x4E2D;&#xFF09;</span>
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;Task&gt; taskPtr4 = <span class="hljs-built_in">std</span>::move(taskPtr2);
+        <span class="hljs-comment">// &#x8F6C;&#x79FB;&#x540E;&#x4E3A;&#x7A7A;</span>
+        <span class="hljs-keyword">if</span>(taskPtr2 == <span class="hljs-literal">nullptr</span>)
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;taskPtr2 is  empty&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-comment">// &#x8F6C;&#x8FDB;&#x6765;&#x540E;&#x975E;&#x7A7A;</span>
+        <span class="hljs-keyword">if</span>(taskPtr4 != <span class="hljs-literal">nullptr</span>)
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;taskPtr4 is not empty&quot;</span>&lt;&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; taskPtr4-&gt;mId &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-comment">//taskPtr4 &#x8D85;&#x51FA;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x62EC;&#x53F7;&#x7684;&#x4F5C;&#x7528;&#x4E8E;&#x5C06;delete&#x5176;&#x5173;&#x8054;&#x7684;&#x6307;&#x9488;</span>
+    }
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;Task&gt; taskPtr5(<span class="hljs-keyword">new</span> Task(<span class="hljs-number">66</span>));
+
+    <span class="hljs-keyword">if</span>(taskPtr5 != <span class="hljs-literal">nullptr</span>)
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;taskPtr5 is not empty&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// &#x91CA;&#x653E;&#x6240;&#x6709;&#x6743;</span>
+    Task * ptr = taskPtr5.release();
+
+    <span class="hljs-keyword">if</span>(taskPtr5 == <span class="hljs-literal">nullptr</span>)
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;taskPtr5 is empty&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ptr-&gt;mId &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">delete</span> ptr;
+}
+}
+<span class="hljs-keyword">namespace</span> TestWeakptr {
+<span class="hljs-comment">//strong reference</span>
+<span class="hljs-keyword">class</span> B;
+<span class="hljs-keyword">class</span> A
+{
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">class</span> B&gt; m_spB;
+};
+
+<span class="hljs-keyword">class</span> B
+{
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">class</span> A&gt; m_spA;
+};
+
+<span class="hljs-comment">//weak reference</span>
+<span class="hljs-keyword">class</span> WeakB;
+<span class="hljs-keyword">class</span> WeakA
+{
+<span class="hljs-keyword">public</span>:
+    weak_ptr&lt;<span class="hljs-keyword">class</span> WeakB&gt; m_wpB;
+};
+
+<span class="hljs-keyword">class</span> WeakB
+{
+<span class="hljs-keyword">public</span>:
+    weak_ptr&lt;<span class="hljs-keyword">class</span> WeakA&gt; m_wpA;
+};
+
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestLoopRef</span><span class="hljs-params">()</span>
+</span>{
+    weak_ptr&lt;<span class="hljs-keyword">class</span> A&gt; wp1;
+
+    {
+        <span class="hljs-keyword">auto</span> pA = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-keyword">class</span> A&gt;();
+        <span class="hljs-keyword">auto</span> pB = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-keyword">class</span> B&gt;();
+
+        pA-&gt;m_spB = pB;
+        pB-&gt;m_spA = pA;
+
+        wp1 = pA;
+    }<span class="hljs-comment">//&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</span>
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;wp1 reference number: &quot;</span> &lt;&lt; wp1.use_count() &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;
+
+    weak_ptr&lt;<span class="hljs-keyword">class</span> WeakA&gt; wp2;
+    {
+        <span class="hljs-keyword">auto</span> pA = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-keyword">class</span> WeakA&gt;();
+        <span class="hljs-keyword">auto</span> pB = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-keyword">class</span> WeakB&gt;();
+
+        pA-&gt;m_wpB = pB;
+        pB-&gt;m_wpA = pA;
+
+        wp2 = pA;
+    }<span class="hljs-comment">//&#x65E0;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</span>
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;wp2 reference number: &quot;</span> &lt;&lt; wp2.use_count() &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestWeakptr</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">//default consstructor</span>
+    weak_ptr&lt;<span class="hljs-built_in">string</span>&gt; wp;
+
+    {
+        <span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; p = make_shared&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-string">&quot;hello world!\n&quot;</span>);
+        <span class="hljs-comment">//weak_ptr&#x5BF9;&#x8C61;&#x4E5F;&#x7ED1;&#x5B9A;&#x5230;shared_ptr&#x6240;&#x6307;&#x5411;&#x7684;&#x5BF9;&#x8C61;&#x3002;</span>
+        wp = p;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;use_count: &quot;</span> &lt;&lt;wp.use_count() &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+    <span class="hljs-comment">//wp&#x662F;&#x5F31;&#x7C7B;&#x578B;&#x7684;&#x667A;&#x80FD;&#x6307;&#x9488;&#xFF0C;&#x4E0D;&#x5F71;&#x54CD;&#x6240;&#x6307;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;</span>
+    <span class="hljs-comment">//&#x8FD9;&#x91CC;p&#x5DF2;&#x7ECF;&#x6790;&#x6784;&#xFF0C;&#x5176;&#x6240;&#x6307;&#x7684;&#x5BF9;&#x8C61;&#x4E5F;&#x6790;&#x6784;&#x4E86;&#xFF0C;&#x56E0;&#x6B64;&#x8F93;&#x51FA;&#x662F;0</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;use_count: &quot;</span> &lt;&lt; wp.use_count() &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    TestLoopRef();
+
+}
+}
+<span class="hljs-keyword">namespace</span> TestTuple {
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestTuple</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> size;
+    <span class="hljs-comment">//&#x521B;&#x5EFA;&#x4E00;&#x4E2A; tuple &#x5BF9;&#x8C61;&#x5B58;&#x50A8; 10 &#x548C; &apos;x&apos;</span>
+    <span class="hljs-built_in">std</span>::tuple&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">char</span>&gt; mytuple(<span class="hljs-number">10</span>, <span class="hljs-string">&apos;x&apos;</span>);
+    <span class="hljs-comment">//&#x8BA1;&#x7B97; mytuple &#x5B58;&#x50A8;&#x5143;&#x7D20;&#x7684;&#x4E2A;&#x6570;</span>
+    size = <span class="hljs-built_in">std</span>::tuple_size&lt;<span class="hljs-keyword">decltype</span>(mytuple)&gt;::value;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;size:&quot;</span> &lt;&lt; size &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">//&#x8F93;&#x51FA; mytuple &#x4E2D;&#x5B58;&#x50A8;&#x7684;&#x5143;&#x7D20;</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::get&lt;<span class="hljs-number">0</span>&gt;(mytuple) &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::get&lt;<span class="hljs-number">1</span>&gt;(mytuple) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">//&#x4FEE;&#x6539;&#x6307;&#x5B9A;&#x7684;&#x5143;&#x7D20;</span>
+    <span class="hljs-built_in">std</span>::get&lt;<span class="hljs-number">0</span>&gt;(mytuple) = <span class="hljs-number">100</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::get&lt;<span class="hljs-number">0</span>&gt;(mytuple) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">//&#x4F7F;&#x7528; makde_tuple() &#x521B;&#x5EFA;&#x4E00;&#x4E2A; tuple &#x5BF9;&#x8C61;</span>
+    <span class="hljs-keyword">auto</span> bar = <span class="hljs-built_in">std</span>::make_tuple(<span class="hljs-string">&quot;test&quot;</span>, <span class="hljs-number">3.1</span>, <span class="hljs-number">14</span>);
+    <span class="hljs-comment">//&#x62C6;&#x89E3; bar &#x5BF9;&#x8C61;&#xFF0C;&#x5206;&#x522B;&#x8D4B;&#x503C;&#x7ED9; mystr&#x3001;mydou&#x3001;myint</span>
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* mystr = <span class="hljs-literal">nullptr</span>;
+    <span class="hljs-keyword">double</span> mydou;
+    <span class="hljs-keyword">int</span> myint;
+    <span class="hljs-comment">//&#x4F7F;&#x7528; tie() &#x65F6;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x63A5;&#x53D7;&#x67D0;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x503C;&#xFF0C;&#x5B9E;&#x53C2;&#x53EF;&#x4EE5;&#x7528; std::ignore &#x4EE3;&#x66FF;</span>
+    <span class="hljs-built_in">std</span>::tie(mystr, mydou, myint) = bar;
+    <span class="hljs-comment">//std::tie(std::ignore, std::ignore, myint) = bar;  //&#x53EA;&#x63A5;&#x6536;&#x7B2C; 3 &#x4E2A;&#x6574;&#x5F62;&#x503C;</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; mydou &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; myint &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">//&#x5C06; mytuple &#x548C; bar &#x4E2D;&#x7684;&#x5143;&#x7D20;&#x6574;&#x5408;&#x5230; 1 &#x4E2A; tuple &#x5BF9;&#x8C61;&#x4E2D;</span>
+    <span class="hljs-keyword">auto</span> mycat = <span class="hljs-built_in">std</span>::tuple_cat(mytuple, bar);
+    size = <span class="hljs-built_in">std</span>::tuple_size&lt;<span class="hljs-keyword">decltype</span>(mycat)&gt;::value;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; size &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+}
+}
+<span class="hljs-keyword">namespace</span> TestFunctionBind {
+<span class="hljs-keyword">using</span> CallbackType = <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(<span class="hljs-built_in">string</span>)&gt;;
+
+<span class="hljs-keyword">class</span> CPrint{
+<span class="hljs-keyword">public</span>:
+    CPrint()
+    {
+        mCallbacks[<span class="hljs-number">66</span>] = <span class="hljs-built_in">std</span>::bind(&amp;CPrint::PrintHello, <span class="hljs-keyword">this</span>, <span class="hljs-built_in">std</span>::placeholders::_1);
+        mCallbacks[<span class="hljs-number">99</span>] = <span class="hljs-built_in">std</span>::bind(&amp;CPrint::PrintWorld, <span class="hljs-keyword">this</span>, <span class="hljs-built_in">std</span>::placeholders::_1);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span>
+    </span>{
+<span class="hljs-comment">//        auto it = mCallbacks.begin();</span>
+<span class="hljs-comment">//        for(; it != mCallbacks.end(); it++)</span>
+<span class="hljs-comment">//        {</span>
+<span class="hljs-comment">//            it-&gt;second(&quot; &quot;);</span>
+<span class="hljs-comment">//        }</span>
+        mCallbacks[<span class="hljs-number">66</span>](<span class="hljs-string">&quot; &quot;</span>);
+        mCallbacks[<span class="hljs-number">99</span>](<span class="hljs-string">&quot; !!!\n&quot;</span>);
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">PrintHello</span><span class="hljs-params">(<span class="hljs-built_in">string</span> &amp;msg)</span>
+    </span>{
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Hello&quot;</span> &lt;&lt; msg;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">PrintWorld</span><span class="hljs-params">(<span class="hljs-built_in">string</span> &amp;msg)</span>
+    </span>{
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;World&quot;</span> &lt;&lt; msg;
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">int</span>, CallbackType&gt; mCallbacks;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestFunctionBind</span><span class="hljs-params">()</span>
+</span>{
+    CPrint().run();
+}
+}
+<span class="hljs-keyword">namespace</span> TestRandom {
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">TestRandom</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>::chrono;
+    <span class="hljs-comment">//&#x968F;&#x673A;&#x975E;&#x8D1F;&#x6570;</span>
+    default_random_engine e;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10</span>; ++i)
+        <span class="hljs-built_in">cout</span>&lt;&lt;e()&lt;&lt;<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">//&#x4F7F;&#x7528;&#x79CD;&#x5B50; s &#x5145;&#x503C; e &#x7684;&#x72B6;&#x6001;</span>
+<span class="hljs-comment">//    time_t seed = time(nullptr);</span>
+    system_clock::duration d = system_clock::now().time_since_epoch();
+    seconds sec = duration_cast&lt;seconds&gt;(d);
+    <span class="hljs-keyword">int64_t</span> seed = sec.count();
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;seed:&quot;</span> &lt;&lt; seed &lt;&lt; <span class="hljs-built_in">endl</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    e.seed((<span class="hljs-keyword">uint32_t</span>)seed);
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10</span>; ++i)
+        <span class="hljs-built_in">cout</span>&lt;&lt;e()&lt;&lt;<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">//&#x7279;&#x5B9A;&#x8303;&#x56F4;&#x7684;&#x975E;&#x8D1F;&#x6570;,0~9</span>
+    uniform_int_distribution&lt;<span class="hljs-keyword">unsigned</span>&gt; uintR(<span class="hljs-number">0</span>, <span class="hljs-number">9</span>);
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10</span>; ++i)
+        <span class="hljs-built_in">cout</span>&lt;&lt;uintR(e)&lt;&lt;<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">//&#x968F;&#x673A;&#x6D6E;&#x70B9;&#x6570;,&#x8303;&#x56F4;0.0~1.0</span>
+    uniform_real_distribution&lt;<span class="hljs-keyword">double</span>&gt; doubleR(<span class="hljs-number">0.0</span>, <span class="hljs-number">1.0</span>);
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10</span>; ++i)
+        <span class="hljs-built_in">cout</span>&lt;&lt;doubleR(e)&lt;&lt;<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">//&#x968F;&#x673A;&#x5E03;&#x5C14;&#x503C;</span>
+    bernoulli_distribution boolR;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10</span>; ++i)
+        <span class="hljs-built_in">cout</span>&lt;&lt;boolR(e)&lt;&lt;<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    TestRandom::TestRandom();
+<span class="hljs-comment">//    TestFunctionBind::TestFunctionBind();</span>
+<span class="hljs-comment">//    TestTuple::TestTuple();</span>
+<span class="hljs-comment">//    TestWeakptr::TestWeakptr();</span>
+<span class="hljs-comment">//    TestUniqueptr::TestUniqueptr();</span>
+<span class="hljs-comment">//    TestDecltype::TestDecltype();</span>
+<span class="hljs-comment">//    TConditionVariable::TestConditionVariable();</span>
+<span class="hljs-comment">//    TestForeach::TestForeach();</span>
+<span class="hljs-comment">//    TestEnum::TestEnum();</span>
+<span class="hljs-comment">//    TestFunctional::TestFunctional();</span>
+<span class="hljs-comment">//    TestRegex::TestRegex();</span>
+<span class="hljs-comment">//    TestLambda::TestLambda();</span>
+<span class="hljs-comment">//    TestInitializerList::TestInitializerList();</span>
+<span class="hljs-comment">//    TestUsing::TestUsing();</span>
+<span class="hljs-comment">//    TestSharedptr::TestSharedptr();</span>
+<span class="hljs-comment">//    TestAtomic::TestAtomic();</span>
+<span class="hljs-comment">//    TestFuture::TestFuture();</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: C++">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Qt5/" class="navigation navigation-next " aria-label="Next page: Qt5">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"C++11 Demo","date":"2021-12-06T10:49:38.000Z","tags":"C++11","categories":"C/C++","description":"C++11示例代码，乃学习测试时编写，如有问题请留言指正。","level":"1.2.1","depth":2,"next":{"title":"Qt5","level":"1.3","depth":1,"path":"Qt5/README.md","ref":"Qt5/README.md","articles":[{"title":"Qt 网格布局示例","level":"1.3.1","depth":2,"path":"Qt5/GridLayout.md","ref":"Qt5/GridLayout.md","articles":[]}]},"previous":{"title":"C++","level":"1.2","depth":1,"path":"C++/README.md","ref":"C++/README.md","articles":[{"title":"C++11 Demo","level":"1.2.1","depth":2,"path":"C++/Cpp11-Demo.md","ref":"C++/Cpp11-Demo.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"C++/Cpp11-Demo.md","mtime":"2023-07-10T09:39:12.531Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-10T10:06:35.073Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
