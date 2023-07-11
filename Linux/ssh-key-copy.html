@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>SSH免密登录 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
+        <meta name="description" content="VSCode SSH免密登录。">
         <meta name="generator" content="GitBook 3.2.3">
         
         
@@ -471,6 +471,15 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="ssh&#x514D;&#x5BC6;&#x767B;&#x5F55;">SSH&#x514D;&#x5BC6;&#x767B;&#x5F55;</h1>
+<h2 id="1&#x3001;&#x7528;&#x6237;&#x7535;&#x8111;&#x751F;&#x6210;ssh&#x5BC6;&#x94A5;&#x548C;&#x516C;&#x94A5;&#xFF1A;"><strong>1&#x3001;&#x7528;&#x6237;&#x7535;&#x8111;&#x751F;&#x6210;SSH&#x5BC6;&#x94A5;&#x548C;&#x516C;&#x94A5;&#xFF1A;</strong></h2>
+<pre><code class="lang-bash">$ ssh-keygen -t rsa -b 4096 
+$ ls
+config  id_rsa  id_rsa.pub  known_hosts  known_hosts.old
+</code></pre>
+<h2 id="2&#x3001;&#x5C06;&#x516C;&#x94A5;&#x62F7;&#x8D1D;&#x81F3;&#x670D;&#x52A1;&#x5668;&#xFF1A;"><strong>2&#x3001;&#x5C06;&#x516C;&#x94A5;&#x62F7;&#x8D1D;&#x81F3;&#x670D;&#x52A1;&#x5668;&#xFF1A;</strong></h2>
+<pre><code class="lang-bash">$ ssh-copy-id -i id_rsa.pub user@host
+</code></pre>
+<h2 id="3&#x3001;&#x5B8C;&#x6210;&#x3002;"><strong>3&#x3001;&#x5B8C;&#x6210;&#x3002;</strong></h2>
 
                                 
                                 </section>
@@ -514,7 +523,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SSH免密登录","level":"1.4.3","depth":2,"next":{"title":"Linux TCP套接字地址复用","level":"1.4.4","depth":2,"path":"Linux/tcpsock-reuseport.md","ref":"Linux/tcpsock-reuseport.md","articles":[]},"previous":{"title":"动态库加载路径设置","level":"1.4.2","depth":2,"path":"Linux/LibraryRpath.md","ref":"Linux/LibraryRpath.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Linux/ssh-key-copy.md","mtime":"2023-07-11T01:26:26.226Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-11T01:31:46.461Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SSH免密登录","date":"2021-12-03T11:19:04.000Z","tags":"linux","categories":"linux","description":"VSCode SSH免密登录。","level":"1.4.3","depth":2,"next":{"title":"Linux TCP套接字地址复用","level":"1.4.4","depth":2,"path":"Linux/tcpsock-reuseport.md","ref":"Linux/tcpsock-reuseport.md","articles":[]},"previous":{"title":"动态库加载路径设置","level":"1.4.2","depth":2,"path":"Linux/LibraryRpath.md","ref":"Linux/LibraryRpath.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Linux/ssh-key-copy.md","mtime":"2022-08-24T06:52:10.415Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-11T01:54:25.662Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
