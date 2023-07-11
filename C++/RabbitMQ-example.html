@@ -1,0 +1,1217 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>RabbitMQ示例 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="RabbitMQ生产者及消费者示例。">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="SingletonTemplate.html" />
+    
+    
+    <link rel="prev" href="ParseTLV.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    C++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Cpp11-Demo.html">
+            
+                <a href="Cpp11-Demo.html">
+            
+                    
+                    C++11 示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="WinCppPowerOnAutoStart.html">
+            
+                <a href="WinCppPowerOnAutoStart.html">
+            
+                    
+                    Windows程序开机自启
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="CppNewArrayInit.html">
+            
+                <a href="CppNewArrayInit.html">
+            
+                    
+                    new内存初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="libcurl-down-file.html">
+            
+                <a href="libcurl-down-file.html">
+            
+                    
+                    利用libcurl下载文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="librdkafka-example.html">
+            
+                <a href="librdkafka-example.html">
+            
+                    
+                    librdkafka示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="ParseTLV.html">
+            
+                <a href="ParseTLV.html">
+            
+                    
+                    TLV数据格式解析示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.7" data-path="RabbitMQ-example.html">
+            
+                <a href="RabbitMQ-example.html">
+            
+                    
+                    RabbitMQ示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="SingletonTemplate.html">
+            
+                <a href="SingletonTemplate.html">
+            
+                    
+                    单实例模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="socket-bind-iface.html">
+            
+                <a href="socket-bind-iface.html">
+            
+                    
+                    Socket绑定网络接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="spdlog-examples.html">
+            
+                <a href="spdlog-examples.html">
+            
+                    
+                    Spdlog示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Qt5/">
+            
+                <a href="../Qt5/">
+            
+                    
+                    Qt5
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Qt5/GridLayout.html">
+            
+                <a href="../Qt5/GridLayout.html">
+            
+                    
+                    网格示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Linux/">
+            
+                <a href="../Linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Linux/CMakeListTemplate.html">
+            
+                <a href="../Linux/CMakeListTemplate.html">
+            
+                    
+                    CMakeLists基础通用模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Linux/LibraryRpath.html">
+            
+                <a href="../Linux/LibraryRpath.html">
+            
+                    
+                    动态库加载路径设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Linux/ssh-key-copy.html">
+            
+                <a href="../Linux/ssh-key-copy.html">
+            
+                    
+                    SSH免密登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Linux/tcpsock-reuseport.html">
+            
+                <a href="../Linux/tcpsock-reuseport.html">
+            
+                    
+                    Linux TCP套接字地址复用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Other/">
+            
+                <a href="../Other/">
+            
+                    
+                    Other
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Other/GuoHomeLetter.html">
+            
+                <a href="../Other/GuoHomeLetter.html">
+            
+                    
+                    郭德纲家书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Other/ChickenSoup.html">
+            
+                <a href="../Other/ChickenSoup.html">
+            
+                    
+                    毒鸡汤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Other/Tiandao-Wu.html">
+            
+                <a href="../Other/Tiandao-Wu.html">
+            
+                    
+                    天道·悟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../Other/tools-collection.html">
+            
+                <a href="../Other/tools-collection.html">
+            
+                    
+                    实用小工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >RabbitMQ示例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="commonh">Common.h</h1>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> COMMON_H</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> COMMON_H</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+
+<span class="hljs-keyword">struct</span> RabbitMqInfo
+{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strIp;          <span class="hljs-comment">//RabbitMq&#x670D;&#x52A1;&#x7AEF;ip</span>
+    <span class="hljs-keyword">int</span> nPort;                  <span class="hljs-comment">//&#x7AEF;&#x53E3;</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strUser;        <span class="hljs-comment">//&#x7528;&#x6237;&#x540D;</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strPwd;         <span class="hljs-comment">//&#x5BC6;&#x7801;</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strExchange;    <span class="hljs-comment">// &#x4EA4;&#x6362;&#x673A;&#x540D;</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strRoutingKey;  <span class="hljs-comment">// &#x8DEF;&#x7531;&#x540D;</span>
+    <span class="hljs-keyword">int</span> nChannelId;             <span class="hljs-comment">// &#x9891;&#x9053;&#x53F7;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">reset</span><span class="hljs-params">()</span>
+    </span>{
+        strIp = <span class="hljs-string">&quot;&quot;</span>;
+        nPort = <span class="hljs-number">6005</span>;
+        strUser = <span class="hljs-string">&quot;&quot;</span>;
+        strPwd = <span class="hljs-string">&quot;&quot;</span>;
+        strExchange = <span class="hljs-string">&quot;&quot;</span>;
+        strRoutingKey = <span class="hljs-string">&quot;&quot;</span>;
+        nChannelId = <span class="hljs-number">1</span>;
+    }
+
+    RabbitMqInfo&amp; <span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> RabbitMqInfo&amp; o)
+    {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span> != &amp;o)
+        {
+            strIp = o.strIp;
+            nPort = o.nPort;
+            strUser = o.strUser;
+            strPwd = o.strPwd;
+            strExchange = o.strExchange;
+            strRoutingKey = o.strRoutingKey;
+            nChannelId = o.nChannelId;
+        }
+
+        <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    }
+};
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<h1 id="rabbitmqconsumerh">RabbitmqConsumer.h</h1>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> RABBITMQ_CONSUMER_H</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RABBITMQ_CONSUMER_H</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;Windows.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;atomic&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;time.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;amqp.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;amqp_tcp_socket.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;Common.h&quot;</span></span>
+
+<span class="hljs-keyword">class</span> CRabbitmqConsumer
+{
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">CRabbitmqConsumer</span><span class="hljs-params">(<span class="hljs-keyword">const</span> RabbitMqInfo&amp; info)</span>
+    </span>{
+        m_info = info;
+    }
+
+    ~CRabbitmqConsumer()
+    {
+        Stop();
+        DisConnect();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Start</span><span class="hljs-params">()</span>
+    </span>{
+        m_bStop = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">if</span> (Connect() &amp;&amp; PreConsumer())
+        {
+            Consumer();
+        }
+
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Stop</span><span class="hljs-params">()</span>
+    </span>{
+        m_bStop = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+
+    <span class="hljs-comment">//&#x8FDE;&#x63A5;</span>
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Connect</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">bRet</span><span class="hljs-params">(<span class="hljs-literal">false</span>)</span></span>;
+        <span class="hljs-built_in">std</span>::<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">strErr</span><span class="hljs-params">(<span class="hljs-string">&quot;&quot;</span>)</span></span>;
+
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[Connect] Begin connect ...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-keyword">do</span>
+        {
+            <span class="hljs-comment">// 1.&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x8FDE;&#x63A5;</span>
+            m_conn = amqp_new_connection();
+            <span class="hljs-keyword">if</span> (!m_conn)
+            {
+                strErr = <span class="hljs-string">&quot;amqp_new_connection failed&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 2.&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;socket</span>
+            <span class="hljs-keyword">amqp_socket_t</span> *socket = amqp_tcp_socket_new(m_conn);
+            <span class="hljs-keyword">if</span> (!socket)
+            {
+                strErr = <span class="hljs-string">&quot;amqp_tcp_socket_new failed&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 3.&#x6253;&#x5F00;socket&#xFF0C;&#x8BBE;&#x7F6E;IP&#x3001;port&#x7B49;</span>
+            <span class="hljs-keyword">if</span> (amqp_socket_open(socket, m_info.strIp.c_str(), m_info.nPort) != AMQP_STATUS_OK)
+            {
+                strErr = <span class="hljs-string">&quot;amqp_socket_open failed&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 4.&#x767B;&#x5F55;&#x670D;&#x52A1;&#x5668;</span>
+            <span class="hljs-keyword">amqp_rpc_reply_t</span> rpc_reply = amqp_login(
+                m_conn,
+                <span class="hljs-string">&quot;/&quot;</span>,
+                <span class="hljs-number">0</span>,
+                AMQP_DEFAULT_FRAME_SIZE,
+                <span class="hljs-number">0</span>,
+                AMQP_SASL_METHOD_PLAIN,
+                m_info.strUser.c_str(),
+                m_info.strPwd.c_str()
+            );
+            <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> != getErr(rpc_reply, <span class="hljs-string">&quot;amqp_login&quot;</span>, strErr))
+            {
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 5.&#x6253;&#x5F00;&#x901A;&#x9053;&#xFF0C;&#x5173;&#x8054;conn&#x548C;channel</span>
+            <span class="hljs-keyword">if</span> (!amqp_channel_open(m_conn, m_info.nChannelId))
+            {
+                strErr = <span class="hljs-string">&quot;amqp_channel_open failed&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+
+            bRet = <span class="hljs-literal">true</span>;
+        } <span class="hljs-keyword">while</span> (<span class="hljs-literal">false</span>);
+
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[Connect] bRet : &quot;</span> &lt;&lt; bRet &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[Connect] : &quot;</span> &lt;&lt; strErr &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-keyword">return</span> bRet;
+    }
+
+    <span class="hljs-comment">//&#x65AD;&#x5F00;&#x8FDE;&#x63A5;</span>
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">DisConnect</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">bRet</span><span class="hljs-params">(<span class="hljs-literal">false</span>)</span></span>;
+        <span class="hljs-built_in">std</span>::<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">strErr</span><span class="hljs-params">(<span class="hljs-string">&quot;&quot;</span>)</span></span>;
+
+        <span class="hljs-keyword">do</span>
+        {
+            <span class="hljs-comment">// 1. &#x5173;&#x95ED;channel</span>
+            <span class="hljs-keyword">amqp_rpc_reply_t</span> rpc_reply = amqp_channel_close(m_conn, m_info.nChannelId, AMQP_REPLY_SUCCESS);
+            <span class="hljs-keyword">if</span>(<span class="hljs-number">0</span> != getErr(rpc_reply, <span class="hljs-string">&quot;amqp_channel_close&quot;</span>, strErr))
+            {
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 2.&#x5173;&#x95ED;&#x8FDE;&#x63A5;</span>
+            rpc_reply = amqp_connection_close(m_conn, AMQP_REPLY_SUCCESS);
+            <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> != getErr(rpc_reply, <span class="hljs-string">&quot;amqp_connection_close&quot;</span>, strErr))
+            {
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 3.&#x9500;&#x6BC1;&#x8FDE;&#x63A5;</span>
+            <span class="hljs-keyword">if</span> (amqp_destroy_connection(m_conn) != AMQP_STATUS_OK)
+            {
+                strErr = <span class="hljs-string">&quot;amqp_destroy_connection failed&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+            m_conn = <span class="hljs-literal">NULL</span>;
+
+            bRet = <span class="hljs-literal">true</span>;
+        } <span class="hljs-keyword">while</span> (<span class="hljs-literal">false</span>);
+
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; strErr &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-keyword">return</span> bRet;
+    }
+
+    <span class="hljs-comment">// &#x5C06;&#x961F;&#x5217;&#x7ED1;&#x5B9A;&#x5230;&#x6307;&#x5B9A;&#x4EA4;&#x6362;&#x673A;&#x4E0A;&#xFF0C;&#x9884;&#x6D88;&#x8D39;</span>
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">PreConsumer</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">bRet</span><span class="hljs-params">(<span class="hljs-literal">false</span>)</span></span>;
+        <span class="hljs-built_in">std</span>::<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">strErr</span><span class="hljs-params">(<span class="hljs-string">&quot;&quot;</span>)</span></span>;
+
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[PreConsumer] : PreConsumer begin ...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-keyword">do</span>
+        {
+            <span class="hljs-comment">// 1.&#x58F0;&#x660E;&#x961F;&#x5217;</span>
+            <span class="hljs-keyword">amqp_queue_declare_ok_t</span> *r = amqp_queue_declare(
+                m_conn,
+                m_info.nChannelId,
+                amqp_empty_bytes,
+                <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, amqp_empty_table);
+            <span class="hljs-keyword">amqp_rpc_reply_t</span> rpc_reply = amqp_get_rpc_reply(m_conn);
+            <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> != getErr(rpc_reply, <span class="hljs-string">&quot;amqp_queue_declare&quot;</span>, strErr))
+            {
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 2.&#x5206;&#x914D;&#x961F;&#x5217;</span>
+            <span class="hljs-keyword">amqp_bytes_t</span> queueName = amqp_bytes_malloc_dup(r-&gt;<span class="hljs-built_in">queue</span>);
+            <span class="hljs-keyword">if</span> (queueName.bytes == <span class="hljs-literal">NULL</span>)
+            {
+                strErr = <span class="hljs-string">&quot;amqp_bytes_malloc_dup failed&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 3.&#x961F;&#x5217;&#x4E0E;&#x4EA4;&#x6362;&#x673A;&#x7ED1;&#x5B9A;</span>
+            <span class="hljs-keyword">amqp_queue_bind_ok_t</span> *res = amqp_queue_bind(
+                m_conn,
+                m_info.nChannelId,
+                queueName,
+                amqp_cstring_bytes(m_info.strExchange.c_str()),
+                amqp_cstring_bytes(m_info.strRoutingKey.c_str()),
+                amqp_empty_table);
+            (<span class="hljs-keyword">void</span>)(res);
+            rpc_reply = amqp_get_rpc_reply(m_conn);
+            <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> != getErr(rpc_reply, <span class="hljs-string">&quot;amqp_queue_bind&quot;</span>, strErr))
+            {
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 4.&#x8BBE;&#x7F6E;&#x6D88;&#x8D39;&#x6D88;&#x606F;&#x53C2;&#x6570;</span>
+            <span class="hljs-keyword">amqp_basic_consume_ok_t</span> *res2 = amqp_basic_consume(
+                m_conn,
+                m_info.nChannelId,
+                queueName,
+                amqp_empty_bytes,
+                <span class="hljs-comment">/*no_local*/</span> <span class="hljs-number">0</span>,    <span class="hljs-comment">//true if the server should not deliver to this consumer messages published on this channel&#x2019;s connection</span>
+                                <span class="hljs-comment">//true&#xFF1A;mq&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x5E94;&#x5C06;&#x5F53;&#x524D;&#x9891;&#x9053;&#x4E0A;&#x7684;&#x6D88;&#x606F;&#x53D1;&#x9001;&#x5230;&#x6B64;consumer</span>
+                <span class="hljs-comment">/*no_ack*/</span> <span class="hljs-number">1</span>,    <span class="hljs-comment">//&#x662F;&#x5426;&#x9700;&#x8981;&#x786E;&#x8BA4;&#x6D88;&#x606F;&#x540E;&#x518D;&#x4ECE;&#x961F;&#x5217;&#x4E2D;&#x5220;&#x9664;&#x6D88;&#x606F;</span>
+                <span class="hljs-comment">/*exclusive*/</span> <span class="hljs-number">0</span>,
+                amqp_empty_table);
+            (<span class="hljs-keyword">void</span>)(res2);
+            rpc_reply = amqp_get_rpc_reply(m_conn);
+            <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> != getErr(rpc_reply, <span class="hljs-string">&quot;amqp_basic_consume&quot;</span>, strErr))
+            {
+                <span class="hljs-keyword">break</span>;
+            }
+
+            bRet = <span class="hljs-literal">true</span>;
+        } <span class="hljs-keyword">while</span> (<span class="hljs-literal">false</span>);
+
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[PreConsumer] bRet : &quot;</span> &lt;&lt; bRet &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[PreConsumer] : &quot;</span> &lt;&lt; strErr &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-keyword">return</span> bRet;
+    }
+
+    <span class="hljs-comment">// &#x6D88;&#x8D39;</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Consumer</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strErr{ <span class="hljs-string">&quot;&quot;</span> };
+
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[Consumer] m_bStop : &quot;</span> &lt;&lt; m_bStop &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-keyword">while</span> (!m_bStop)
+        {
+            <span class="hljs-comment">// 1.&#x91CA;&#x653E;buffers</span>
+            amqp_maybe_release_buffers(m_conn);
+            <span class="hljs-comment">// 2.&#x5B9A;&#x4E49;&#x4FE1;&#x5C01;&#x8F7D;&#x4F53;</span>
+            <span class="hljs-keyword">amqp_envelope_t</span> envelope;
+            <span class="hljs-keyword">struct</span> timeval tv = {<span class="hljs-number">0</span>};
+            tv.tv_sec = <span class="hljs-number">2</span>;
+            <span class="hljs-comment">// 3.&#x628A;&#x6536;&#x5230;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x653E;&#x5165;&#x4FE1;&#x5C01;&#x4E2D;envelope</span>
+            <span class="hljs-keyword">amqp_rpc_reply_t</span> rpc_reply = amqp_consume_message(m_conn, &amp;envelope, &amp;tv, <span class="hljs-number">0</span>);
+            <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> != getErr(rpc_reply, <span class="hljs-string">&quot;amqp_basic_consume&quot;</span>, strErr))
+            {
+                <span class="hljs-keyword">if</span> (rpc_reply.library_error == AMQP_STATUS_TIMEOUT)
+                {
+                    <span class="hljs-comment">//std::cout &lt;&lt; &quot;[Consumer] errno : AMQP_STATUS_TIMEOUT&quot; &lt;&lt; std::endl;</span>
+                    <span class="hljs-keyword">continue</span>;
+                }
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (rpc_reply.library_error == AMQP_STATUS_SOCKET_ERROR)
+                {
+                    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[Consumer] errno : AMQP_STATUS_SOCKET_ERROR&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+                    <span class="hljs-keyword">break</span>;
+                }
+                <span class="hljs-keyword">else</span>
+                {
+                    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[Consumer] errno : Unknow&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+                    <span class="hljs-keyword">break</span>;
+                }
+            }
+
+            <span class="hljs-comment">//4.&#x83B7;&#x53D6;&#x6D88;&#x606F;&#x5185;&#x5BB9;</span>
+            <span class="hljs-comment">//if (envelope.message.properties._flags &amp; AMQP_BASIC_CONTENT_TYPE_FLAG)</span>
+            <span class="hljs-keyword">if</span> (AMQP_RESPONSE_NORMAL == rpc_reply.reply_type)
+            {
+                <span class="hljs-keyword">if</span>(<span class="hljs-number">0</span> &lt; envelope.message.body.len)
+                {
+                    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[Consumer] msg len : &quot;</span> &lt;&lt; envelope.message.body.len &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+                    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[Consumer] message : &quot;</span> &lt;&lt; (<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *)envelope.message.body.bytes &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+                }
+            }
+
+            <span class="hljs-comment">// 5.&#x6BC1;&#x6389;&#x4FE1;&#x5C01;</span>
+            amqp_destroy_envelope(&amp;envelope);
+        }
+
+        <span class="hljs-comment">// 6. &#x91CA;&#x653E;&#x8FDE;&#x63A5;&#x4FE1;&#x606F;</span>
+        DisConnect();
+    }
+
+    <span class="hljs-comment">//&#x83B7;&#x53D6;&#x9519;&#x8BEF;&#x4FE1;&#x606F;</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getErr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> amqp_rpc_reply_t&amp; reply, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; strModule, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; strErr)</span>
+    </span>{
+        <span class="hljs-keyword">char</span> szErrMsg[<span class="hljs-number">1024</span>] { <span class="hljs-number">0</span> };
+        <span class="hljs-keyword">switch</span> (reply.reply_type)
+        {
+        <span class="hljs-keyword">case</span> AMQP_RESPONSE_NORMAL:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">case</span> AMQP_RESPONSE_NONE:
+            <span class="hljs-built_in">sprintf</span>(szErrMsg, <span class="hljs-string">&quot;%s: missing RPC reply type!\n&quot;</span>, strModule.c_str());
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> AMQP_RESPONSE_LIBRARY_EXCEPTION:
+            <span class="hljs-built_in">sprintf</span>(szErrMsg, <span class="hljs-string">&quot;%s: %s\n&quot;</span>, strModule.c_str(), amqp_error_string2(reply.library_error));
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> AMQP_RESPONSE_SERVER_EXCEPTION:
+            <span class="hljs-keyword">switch</span> (reply.reply.id)
+            {
+            <span class="hljs-keyword">case</span> AMQP_CONNECTION_CLOSE_METHOD:
+            {
+                <span class="hljs-keyword">amqp_connection_close_t</span> *m = (<span class="hljs-keyword">amqp_connection_close_t</span> *)reply.reply.decoded;
+                <span class="hljs-built_in">sprintf</span>(szErrMsg, <span class="hljs-string">&quot;%s: server connection error %d, message: %.*s\n&quot;</span>,
+                    strModule.c_str(),
+                    m-&gt;reply_code,
+                    (<span class="hljs-keyword">int</span>)m-&gt;reply_text.len, (<span class="hljs-keyword">char</span> *)m-&gt;reply_text.bytes);
+                <span class="hljs-keyword">break</span>;
+            }
+            <span class="hljs-keyword">case</span> AMQP_CHANNEL_CLOSE_METHOD:
+            {
+                <span class="hljs-keyword">amqp_channel_close_t</span> *m = (<span class="hljs-keyword">amqp_channel_close_t</span> *)reply.reply.decoded;
+                <span class="hljs-built_in">sprintf</span>(szErrMsg, <span class="hljs-string">&quot;%s: server channel error %d, message: %.*s\n&quot;</span>,
+                    strModule.c_str(),
+                    m-&gt;reply_code,
+                    (<span class="hljs-keyword">int</span>)m-&gt;reply_text.len, (<span class="hljs-keyword">char</span> *)m-&gt;reply_text.bytes);
+                <span class="hljs-keyword">break</span>;
+            }
+            <span class="hljs-keyword">default</span>:
+                <span class="hljs-built_in">sprintf</span>(szErrMsg, <span class="hljs-string">&quot;%s: unknown server error, method id 0x%08X\n&quot;</span>, strModule.c_str(), reply.reply.id);
+                <span class="hljs-keyword">break</span>;
+            }
+            <span class="hljs-keyword">break</span>;
+        }
+        strErr = szErrMsg;
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    }
+
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">bool</span> m_bConnect { <span class="hljs-literal">false</span> };
+    RabbitMqInfo m_info;
+    <span class="hljs-keyword">amqp_connection_state_t</span> m_conn;
+    <span class="hljs-built_in">std</span>::<span class="hljs-keyword">atomic_bool</span> m_bStop { <span class="hljs-literal">false</span> };             <span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x9000;&#x51FA;</span>
+};
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<h1 id="maincpp">main.cpp</h1>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;RabbitmqConsumer.h&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;RabbitmqConsumer start ...&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    RabbitMqInfo info;
+    info.strIp = <span class="hljs-string">&quot;127.0.0.1&quot;</span>;
+    info.nPort = <span class="hljs-number">5672</span>;
+    info.strUser = <span class="hljs-string">&quot;admin&quot;</span>;
+    info.strPwd = <span class="hljs-string">&quot;admin&quot;</span>;
+    info.strExchange = <span class="hljs-string">&quot;ExchangeFanout&quot;</span>;
+    info.strRoutingKey = <span class="hljs-string">&quot;&quot;</span>;
+    info.nChannelId = <span class="hljs-number">1</span>;
+
+    <span class="hljs-function">CRabbitmqConsumer <span class="hljs-title">consumer</span><span class="hljs-params">(info)</span></span>;
+    consumer.Start();
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;RabbitmqConsumer exit ...&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h1 id="rabbitmqproducerh">RabbitmqProducer.h</h1>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> RABBITMQ_PRODUCER_H</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RABBITMQ_PRODUCER_H</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;atomic&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;thread&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;chrono&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;ctime&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;amqp.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;amqp_tcp_socket.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;Common.h&quot;</span></span>
+
+<span class="hljs-keyword">class</span> CRabbitmqProducer
+{
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">CRabbitmqProducer</span><span class="hljs-params">(<span class="hljs-keyword">const</span> RabbitMqInfo&amp; info)</span>
+    </span>{
+        m_info = info;
+    }
+
+    ~CRabbitmqProducer()
+    {
+        Stop();
+        DisConnect();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Start</span><span class="hljs-params">()</span>
+    </span>{
+        m_bStop = <span class="hljs-literal">false</span>;
+
+        <span class="hljs-keyword">if</span> (Connect() &amp;&amp; PreProducer())
+        {
+            Producer();
+        }
+
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Stop</span><span class="hljs-params">()</span>
+    </span>{
+        m_bStop = <span class="hljs-literal">true</span>;
+
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+
+    <span class="hljs-comment">//&#x8FDE;&#x63A5;</span>
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Connect</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">bool</span> bRet{ <span class="hljs-literal">false</span> };
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strErr{ <span class="hljs-string">&quot;&quot;</span> };
+        <span class="hljs-keyword">do</span>
+        {
+            <span class="hljs-comment">// 1.&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x8FDE;&#x63A5;</span>
+            m_conn = amqp_new_connection();
+            <span class="hljs-keyword">if</span> (!m_conn)
+            {
+                strErr = <span class="hljs-string">&quot;amqp_new_connection failed&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 2.&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;socket</span>
+            <span class="hljs-keyword">amqp_socket_t</span> *socket = amqp_tcp_socket_new(m_conn);
+            <span class="hljs-keyword">if</span> (!socket)
+            {
+                strErr = <span class="hljs-string">&quot;amqp_tcp_socket_new failed&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 3.&#x6253;&#x5F00;socket&#xFF0C;&#x8BBE;&#x7F6E;IP&#x3001;port&#x7B49;</span>
+            <span class="hljs-keyword">if</span> (amqp_socket_open(socket, m_info.strIp.c_str(), m_info.nPort) != AMQP_STATUS_OK)
+            {
+                strErr = <span class="hljs-string">&quot;amqp_socket_open failed&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 4.&#x767B;&#x5F55;&#x670D;&#x52A1;&#x5668;</span>
+            <span class="hljs-keyword">amqp_rpc_reply_t</span> rpc_reply = amqp_login(
+                        m_conn,
+                        <span class="hljs-string">&quot;/&quot;</span>,
+                        <span class="hljs-number">1</span>,
+                        AMQP_DEFAULT_FRAME_SIZE,
+                        <span class="hljs-number">30</span>,
+                        AMQP_SASL_METHOD_PLAIN,
+                        m_info.strUser.c_str(),
+                        m_info.strPwd.c_str()
+                        );
+            <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> != getErr(rpc_reply, <span class="hljs-string">&quot;amqp_login&quot;</span>, strErr))
+            {
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 5.&#x6253;&#x5F00;&#x901A;&#x9053;&#xFF0C;&#x5173;&#x8054;conn&#x548C;channel</span>
+            <span class="hljs-keyword">if</span> (!amqp_channel_open(m_conn, m_info.nChannelId))
+            {
+                strErr = <span class="hljs-string">&quot;amqp_channel_open failed&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+
+            bRet = <span class="hljs-literal">true</span>;
+        } <span class="hljs-keyword">while</span> (<span class="hljs-literal">false</span>);
+
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; strErr &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-keyword">return</span> bRet;
+    }
+
+    <span class="hljs-comment">//&#x65AD;&#x5F00;&#x8FDE;&#x63A5;</span>
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">DisConnect</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">bool</span> bRet{ <span class="hljs-literal">false</span> };
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strErr{ <span class="hljs-string">&quot;&quot;</span> };
+        <span class="hljs-keyword">do</span>
+        {
+            <span class="hljs-comment">// 1. &#x5173;&#x95ED;channel</span>
+            <span class="hljs-keyword">amqp_rpc_reply_t</span> rpc_reply = amqp_channel_close(m_conn, m_info.nChannelId, AMQP_REPLY_SUCCESS);
+            <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> != getErr(rpc_reply, <span class="hljs-string">&quot;amqp_channel_close&quot;</span>, strErr))
+            {
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 2.&#x5173;&#x95ED;&#x8FDE;&#x63A5;</span>
+            rpc_reply = amqp_connection_close(m_conn, AMQP_REPLY_SUCCESS);
+            <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> != getErr(rpc_reply, <span class="hljs-string">&quot;amqp_connection_close&quot;</span>, strErr))
+            {
+                <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-comment">// 3.&#x9500;&#x6BC1;&#x8FDE;&#x63A5;</span>
+            <span class="hljs-keyword">if</span> (amqp_destroy_connection(m_conn) != AMQP_STATUS_OK)
+            {
+                strErr = <span class="hljs-string">&quot;amqp_destroy_connection failed&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+            m_conn = <span class="hljs-literal">NULL</span>;
+
+            bRet = <span class="hljs-literal">true</span>;
+        } <span class="hljs-keyword">while</span> (<span class="hljs-literal">false</span>);
+
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; strErr &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-keyword">return</span> bRet;
+    }
+
+    <span class="hljs-comment">// &#x9884;&#x53D1;&#x5E03;</span>
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">PreProducer</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+
+    <span class="hljs-comment">//&#x53D1;&#x5E03;&#x6D88;&#x606F;</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Producer</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> msg{ <span class="hljs-string">&quot;&quot;</span> };
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strErr{ <span class="hljs-string">&quot;&quot;</span> };
+
+        <span class="hljs-keyword">while</span> (!m_bStop)
+        {
+            <span class="hljs-keyword">time_t</span> now = time(<span class="hljs-number">0</span>);
+            <span class="hljs-keyword">char</span>* dt = ctime(&amp;now);
+            msg = dt;
+
+            <span class="hljs-keyword">amqp_basic_properties_t</span> props;
+            props._flags = AMQP_BASIC_CONTENT_TYPE_FLAG | AMQP_BASIC_DELIVERY_MODE_FLAG;
+            props.content_type = amqp_cstring_bytes(<span class="hljs-string">&quot;text/plain&quot;</span>);
+            props.delivery_mode = <span class="hljs-number">2</span>; <span class="hljs-comment">// persistent delivery mode &#x6301;&#x4E45;&#x5316;&#x6A21;&#x5F0F;</span>
+
+            <span class="hljs-comment">//&#x53D1;&#x5E03;&#x6D88;&#x606F;</span>
+            <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> != amqp_basic_publish(m_conn, <span class="hljs-number">1</span>, amqp_cstring_bytes(m_info.strExchange.c_str()), amqp_cstring_bytes(m_info.strRoutingKey.c_str()), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, &amp;props, amqp_cstring_bytes(msg.c_str())))
+            {
+                <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> != getErr(amqp_get_rpc_reply(m_conn), <span class="hljs-string">&quot;amqp_basic_publish&quot;</span>, strErr))
+                {
+                    <span class="hljs-keyword">break</span>;
+                }
+            }
+
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; msg &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+            <span class="hljs-built_in">std</span>::this_thread::sleep_for(<span class="hljs-built_in">std</span>::chrono::milliseconds(<span class="hljs-number">1000</span>));
+        }
+        <span class="hljs-comment">// 3. &#x91CA;&#x653E;&#x8FDE;&#x63A5;&#x4FE1;&#x606F;</span>
+        DisConnect();
+    }
+
+    <span class="hljs-comment">//&#x83B7;&#x53D6;&#x9519;&#x8BEF;&#x4FE1;&#x606F;</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getErr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> amqp_rpc_reply_t&amp; reply, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; strModule, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; strErr)</span>
+    </span>{
+        <span class="hljs-keyword">char</span> szErrMsg[<span class="hljs-number">1024</span>]{ <span class="hljs-number">0</span> };
+        <span class="hljs-keyword">switch</span> (reply.reply_type)
+        {
+        <span class="hljs-keyword">case</span> AMQP_RESPONSE_NORMAL:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">case</span> AMQP_RESPONSE_NONE:
+            <span class="hljs-built_in">sprintf</span>(szErrMsg, <span class="hljs-string">&quot;%s: missing RPC reply type!\n&quot;</span>, strModule.c_str());
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> AMQP_RESPONSE_LIBRARY_EXCEPTION:
+            <span class="hljs-built_in">sprintf</span>(szErrMsg, <span class="hljs-string">&quot;%s: %s\n&quot;</span>, strModule.c_str(), amqp_error_string2(reply.library_error));
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> AMQP_RESPONSE_SERVER_EXCEPTION:
+            <span class="hljs-keyword">switch</span> (reply.reply.id)
+            {
+            <span class="hljs-keyword">case</span> AMQP_CONNECTION_CLOSE_METHOD:
+            {
+                <span class="hljs-keyword">amqp_connection_close_t</span> *m = (<span class="hljs-keyword">amqp_connection_close_t</span> *)reply.reply.decoded;
+                <span class="hljs-built_in">sprintf</span>(szErrMsg, <span class="hljs-string">&quot;%s: server connection error %d, message: %.*s\n&quot;</span>,
+                        strModule.c_str(),
+                        m-&gt;reply_code,
+                        (<span class="hljs-keyword">int</span>)m-&gt;reply_text.len, (<span class="hljs-keyword">char</span> *)m-&gt;reply_text.bytes);
+                <span class="hljs-keyword">break</span>;
+            }
+            <span class="hljs-keyword">case</span> AMQP_CHANNEL_CLOSE_METHOD:
+            {
+                <span class="hljs-keyword">amqp_channel_close_t</span> *m = (<span class="hljs-keyword">amqp_channel_close_t</span> *)reply.reply.decoded;
+                <span class="hljs-built_in">sprintf</span>(szErrMsg, <span class="hljs-string">&quot;%s: server channel error %d, message: %.*s\n&quot;</span>,
+                        strModule.c_str(),
+                        m-&gt;reply_code,
+                        (<span class="hljs-keyword">int</span>)m-&gt;reply_text.len, (<span class="hljs-keyword">char</span> *)m-&gt;reply_text.bytes);
+                <span class="hljs-keyword">break</span>;
+            }
+            <span class="hljs-keyword">default</span>:
+                <span class="hljs-built_in">sprintf</span>(szErrMsg, <span class="hljs-string">&quot;%s: unknown server error, method id 0x%08X\n&quot;</span>, strModule.c_str(), reply.reply.id);
+                <span class="hljs-keyword">break</span>;
+            }
+            <span class="hljs-keyword">break</span>;
+        }
+        strErr = szErrMsg;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; strErr &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    }
+
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">bool</span> m_bConnect{ <span class="hljs-literal">false</span> };
+    RabbitMqInfo m_info;
+    <span class="hljs-keyword">amqp_connection_state_t</span> m_conn;
+    <span class="hljs-built_in">std</span>::<span class="hljs-keyword">atomic_bool</span> m_bStop{ <span class="hljs-literal">false</span> };             <span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x9000;&#x51FA;</span>
+};
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span> <span class="hljs-comment">// !RABBITMQ_PRODUCER_H</span></span>
+</code></pre>
+<h1 id="maincpp">main.cpp</h1>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;RabbitmqProducer.h&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    RabbitMqInfo info;
+    info.strIp = <span class="hljs-string">&quot;127.0.0.1&quot;</span>;
+    info.nPort = <span class="hljs-number">5672</span>;
+    info.strUser = <span class="hljs-string">&quot;admin&quot;</span>;
+    info.strPwd = <span class="hljs-string">&quot;admin&quot;</span>;
+    info.strExchange = <span class="hljs-string">&quot;ExchangeFanout&quot;</span>;
+    info.strRoutingKey = <span class="hljs-string">&quot;&quot;</span>;
+    info.nChannelId = <span class="hljs-number">1</span>;
+
+    <span class="hljs-function">CRabbitmqProducer <span class="hljs-title">producer</span><span class="hljs-params">(info)</span></span>;
+    producer.Start();
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ParseTLV.html" class="navigation navigation-prev " aria-label="Previous page: TLV数据格式解析示例">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="SingletonTemplate.html" class="navigation navigation-next " aria-label="Next page: 单实例模板">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"RabbitMQ示例","date":"2021-12-06T16:24:59.000Z","tags":"C/C++","categories":"C/C++","description":"RabbitMQ生产者及消费者示例。","level":"1.2.7","depth":2,"next":{"title":"单实例模板","level":"1.2.8","depth":2,"path":"C++/SingletonTemplate.md","ref":"C++/SingletonTemplate.md","articles":[]},"previous":{"title":"TLV数据格式解析示例","level":"1.2.6","depth":2,"path":"C++/ParseTLV.md","ref":"C++/ParseTLV.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"C++/RabbitMQ-example.md","mtime":"2022-08-24T06:52:10.378Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-11T01:31:46.461Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

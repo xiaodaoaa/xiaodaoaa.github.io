@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>new内存初始化 · GitBook</title>
+        <title>Socket绑定网络接口 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="C++利用new申请内存时初始化问题。">
+        <meta name="description" content="UDP绑定网络接口，适用于linux。">
         <meta name="generator" content="GitBook 3.2.3">
         
         
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="libcurl-down-file.html" />
+    <link rel="next" href="spdlog-examples.html" />
     
     
-    <link rel="prev" href="WinCppPowerOnAutoStart.html" />
+    <link rel="prev" href="SingletonTemplate.html" />
     
 
     </head>
@@ -142,7 +142,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3" data-path="CppNewArrayInit.html">
+        <li class="chapter " data-level="1.2.3" data-path="CppNewArrayInit.html">
             
                 <a href="CppNewArrayInit.html">
             
@@ -220,7 +220,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.9" data-path="socket-bind-iface.html">
+        <li class="chapter active" data-level="1.2.9" data-path="socket-bind-iface.html">
             
                 <a href="socket-bind-iface.html">
             
@@ -455,7 +455,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >new内存初始化</a>
+        <a href=".." >Socket绑定网络接口</a>
     </h1>
 </div>
 
@@ -470,38 +470,82 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+                                <p>UDP&#x901A;&#x4FE1;&#x65F6;&#x6307;&#x5B9A;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/types.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/socket.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;netinet/in.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;arpa/inet.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;net/if.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;errno.h&gt;</span></span>
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
 </span>{
-    <span class="hljs-keyword">int</span> *arrInu = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">1024</span>];
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> idx = <span class="hljs-number">0</span>; idx &lt; <span class="hljs-number">1024</span>; idx++){
-        arrInu[idx] = idx;
+    <span class="hljs-keyword">int</span> sock;
+    <span class="hljs-keyword">struct</span> sockaddr_in addr, raddr;
+    <span class="hljs-keyword">char</span> buffer[] = <span class="hljs-string">&quot;hello world&quot;</span>;
+    <span class="hljs-comment">/* &#x6307;&#x5B9A;&#x63A5;&#x53E3; */</span>
+    <span class="hljs-keyword">struct</span> ifreq nif;
+    <span class="hljs-keyword">char</span> *inface = <span class="hljs-string">&quot;eth0&quot;</span>;
+    <span class="hljs-built_in">strcpy</span>(nif.ifr_name, inface);
+    <span class="hljs-comment">/* &#x521B;&#x5EFA;&#x5957;&#x63A5;&#x5B57; */</span>
+    sock = socket(AF_INET, SOCK_DGRAM, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">if</span> (<span class="hljs-number">-1</span> == sock)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;create socket fail \r\n&quot;</span>);
+        <span class="hljs-keyword">return</span>;
     }
-    <span class="hljs-keyword">delete</span> []arrInu;
-    arrInu = <span class="hljs-literal">nullptr</span>;
-
-    <span class="hljs-comment">//&#x6570;&#x7EC4;&#x4E0D;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x4E3A;0</span>
-    <span class="hljs-keyword">int</span> *arrIno = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">1024</span>];
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> idx = <span class="hljs-number">0</span>; idx &lt; <span class="hljs-number">1024</span>; idx++){
-        <span class="hljs-built_in">cout</span> &lt;&lt; arrIno[idx] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
+    <span class="hljs-keyword">else</span>
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;create socket success \r\n&quot;</span>);
     }
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">delete</span> []arrIno;
-    arrIno = <span class="hljs-literal">nullptr</span>;
 
-    <span class="hljs-comment">//&#x6570;&#x7EC4;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x4E3A;0</span>
-    <span class="hljs-keyword">int</span> *arrIno0 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">1024</span>]();
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> idx = <span class="hljs-number">0</span>; idx &lt; <span class="hljs-number">1024</span>; idx++){
-        <span class="hljs-built_in">cout</span> &lt;&lt; arrIno0[idx] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
+    <span class="hljs-keyword">if</span> (inet_aton(<span class="hljs-string">&quot;192.168.80.129&quot;</span>, &amp;addr.sin_addr) != <span class="hljs-number">1</span>)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;addr convert fail \r\n&quot;</span>);
+        close(sock);
+        <span class="hljs-keyword">return</span>;
     }
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">delete</span> []arrIno0;
-    arrIno0 = <span class="hljs-literal">nullptr</span>;  
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(<span class="hljs-number">8000</span>);
+    <span class="hljs-keyword">if</span> (inet_aton(<span class="hljs-string">&quot;192.168.80.1&quot;</span>, &amp;raddr.sin_addr) != <span class="hljs-number">1</span>)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;addr convert fail \r\n&quot;</span>);
+        close(sock);
+        <span class="hljs-keyword">return</span>;
+    }
+    raddr.sin_family = AF_INET;
+    raddr.sin_port = htons(<span class="hljs-number">8000</span>);
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> 0  <span class="hljs-comment">//&#x7ED1;&#x5B9A;&#x5730;&#x5740;</span></span>
+    <span class="hljs-keyword">if</span> (bind(sock, (<span class="hljs-keyword">struct</span> sockadd *)&amp;addr, <span class="hljs-keyword">sizeof</span>(addr)) != <span class="hljs-number">0</span>)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;bind fail \r\n&quot;</span>);
+        close(sock);
+        <span class="hljs-keyword">return</span> ;
+    }
+    <span class="hljs-keyword">else</span>
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;bind success \r\n&quot;</span>);
+    }
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+    <span class="hljs-comment">/* &#x7ED1;&#x5B9A;&#x63A5;&#x53E3; */</span>
+    <span class="hljs-keyword">if</span> (setsockopt(sock, SOL_SOCKET, SO_BINDTODEVICE, (<span class="hljs-keyword">char</span> *)&amp;nif, <span class="hljs-keyword">sizeof</span>(nif)) &lt; <span class="hljs-number">0</span>)
+    {
+        close(sock);
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;bind interface fail, errno: %d \r\n&quot;</span>, errno);
+        <span class="hljs-keyword">return</span> ;        
+    }
+    <span class="hljs-keyword">else</span>
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;bind interface success \r\n&quot;</span>);
+    }
+    <span class="hljs-comment">/* &#x53D1;&#x9001; */</span>
+    sendto(sock, buffer, <span class="hljs-keyword">sizeof</span>(buffer), <span class="hljs-number">0</span>, ((<span class="hljs-keyword">struct</span> sockadd *)&amp;raddr),<span class="hljs-keyword">sizeof</span>(raddr));
 
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    close(sock);
+    <span class="hljs-keyword">return</span>;
 }
 </code></pre>
 
@@ -531,12 +575,12 @@
 
             
                 
-                <a href="WinCppPowerOnAutoStart.html" class="navigation navigation-prev " aria-label="Previous page: Windows程序开机自启">
+                <a href="SingletonTemplate.html" class="navigation navigation-prev " aria-label="Previous page: 单实例模板">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="libcurl-down-file.html" class="navigation navigation-next " aria-label="Next page: 利用libcurl下载文件">
+                <a href="spdlog-examples.html" class="navigation navigation-next " aria-label="Next page: Spdlog示例">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -547,7 +591,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"new内存初始化","date":"2022-08-24T15:08:22.000Z","tags":"C++","categories":"C/C++","description":"C++利用new申请内存时初始化问题。","level":"1.2.3","depth":2,"next":{"title":"利用libcurl下载文件","level":"1.2.4","depth":2,"path":"C++/libcurl-down-file.md","ref":"C++/libcurl-down-file.md","articles":[]},"previous":{"title":"Windows程序开机自启","level":"1.2.2","depth":2,"path":"C++/WinCppPowerOnAutoStart.md","ref":"C++/WinCppPowerOnAutoStart.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"C++/CppNewArrayInit.md","mtime":"2022-08-24T07:15:19.980Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-11T01:31:46.461Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Socket绑定网络接口","date":"2021-12-06T15:06:47.000Z","tags":["UDP","linux"],"categories":"UDP","description":"UDP绑定网络接口，适用于linux。","level":"1.2.9","depth":2,"next":{"title":"Spdlog示例","level":"1.2.10","depth":2,"path":"C++/spdlog-examples.md","ref":"C++/spdlog-examples.md","articles":[]},"previous":{"title":"单实例模板","level":"1.2.8","depth":2,"path":"C++/SingletonTemplate.md","ref":"C++/SingletonTemplate.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"C++/socket-bind-iface.md","mtime":"2022-08-24T06:52:10.406Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-11T01:31:46.461Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

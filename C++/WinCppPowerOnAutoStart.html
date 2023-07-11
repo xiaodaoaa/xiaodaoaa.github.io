@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>new内存初始化 · GitBook</title>
+        <title>Windows程序开机自启 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="C++利用new申请内存时初始化问题。">
+        <meta name="description" content="Windows平台下C++程序设置开机自启动">
         <meta name="generator" content="GitBook 3.2.3">
         
         
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="libcurl-down-file.html" />
+    <link rel="next" href="CppNewArrayInit.html" />
     
     
-    <link rel="prev" href="WinCppPowerOnAutoStart.html" />
+    <link rel="prev" href="Cpp11-Demo.html" />
     
 
     </head>
@@ -129,7 +129,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="WinCppPowerOnAutoStart.html">
+        <li class="chapter active" data-level="1.2.2" data-path="WinCppPowerOnAutoStart.html">
             
                 <a href="WinCppPowerOnAutoStart.html">
             
@@ -142,7 +142,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3" data-path="CppNewArrayInit.html">
+        <li class="chapter " data-level="1.2.3" data-path="CppNewArrayInit.html">
             
                 <a href="CppNewArrayInit.html">
             
@@ -455,7 +455,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >new内存初始化</a>
+        <a href=".." >Windows程序开机自启</a>
     </h1>
 </div>
 
@@ -470,38 +470,52 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+                                <pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span>
 
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x7A0B;&#x5E8F;&#x5F00;&#x673A;&#x542F;&#x52A8;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">AutoPowerOn</span><span class="hljs-params">()</span>
 </span>{
-    <span class="hljs-keyword">int</span> *arrInu = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">1024</span>];
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> idx = <span class="hljs-number">0</span>; idx &lt; <span class="hljs-number">1024</span>; idx++){
-        arrInu[idx] = idx;
-    }
-    <span class="hljs-keyword">delete</span> []arrInu;
-    arrInu = <span class="hljs-literal">nullptr</span>;
+    HKEY hKey;
 
-    <span class="hljs-comment">//&#x6570;&#x7EC4;&#x4E0D;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x4E3A;0</span>
-    <span class="hljs-keyword">int</span> *arrIno = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">1024</span>];
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> idx = <span class="hljs-number">0</span>; idx &lt; <span class="hljs-number">1024</span>; idx++){
-        <span class="hljs-built_in">cout</span> &lt;&lt; arrIno[idx] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
-    }
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">delete</span> []arrIno;
-    arrIno = <span class="hljs-literal">nullptr</span>;
+    <span class="hljs-comment">//1&#x3001;&#x627E;&#x5230;&#x7CFB;&#x7EDF;&#x7684;&#x542F;&#x52A8;&#x9879;&#xFF0C;win7&#x4EE5;&#x540E;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x8D8A;&#x6765;&#x8D8A;&#x4E25;&#x683C;&#xFF0C;&#x975E;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x8FD0;&#x884C;&#x7684;&#x7A0B;&#x5E8F;&#x662F;&#x65E0;&#x6CD5;&#x5199;&#x5165;&#x5230;HKEY_LOCAL_MACHINE&#x4E0B;&#x7684;&#xFF0C;&#x63A8;&#x8350;&#x6DFB;&#x52A0;&#x542F;&#x52A8;&#x9879;&#x5230;&#x5F53;&#x524D;&#x7528;&#x6237;</span>
+    <span class="hljs-keyword">if</span> (RegOpenKeyEx(HKEY_CURRENT_USER, _T(<span class="hljs-string">&quot;SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run&quot;</span>), <span class="hljs-number">0</span>, KEY_ALL_ACCESS, &amp;hKey) == ERROR_SUCCESS) <span class="hljs-comment">///&#x6253;&#x5F00;&#x542F;&#x52A8;&#x9879;       </span>
+    {
+        <span class="hljs-comment">//2&#x3001;&#x5F97;&#x5230;&#x672C;&#x7A0B;&#x5E8F;&#x81EA;&#x8EAB;&#x7684;&#x5168;&#x8DEF;&#x5F84;</span>
+        TCHAR strExeFullDir[MAX_PATH];
+        GetModuleFileName(<span class="hljs-literal">NULL</span>, strExeFullDir, MAX_PATH); 
 
-    <span class="hljs-comment">//&#x6570;&#x7EC4;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x4E3A;0</span>
-    <span class="hljs-keyword">int</span> *arrIno0 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">1024</span>]();
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> idx = <span class="hljs-number">0</span>; idx &lt; <span class="hljs-number">1024</span>; idx++){
-        <span class="hljs-built_in">cout</span> &lt;&lt; arrIno0[idx] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
-    }
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">delete</span> []arrIno0;
-    arrIno0 = <span class="hljs-literal">nullptr</span>;  
+        <span class="hljs-comment">//3&#x3001;&#x5224;&#x65AD;&#x6CE8;&#x518C;&#x8868;&#x9879;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;</span>
+        TCHAR strDir[MAX_PATH] = {};
+        DWORD nLength = MAX_PATH;
+        <span class="hljs-keyword">long</span> result = RegGetValue(hKey, <span class="hljs-literal">nullptr</span>, _T(<span class="hljs-string">&quot;ApplicationName&quot;</span>), RRF_RT_REG_SZ, <span class="hljs-number">0</span>, strDir, &amp;nLength); 
 
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-comment">//4&#x3001;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;</span>
+        <span class="hljs-keyword">if</span> (result != ERROR_SUCCESS || _tcscmp(strExeFullDir, strDir) != <span class="hljs-number">0</span>)
+        {
+            <span class="hljs-comment">//5&#x3001;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5B50;Key,&#x5E76;&#x8BBE;&#x7F6E;&#x503C;&#xFF0C;&quot;ApplicationName&quot;&#x662F;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x540D;&#x5B57;&#xFF08;&#x4E0D;&#x52A0;&#x540E;&#x7F00;.exe&#xFF09; </span>
+            RegSetValueEx(hKey, _T(<span class="hljs-string">&quot;ApplicationName&quot;</span>), <span class="hljs-number">0</span>, REG_SZ, (LPBYTE)strExeFullDir, (lstrlen(strExeFullDir) + <span class="hljs-number">1</span>)*<span class="hljs-keyword">sizeof</span>(TCHAR)); 
+
+            <span class="hljs-comment">//6&#x3001;&#x5173;&#x95ED;&#x6CE8;&#x518C;&#x8868;</span>
+            RegCloseKey(hKey);
+        }
+    }
+}
+
+
+<span class="hljs-comment">//&#x53D6;&#x6D88;&#x5F53;&#x524D;&#x7A0B;&#x5E8F;&#x5F00;&#x673A;&#x542F;&#x52A8;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">CanclePowerOn</span><span class="hljs-params">()</span>
+</span>{
+    HKEY hKey;
+
+    <span class="hljs-comment">//1&#x3001;&#x627E;&#x5230;&#x7CFB;&#x7EDF;&#x7684;&#x542F;&#x52A8;&#x9879;  </span>
+    <span class="hljs-keyword">if</span> (RegOpenKeyEx(HKEY_CURRENT_USER, _T(<span class="hljs-string">&quot;SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run&quot;</span>), <span class="hljs-number">0</span>, KEY_ALL_ACCESS, &amp;hKey) == ERROR_SUCCESS)
+    {
+        <span class="hljs-comment">//2&#x3001;&#x5220;&#x9664;&#x503C;</span>
+        RegDeleteValue(hKey, _T(<span class="hljs-string">&quot;ApplicationName&quot;</span>)); 
+
+        <span class="hljs-comment">//3&#x3001;&#x5173;&#x95ED;&#x6CE8;&#x518C;&#x8868;</span>
+        RegCloseKey(hKey);
+    }
 }
 </code></pre>
 
@@ -531,12 +545,12 @@
 
             
                 
-                <a href="WinCppPowerOnAutoStart.html" class="navigation navigation-prev " aria-label="Previous page: Windows程序开机自启">
+                <a href="Cpp11-Demo.html" class="navigation navigation-prev " aria-label="Previous page: C++11 示例">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="libcurl-down-file.html" class="navigation navigation-next " aria-label="Next page: 利用libcurl下载文件">
+                <a href="CppNewArrayInit.html" class="navigation navigation-next " aria-label="Next page: new内存初始化">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -547,7 +561,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"new内存初始化","date":"2022-08-24T15:08:22.000Z","tags":"C++","categories":"C/C++","description":"C++利用new申请内存时初始化问题。","level":"1.2.3","depth":2,"next":{"title":"利用libcurl下载文件","level":"1.2.4","depth":2,"path":"C++/libcurl-down-file.md","ref":"C++/libcurl-down-file.md","articles":[]},"previous":{"title":"Windows程序开机自启","level":"1.2.2","depth":2,"path":"C++/WinCppPowerOnAutoStart.md","ref":"C++/WinCppPowerOnAutoStart.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"C++/CppNewArrayInit.md","mtime":"2022-08-24T07:15:19.980Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-11T01:31:46.461Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Windows程序开机自启","date":"2021-12-20T11:52:19.000Z","tags":"C/C++","categories":"C/C++","description":"Windows平台下C++程序设置开机自启动","level":"1.2.2","depth":2,"next":{"title":"new内存初始化","level":"1.2.3","depth":2,"path":"C++/CppNewArrayInit.md","ref":"C++/CppNewArrayInit.md","articles":[]},"previous":{"title":"C++11 示例","level":"1.2.1","depth":2,"path":"C++/Cpp11-Demo.md","ref":"C++/Cpp11-Demo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"C++/WinCppPowerOnAutoStart.md","mtime":"2022-08-24T06:52:10.390Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-11T01:31:46.461Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

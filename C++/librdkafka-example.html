@@ -1,0 +1,831 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>librdkafka示例 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="librdkafka消费者示例。">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ParseTLV.html" />
+    
+    
+    <link rel="prev" href="libcurl-down-file.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    C++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Cpp11-Demo.html">
+            
+                <a href="Cpp11-Demo.html">
+            
+                    
+                    C++11 示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="WinCppPowerOnAutoStart.html">
+            
+                <a href="WinCppPowerOnAutoStart.html">
+            
+                    
+                    Windows程序开机自启
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="CppNewArrayInit.html">
+            
+                <a href="CppNewArrayInit.html">
+            
+                    
+                    new内存初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="libcurl-down-file.html">
+            
+                <a href="libcurl-down-file.html">
+            
+                    
+                    利用libcurl下载文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.5" data-path="librdkafka-example.html">
+            
+                <a href="librdkafka-example.html">
+            
+                    
+                    librdkafka示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="ParseTLV.html">
+            
+                <a href="ParseTLV.html">
+            
+                    
+                    TLV数据格式解析示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="RabbitMQ-example.html">
+            
+                <a href="RabbitMQ-example.html">
+            
+                    
+                    RabbitMQ示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="SingletonTemplate.html">
+            
+                <a href="SingletonTemplate.html">
+            
+                    
+                    单实例模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="socket-bind-iface.html">
+            
+                <a href="socket-bind-iface.html">
+            
+                    
+                    Socket绑定网络接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="spdlog-examples.html">
+            
+                <a href="spdlog-examples.html">
+            
+                    
+                    Spdlog示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Qt5/">
+            
+                <a href="../Qt5/">
+            
+                    
+                    Qt5
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Qt5/GridLayout.html">
+            
+                <a href="../Qt5/GridLayout.html">
+            
+                    
+                    网格示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Linux/">
+            
+                <a href="../Linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Linux/CMakeListTemplate.html">
+            
+                <a href="../Linux/CMakeListTemplate.html">
+            
+                    
+                    CMakeLists基础通用模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Linux/LibraryRpath.html">
+            
+                <a href="../Linux/LibraryRpath.html">
+            
+                    
+                    动态库加载路径设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Linux/ssh-key-copy.html">
+            
+                <a href="../Linux/ssh-key-copy.html">
+            
+                    
+                    SSH免密登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Linux/tcpsock-reuseport.html">
+            
+                <a href="../Linux/tcpsock-reuseport.html">
+            
+                    
+                    Linux TCP套接字地址复用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Other/">
+            
+                <a href="../Other/">
+            
+                    
+                    Other
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Other/GuoHomeLetter.html">
+            
+                <a href="../Other/GuoHomeLetter.html">
+            
+                    
+                    郭德纲家书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Other/ChickenSoup.html">
+            
+                <a href="../Other/ChickenSoup.html">
+            
+                    
+                    毒鸡汤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Other/Tiandao-Wu.html">
+            
+                <a href="../Other/Tiandao-Wu.html">
+            
+                    
+                    天道·悟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../Other/tools-collection.html">
+            
+                <a href="../Other/tools-collection.html">
+            
+                    
+                    实用小工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >librdkafka示例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="kafkaconsumerclienth">KafkaConsumerClient.h</h1>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> KAFKACONSUMERCLIENT_H</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> KAFKACONSUMERCLIENT_H</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdlib&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;csignal&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;list&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;rdkafkacpp.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;fstream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;atomic&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-keyword">class</span> KafkaConsumerClient {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">KafkaConsumerClient</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;brokers,
+                                 <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;topics,
+                                 <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> groupid,
+                                 int32_t nPartition,
+                                 int64_t offset)</span></span>;
+
+    <span class="hljs-keyword">virtual</span> ~KafkaConsumerClient();
+    <span class="hljs-comment">//&#x521D;&#x59CB;&#x5316;</span>
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Init</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-comment">//&#x5F00;&#x59CB;&#x83B7;&#x53D6;&#x6D88;&#x606F;</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Run</span><span class="hljs-params">(<span class="hljs-keyword">int</span> timeout_ms)</span></span>;
+    <span class="hljs-comment">//&#x5F00;&#x59CB;</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-comment">//&#x505C;&#x6B62;</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Stop</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-comment">//&#x83B7;&#x53D6;&#x8FD0;&#x884C;&#x72B6;&#x6001;</span>
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isRun</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-comment">//&#x9000;&#x51FA;</span>
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Quit</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">//&#x83B7;&#x53D6;Offset</span>
+    <span class="hljs-keyword">uint64_t</span> GetLastOffset();
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Msg_consume</span><span class="hljs-params">(RdKafka::Message* message, <span class="hljs-keyword">void</span>* opaque)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ParseJsonMsg</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *strJsonMsg, <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> len)</span></span>;
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> m_strBrokers;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> m_strTopics;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> m_strGroupid;
+    <span class="hljs-keyword">int64_t</span> m_nLastOffset{<span class="hljs-number">0</span>};
+    RdKafka::Consumer *m_pKafkaConsumer{<span class="hljs-literal">nullptr</span>};
+    RdKafka::Topic    *m_pTopic{<span class="hljs-literal">nullptr</span>};
+    <span class="hljs-keyword">int64_t</span>           m_nCurrentOffset{RdKafka::Topic::OFFSET_STORED};
+    <span class="hljs-keyword">int32_t</span>           m_nPartition{<span class="hljs-number">0</span>};
+    <span class="hljs-keyword">atomic_bool</span> m_bRun{<span class="hljs-literal">false</span>};
+    <span class="hljs-keyword">atomic_bool</span> m_bQuit{<span class="hljs-literal">false</span>};
+};
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span> <span class="hljs-comment">// KAFKACONSUMERCLIENT_H</span></span>
+</code></pre>
+<h1 id="kafkaconsumerclientcpp">KafkaConsumerClient.cpp</h1>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;KafkaConsumerClient.h&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;ImageInfoVector.h&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;json.h&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;SpdlogHeader.h&quot;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;fstream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span>
+
+KafkaConsumerClient::KafkaConsumerClient(
+        <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;brokers,
+        <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;topics,
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> groupid,
+        <span class="hljs-keyword">int32_t</span> nPartition,
+        <span class="hljs-keyword">int64_t</span> offset)    :
+    m_strBrokers(brokers),
+    m_strTopics(topics),
+    m_strGroupid(groupid),
+    m_nCurrentOffset(offset),
+    m_nPartition(nPartition)
+{
+
+}
+
+KafkaConsumerClient::~KafkaConsumerClient()
+{
+    Quit();
+}
+
+<span class="hljs-keyword">bool</span> KafkaConsumerClient::Init() {
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> errstr;
+    RdKafka::Conf *conf = RdKafka::Conf::create(RdKafka::Conf::CONF_GLOBAL);
+    <span class="hljs-keyword">if</span> (!conf) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;RdKafka create global conf failed&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-comment">/*&#x8BBE;&#x7F6E;broker list*/</span>
+    <span class="hljs-keyword">if</span> (conf-&gt;<span class="hljs-built_in">set</span>(<span class="hljs-string">&quot;metadata.broker.list&quot;</span>, m_strBrokers, errstr) != RdKafka::Conf::CONF_OK) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;RdKafka conf set brokerlist failed ::&quot;</span> &lt;&lt; errstr.c_str() &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+    <span class="hljs-comment">/*&#x8BBE;&#x7F6E;consumer group*/</span>
+    <span class="hljs-keyword">if</span> (conf-&gt;<span class="hljs-built_in">set</span>(<span class="hljs-string">&quot;group.id&quot;</span>, m_strGroupid, errstr) != RdKafka::Conf::CONF_OK) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;RdKafka conf set group.id failed :&quot;</span> &lt;&lt; errstr.c_str() &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strfetch_num = <span class="hljs-string">&quot;10240000&quot;</span>;
+    <span class="hljs-comment">/*&#x6BCF;&#x6B21;&#x4ECE;&#x5355;&#x4E2A;&#x5206;&#x533A;&#x4E2D;&#x62C9;&#x53D6;&#x6D88;&#x606F;&#x7684;&#x6700;&#x5927;&#x5C3A;&#x5BF8;*/</span>
+    <span class="hljs-keyword">if</span> (conf-&gt;<span class="hljs-built_in">set</span>(<span class="hljs-string">&quot;max.partition.fetch.bytes&quot;</span>, strfetch_num, errstr) != RdKafka::Conf::CONF_OK) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;RdKafka conf set max.partition failed :&quot;</span> &lt;&lt; errstr.c_str() &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+    <span class="hljs-comment">/*&#x521B;&#x5EFA;kafka consumer&#x5B9E;&#x4F8B;*/</span> <span class="hljs-comment">//Create consumer using accumulated global configuration.</span>
+    m_pKafkaConsumer = RdKafka::Consumer::create(conf, errstr);
+    <span class="hljs-keyword">if</span> (!m_pKafkaConsumer) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;failed to ceate consumer&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;% Created consumer &quot;</span> &lt;&lt; m_pKafkaConsumer-&gt;name() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">delete</span> conf;
+    <span class="hljs-comment">/*&#x521B;&#x5EFA;kafka topic&#x7684;&#x914D;&#x7F6E;*/</span>
+    RdKafka::Conf *tconf = RdKafka::Conf::create(RdKafka::Conf::CONF_TOPIC);
+    <span class="hljs-keyword">if</span> (!tconf) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;RdKafka create topic conf failed&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-keyword">if</span> (tconf-&gt;<span class="hljs-built_in">set</span>(<span class="hljs-string">&quot;auto.offset.reset&quot;</span>, <span class="hljs-string">&quot;smallest&quot;</span>, errstr) != RdKafka::Conf::CONF_OK) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;RdKafka conf set auto.offset.reset failed:&quot;</span> &lt;&lt; errstr.c_str() &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+    <span class="hljs-comment">/*
+    * Create topic handle.
+    */</span>
+    m_pTopic = RdKafka::Topic::create(m_pKafkaConsumer, m_strTopics, tconf, errstr);
+    <span class="hljs-keyword">if</span> (!m_pTopic) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;RdKafka create topic failed :&quot;</span> &lt;&lt; errstr.c_str() &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+    <span class="hljs-keyword">delete</span> tconf;
+    <span class="hljs-comment">/*
+    * Start consumer for topic+partition at start offset
+    */</span>
+    <span class="hljs-comment">//for (int i = 0; i &lt; 10; i++)</span>
+    {
+        RdKafka::ErrorCode resp = m_pKafkaConsumer-&gt;start(m_pTopic, m_nPartition, m_nCurrentOffset);
+        <span class="hljs-keyword">if</span> (resp != RdKafka::ERR_NO_ERROR) {
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;failed to start consumer : &quot;</span> &lt;&lt; errstr.c_str() &lt;&lt; <span class="hljs-built_in">endl</span>;
+        }
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+<span class="hljs-keyword">void</span> KafkaConsumerClient::Msg_consume(RdKafka::Message* message, <span class="hljs-keyword">void</span>* opaque) {
+    (<span class="hljs-keyword">void</span>)(opaque);
+    <span class="hljs-keyword">switch</span> (message-&gt;err()) {
+    <span class="hljs-keyword">case</span> RdKafka::ERR__TIMED_OUT:
+        <span class="hljs-keyword">break</span>;
+
+    <span class="hljs-keyword">case</span> RdKafka::ERR_NO_ERROR:
+        <span class="hljs-comment">/* Real message */</span>
+        <span class="hljs-comment">//std::cout &lt;&lt; &quot;Read msg at offset &quot; &lt;&lt; message-&gt;offset() &lt;&lt; std::endl;</span>
+        <span class="hljs-keyword">if</span> (message-&gt;key()) {
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Key: &quot;</span> &lt;&lt; *message-&gt;key() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        }
+
+        <span class="hljs-comment">//printf(&quot;partition:%d, offset:%ld\n&quot;, message-&gt;partition(), message-&gt;offset());</span>
+        <span class="hljs-comment">//printf(&quot;%.*s\n&quot;, static_cast&lt;int&gt;(message-&gt;len()), static_cast&lt;const char *&gt;(message-&gt;payload()));</span>
+
+        m_nLastOffset = message-&gt;offset();
+
+        ParseJsonMsg(<span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *&gt;(message-&gt;payload()), <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">int</span>&gt;(message-&gt;len()));
+        <span class="hljs-keyword">break</span>;
+
+    <span class="hljs-keyword">case</span> RdKafka::ERR__PARTITION_EOF:
+        <span class="hljs-comment">/* Last message */</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Reached the end of the queue, offset: &quot;</span> &lt;&lt; m_nLastOffset &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-comment">//Stop();</span>
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> RdKafka::ERR__UNKNOWN_TOPIC:
+    <span class="hljs-keyword">case</span> RdKafka::ERR__UNKNOWN_PARTITION:
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Consume failed: &quot;</span> &lt;&lt; message-&gt;errstr() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        Stop();
+        <span class="hljs-keyword">break</span>;
+
+    <span class="hljs-keyword">default</span>:
+        <span class="hljs-comment">/* Errors */</span>
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Consume failed: &quot;</span> &lt;&lt; message-&gt;errstr() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        Stop();
+        <span class="hljs-keyword">break</span>;
+    }
+}
+
+<span class="hljs-keyword">void</span> KafkaConsumerClient::ParseJsonMsg(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *strJsonMsg, <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> len)
+{
+    JSONCPP_STRING errs;
+    Json::Value root;
+    Json::CharReaderBuilder readerBuilder;
+    Json::CharReader *jsonReader = readerBuilder.newCharReader();
+    <span class="hljs-keyword">if</span> (jsonReader-&gt;parse(strJsonMsg, strJsonMsg + len, &amp;root, &amp;errs)) {
+        <span class="hljs-comment">//TODO...</span>
+    }
+
+    <span class="hljs-keyword">delete</span> jsonReader;
+}
+
+<span class="hljs-keyword">void</span> KafkaConsumerClient::Run(<span class="hljs-keyword">int</span> timeout_ms) {
+    RdKafka::Message *msg = <span class="hljs-literal">NULL</span>;
+    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+        <span class="hljs-keyword">if</span>(m_bRun){
+            msg = m_pKafkaConsumer-&gt;consume(m_pTopic, m_nPartition, timeout_ms);
+            Msg_consume(msg, <span class="hljs-literal">NULL</span>);
+            <span class="hljs-keyword">delete</span> msg;
+            m_pKafkaConsumer-&gt;poll(<span class="hljs-number">0</span>);
+        }
+        <span class="hljs-keyword">else</span>{
+            <span class="hljs-keyword">if</span>(m_bQuit) <span class="hljs-keyword">break</span>;
+            sleep(<span class="hljs-number">1</span>);
+        }
+    }
+
+    m_pKafkaConsumer-&gt;stop(m_pTopic, m_nPartition);
+    m_pKafkaConsumer-&gt;poll(<span class="hljs-number">1000</span>);
+
+    <span class="hljs-keyword">if</span> (m_pTopic) {
+        <span class="hljs-keyword">delete</span> m_pTopic;
+        m_pTopic = <span class="hljs-literal">NULL</span>;
+    }
+
+    <span class="hljs-keyword">if</span> (m_pKafkaConsumer) {
+        <span class="hljs-keyword">delete</span> m_pKafkaConsumer;
+        m_pKafkaConsumer = <span class="hljs-literal">NULL</span>;
+    }
+
+    <span class="hljs-comment">/*&#x9500;&#x6BC1;kafka&#x5B9E;&#x4F8B;*/</span> <span class="hljs-comment">//Wait for RdKafka to decommission.</span>
+    RdKafka::wait_destroyed(<span class="hljs-number">5000</span>);
+}
+
+<span class="hljs-keyword">void</span> KafkaConsumerClient::Start()
+{
+    m_bRun = <span class="hljs-literal">true</span>;
+}
+
+<span class="hljs-keyword">void</span> KafkaConsumerClient::Stop()
+{
+    m_bRun = <span class="hljs-literal">false</span>;
+}
+
+<span class="hljs-keyword">bool</span> KafkaConsumerClient::isRun()
+{
+    <span class="hljs-keyword">return</span> m_bRun;
+}
+
+<span class="hljs-keyword">bool</span> KafkaConsumerClient::Quit()
+{
+    Stop();
+    m_bQuit = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+
+<span class="hljs-keyword">uint64_t</span> KafkaConsumerClient::GetLastOffset()
+{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;m_nLastOffset;
+}
+</code></pre>
+<h1 id="maincpp">main.cpp</h1>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;KafkaConsumerClient.h&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    KafkaConsumerClient *KafkaConsumerClient_ = <span class="hljs-keyword">new</span> KafkaConsumerClient(<span class="hljs-string">&quot;192.168.0.1:9092&quot;</span>, <span class="hljs-string">&quot;TEST_TOPIC&quot;</span>, <span class="hljs-string">&quot;0&quot;</span>, <span class="hljs-number">0</span>, RdKafka::Topic::OFFSET_STORED);<span class="hljs-comment">//OFFSET_BEGINNING,OFFSET_END</span>
+    <span class="hljs-keyword">if</span> (!KafkaConsumerClient_-&gt;Init())
+    {
+        <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;kafka server initialize error\n&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    }
+
+    KafkaConsumerClient_-&gt;Run(<span class="hljs-number">1000</span>);
+    KafkaConsumerClient_-&gt;Start();
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="libcurl-down-file.html" class="navigation navigation-prev " aria-label="Previous page: 利用libcurl下载文件">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ParseTLV.html" class="navigation navigation-next " aria-label="Next page: TLV数据格式解析示例">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"librdkafka示例","date":"2021-12-06T16:40:58.000Z","tags":"C/C++","categories":"C/C++","description":"librdkafka消费者示例。","level":"1.2.5","depth":2,"next":{"title":"TLV数据格式解析示例","level":"1.2.6","depth":2,"path":"C++/ParseTLV.md","ref":"C++/ParseTLV.md","articles":[]},"previous":{"title":"利用libcurl下载文件","level":"1.2.4","depth":2,"path":"C++/libcurl-down-file.md","ref":"C++/libcurl-down-file.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"C++/librdkafka-example.md","mtime":"2022-08-24T06:52:10.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-11T01:31:46.461Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

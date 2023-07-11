@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>new内存初始化 · GitBook</title>
+        <title>单实例模板 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="C++利用new申请内存时初始化问题。">
+        <meta name="description" content="C/C++单实例模板。">
         <meta name="generator" content="GitBook 3.2.3">
         
         
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="libcurl-down-file.html" />
+    <link rel="next" href="socket-bind-iface.html" />
     
     
-    <link rel="prev" href="WinCppPowerOnAutoStart.html" />
+    <link rel="prev" href="RabbitMQ-example.html" />
     
 
     </head>
@@ -142,7 +142,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3" data-path="CppNewArrayInit.html">
+        <li class="chapter " data-level="1.2.3" data-path="CppNewArrayInit.html">
             
                 <a href="CppNewArrayInit.html">
             
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.8" data-path="SingletonTemplate.html">
+        <li class="chapter active" data-level="1.2.8" data-path="SingletonTemplate.html">
             
                 <a href="SingletonTemplate.html">
             
@@ -455,7 +455,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >new内存初始化</a>
+        <a href=".." >单实例模板</a>
     </h1>
 </div>
 
@@ -470,36 +470,104 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+                                <pre><code class="lang-c++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">class</span> singleton
+{
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> T* <span class="hljs-title">instance</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">if</span> (instance_ == <span class="hljs-number">0</span>)
+        {
+            lock_.lock();
+            <span class="hljs-keyword">if</span> (instance_ == <span class="hljs-number">0</span>)
+            {
+                instance_ = <span class="hljs-keyword">new</span> T;
+            }
+            lock_.unlock();
+        }
+        <span class="hljs-keyword">return</span> instance_;
+    }
 
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">free</span><span class="hljs-params">()</span>
+    </span>{
+        free_ = <span class="hljs-literal">true</span>;
+        lock_.lock();
+        <span class="hljs-keyword">if</span> (instance_ != <span class="hljs-number">0</span>)
+        {
+            <span class="hljs-keyword">delete</span> instance_;
+            instance_ = <span class="hljs-number">0</span>;
+        }
+        lock_.unlock();
+    }
+
+<span class="hljs-keyword">protected</span>:
+    singleton() {}
+    <span class="hljs-keyword">virtual</span> ~singleton()
+    {
+        <span class="hljs-keyword">if</span> (!free_)
+        {
+            lock_.lock();
+            <span class="hljs-keyword">if</span> (instance_ != <span class="hljs-number">0</span>)
+            {
+                <span class="hljs-keyword">delete</span> instance_;
+                instance_ = <span class="hljs-number">0</span>;
+            }
+            lock_.unlock();
+        }
+    }
+<span class="hljs-keyword">private</span>:
+    singleton(<span class="hljs-keyword">const</span> singleton&amp;);<span class="hljs-comment">// {}</span>
+    singleton&amp; <span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> singleton&amp;);<span class="hljs-comment">// {}</span>
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">static</span> T* instance_;
+    <span class="hljs-keyword">static</span> mutex lock_;
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">bool</span> free_;
+};
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
+T* singleton&lt;T&gt;::instance_ = <span class="hljs-literal">NULL</span>;
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
+mutex singleton&lt;T&gt;::lock_;
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">bool</span> singleton&lt;T&gt;::free_ = <span class="hljs-literal">false</span>;
+</code></pre>
+<p><strong>Example-1:</strong></p>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> MyClass
+{
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Print</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass::Print()&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+};
+
+<span class="hljs-keyword">typedef</span> singleton&lt;MyClass&gt; MyClassSingleton;
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
 </span>{
-    <span class="hljs-keyword">int</span> *arrInu = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">1024</span>];
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> idx = <span class="hljs-number">0</span>; idx &lt; <span class="hljs-number">1024</span>; idx++){
-        arrInu[idx] = idx;
-    }
-    <span class="hljs-keyword">delete</span> []arrInu;
-    arrInu = <span class="hljs-literal">nullptr</span>;
+    MyClassSingleton::instance()-&gt;Print();
 
-    <span class="hljs-comment">//&#x6570;&#x7EC4;&#x4E0D;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x4E3A;0</span>
-    <span class="hljs-keyword">int</span> *arrIno = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">1024</span>];
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> idx = <span class="hljs-number">0</span>; idx &lt; <span class="hljs-number">1024</span>; idx++){
-        <span class="hljs-built_in">cout</span> &lt;&lt; arrIno[idx] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
-    }
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">delete</span> []arrIno;
-    arrIno = <span class="hljs-literal">nullptr</span>;
+    <span class="hljs-comment">//MyClassSingleton::free();</span>
 
-    <span class="hljs-comment">//&#x6570;&#x7EC4;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x4E3A;0</span>
-    <span class="hljs-keyword">int</span> *arrIno0 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">1024</span>]();
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> idx = <span class="hljs-number">0</span>; idx &lt; <span class="hljs-number">1024</span>; idx++){
-        <span class="hljs-built_in">cout</span> &lt;&lt; arrIno0[idx] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p><strong>Example-2:</strong></p>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> MyClass : <span class="hljs-keyword">public</span> singleton&lt;MyClass&gt;
+{
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Print</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;MyClass::Print()&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
     }
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">delete</span> []arrIno0;
-    arrIno0 = <span class="hljs-literal">nullptr</span>;  
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    MyClass::instance()-&gt;Print();
+
+    <span class="hljs-comment">//MyClass::free();</span>
 
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
@@ -531,12 +599,12 @@
 
             
                 
-                <a href="WinCppPowerOnAutoStart.html" class="navigation navigation-prev " aria-label="Previous page: Windows程序开机自启">
+                <a href="RabbitMQ-example.html" class="navigation navigation-prev " aria-label="Previous page: RabbitMQ示例">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="libcurl-down-file.html" class="navigation navigation-next " aria-label="Next page: 利用libcurl下载文件">
+                <a href="socket-bind-iface.html" class="navigation navigation-next " aria-label="Next page: Socket绑定网络接口">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -547,7 +615,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"new内存初始化","date":"2022-08-24T15:08:22.000Z","tags":"C++","categories":"C/C++","description":"C++利用new申请内存时初始化问题。","level":"1.2.3","depth":2,"next":{"title":"利用libcurl下载文件","level":"1.2.4","depth":2,"path":"C++/libcurl-down-file.md","ref":"C++/libcurl-down-file.md","articles":[]},"previous":{"title":"Windows程序开机自启","level":"1.2.2","depth":2,"path":"C++/WinCppPowerOnAutoStart.md","ref":"C++/WinCppPowerOnAutoStart.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"C++/CppNewArrayInit.md","mtime":"2022-08-24T07:15:19.980Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-11T01:31:46.461Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"单实例模板","date":"2022-01-24T19:30:20.000Z","tags":"C/C++","categories":"C/C++","description":"C/C++单实例模板。","level":"1.2.8","depth":2,"next":{"title":"Socket绑定网络接口","level":"1.2.9","depth":2,"path":"C++/socket-bind-iface.md","ref":"C++/socket-bind-iface.md","articles":[]},"previous":{"title":"RabbitMQ示例","level":"1.2.7","depth":2,"path":"C++/RabbitMQ-example.md","ref":"C++/RabbitMQ-example.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"C++/SingletonTemplate.md","mtime":"2022-08-24T06:52:10.383Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-11T01:31:46.461Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
