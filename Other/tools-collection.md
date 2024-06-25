@@ -8,7 +8,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 
 
-# 图吧工具箱
+## 图吧工具箱
 
 > 图拉丁吧是一个名为[图拉丁](https://baike.baidu.com/item/图拉丁/2805463)的[百度贴吧](https://baike.baidu.com/item/百度贴吧/95221)，是一个[DIY](https://baike.baidu.com/item/DIY)爱好者聚集地，简称图吧，其名字起源于一种[CPU核心](https://baike.baidu.com/item/CPU核心)图拉丁。，图吧每月活跃人数74万，会员近26万。
 >
@@ -24,7 +24,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 
 
-# Snipaste
+## Snipaste
 
 > Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上！下载并打开 Snipaste，按下 `F1` 来开始截图，再按 `F3`，截图就在桌面置顶显示了。就这么简单！
 >
@@ -36,7 +36,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 
 
-# TrafficMonitor 
+## TrafficMonitor 
 
 > Traffic Monitor是一款用于Windows平台的网速监控悬浮窗软件，可以显示当前网速、CPU及内存利用率，支持嵌入到任务栏显示，支持更换皮肤、历史流量统计等功能。
 
@@ -46,7 +46,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 
 
-# Everything
+## Everything
 
 > "Everything" 是什么？
 > "Everything" 是 Windows 上一款搜索引擎，它能够基于文件名快速定文件和文件夹位置。
@@ -59,21 +59,21 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 ![](/Resources/005.png)
 
+​    
 
-
-# MobaXterm
+## MobaXterm
 
 > SSH终端神器，各种网络小工具合集：FTP、X-Server、Port Scanner、iperf、TFTP。。。
 
 **网址**：[MobaXterm](https://mobaxterm.mobatek.net/)
 
-<font face="黑体" color=red size=4>**破解补丁**</font>：[MobaXterm-Keygen](https://github.com/mzjdy/MobaXterm-Keygen)
+**破解补丁**：[MobaXtermKeygen](https://inused.github.io/pages/file/tool/MobaXtermKeygen.html)
 
-![](/Resources/006.jpg)
+![MobaXterm](/Resources/006.jpg)
 
+​    
 
-
-# ScreenToGif 
+## ScreenToGif 
 
 > 这个工具允许您记录屏幕上选定的区域，从网络摄像头实时feed或从素描板实时绘图。之后，你可以编辑和保存动画为gif, apng，视频，psd或png图像。
 
@@ -81,21 +81,21 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 ![](/Resources/008.gif)
 
+​    
 
+## Bandicam
 
-# Bandicam
-
-> Bandicam（班迪录屏）一款简单好用的录屏大师，录屏幕，录游戏，录视频的功能强大的屏幕录像软件，比起其他软件其性能更加卓越。与其他软件相比，用Bandicam录制的视频大小更小，不仅保证原文件的质量。<font color=red>下载免费版，可录制时间最长为10分钟，录制视频打上`www.BANDICAM.com`水印。购买Bandicam授权，能够永久使用无功能限制的正式版。</font>
+> Bandicam（班迪录屏）一款简单好用的录屏大师，录屏幕，录游戏，录视频的功能强大的屏幕录像软件，比起其他软件其性能更加卓越。与其他软件相比，用Bandicam录制的视频大小更小，不仅保证原文件的质量。<font color=red>下载免费版，可录制时间最长为10分钟，录制视频打上`www.BANDICAM.com`水印。购买Bandicam授权，能够永久使用无功能限制的正式版。</font> 
 >
-> <font face="黑体" color=red size=3>**注：如需破解版，请自行百度/谷歌。**</font>
+> **注：如需破解版，请自行百度/谷歌。**
 
 **网址**：[Bandicam](https://www.bandicam.cn/)    
 
 ![](/Resources/007.jpg)
 
+​    
 
-
-# Typora
+## Typora
 
 > Typora是一款由Abner Lee开发的轻量级Markdown编辑器，适用于OS X、Windows和Linux三种操作系统。与其他Markdown编辑器不同的是，Typora没有采用源代码和预览双栏显示的方式，而是采用所见即所得的编辑方式，实现了即时预览的功能，但也可切换至源代码编辑模式。
 > Typora于2021年11月23日起发布1.0版本，开始成为收费软件，售价14.99美元。
@@ -111,7 +111,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 
 
-# VeryCapture
+## VeryCapture
 
 >   VeryCapture是一款综合性的截图工具，起因某次截图不想打开聊天工具，发现其他截图工具，没有 很好支持二次编辑，于是VeryCapture诞生了，希望也能在工作生活中帮到你。
 >
@@ -124,7 +124,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 
 
-# EV录屏
+## EV录屏
 >   EV录屏软件 [1]是一款非常好用的桌面视频录制软件，这款软件可以帮助用户轻松的录制电脑屏幕，并且功能全免费无水印，是一款非常好用的桌面视频录制软件。由湖南一唯信息科技有限公司开发制作。
 
 -   支持添加“文字水印”和“图片水印”；
