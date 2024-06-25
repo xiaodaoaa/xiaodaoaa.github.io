@@ -1,0 +1,788 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ExpiringMap示例 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ThreadPoolTaskExecutorExample1.html" />
+    
+    
+    <link rel="prev" href="ScheduleTaskExample.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="ScheduleTaskExample.html">
+            
+                <a href="ScheduleTaskExample.html">
+            
+                    
+                    Schedule定时任务示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="ExpiringMapExample.html">
+            
+                <a href="ExpiringMapExample.html">
+            
+                    
+                    ExpiringMap示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="ThreadPoolTaskExecutorExample1.html">
+            
+                <a href="ThreadPoolTaskExecutorExample1.html">
+            
+                    
+                    ThreadPoolTaskExecutor使用示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="ThreadPoolTaskExecutorExample2.html">
+            
+                <a href="ThreadPoolTaskExecutorExample2.html">
+            
+                    
+                    ThreadPoolTaskExecutor-Async使用示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../C++/">
+            
+                <a href="../C++/">
+            
+                    
+                    C++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../C++/Cpp11-Demo.html">
+            
+                <a href="../C++/Cpp11-Demo.html">
+            
+                    
+                    C++11 示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../C++/WinCppPowerOnAutoStart.html">
+            
+                <a href="../C++/WinCppPowerOnAutoStart.html">
+            
+                    
+                    Windows程序开机自启
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../C++/CppNewArrayInit.html">
+            
+                <a href="../C++/CppNewArrayInit.html">
+            
+                    
+                    new内存初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../C++/libcurl-down-file.html">
+            
+                <a href="../C++/libcurl-down-file.html">
+            
+                    
+                    利用libcurl下载文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../C++/librdkafka-example.html">
+            
+                <a href="../C++/librdkafka-example.html">
+            
+                    
+                    librdkafka示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../C++/ParseTLV.html">
+            
+                <a href="../C++/ParseTLV.html">
+            
+                    
+                    TLV数据格式解析示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../C++/RabbitMQ-example.html">
+            
+                <a href="../C++/RabbitMQ-example.html">
+            
+                    
+                    RabbitMQ示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../C++/SingletonTemplate.html">
+            
+                <a href="../C++/SingletonTemplate.html">
+            
+                    
+                    单实例模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../C++/socket-bind-iface.html">
+            
+                <a href="../C++/socket-bind-iface.html">
+            
+                    
+                    Socket绑定网络接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../C++/spdlog-examples.html">
+            
+                <a href="../C++/spdlog-examples.html">
+            
+                    
+                    Spdlog示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Qt5/">
+            
+                <a href="../Qt5/">
+            
+                    
+                    Qt5
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Qt5/GridLayout.html">
+            
+                <a href="../Qt5/GridLayout.html">
+            
+                    
+                    网格示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Linux/">
+            
+                <a href="../Linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Linux/CMakeListTemplate.html">
+            
+                <a href="../Linux/CMakeListTemplate.html">
+            
+                    
+                    CMakeLists基础通用模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Linux/LibraryRpath.html">
+            
+                <a href="../Linux/LibraryRpath.html">
+            
+                    
+                    动态库加载路径设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Linux/ssh-key-copy.html">
+            
+                <a href="../Linux/ssh-key-copy.html">
+            
+                    
+                    SSH免密登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../Linux/tcpsock-reuseport.html">
+            
+                <a href="../Linux/tcpsock-reuseport.html">
+            
+                    
+                    Linux TCP套接字地址复用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Other/">
+            
+                <a href="../Other/">
+            
+                    
+                    Other
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Other/GuoHomeLetter.html">
+            
+                <a href="../Other/GuoHomeLetter.html">
+            
+                    
+                    郭德纲家书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Other/ChickenSoup.html">
+            
+                <a href="../Other/ChickenSoup.html">
+            
+                    
+                    毒鸡汤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Other/Tiandao-Wu.html">
+            
+                <a href="../Other/Tiandao-Wu.html">
+            
+                    
+                    天道·悟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Other/tools-collection.html">
+            
+                <a href="../Other/tools-collection.html">
+            
+                    
+                    实用小工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Other/MyPicture.html">
+            
+                <a href="../Other/MyPicture.html">
+            
+                    
+                    图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >ExpiringMap示例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>ExpiringMap &#x662F;&#x4E00;&#x4E2A; Java &#x5E93;&#xFF0C;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x81EA;&#x52A8;&#x8FC7;&#x671F;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x96C6;&#x5408;&#x3002;&#x5B83;&#x652F;&#x6301;&#x57FA;&#x4E8E;&#x65F6;&#x95F4;&#x7684;&#x6761;&#x76EE;&#x8FC7;&#x671F;&#xFF0C;&#x5E76;&#x4E14;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x6BD4;&#x5982;&#x8FC7;&#x671F;&#x56DE;&#x8C03;&#x548C;&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x671F;&#x7B56;&#x7565;&#x3002;&#x4EE5;&#x4E0B;&#x662F;&#x4E00;&#x4E2A;&#x8BE6;&#x7EC6;&#x7684; ExpiringMap &#x793A;&#x4F8B;&#xFF0C;&#x5C55;&#x793A;&#x4E86;&#x5B83;&#x7684;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#x53CA;&#x5176;&#x7279;&#x6027;&#x3002;</p>
+<h3 id="1-&#x5F15;&#x5165;-expiringmap-&#x5E93;">1. &#x5F15;&#x5165; ExpiringMap &#x5E93;</h3>
+<p>&#x9996;&#x5148;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x5F15;&#x5165; ExpiringMap &#x5E93;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; Maven &#x6216; Gradle &#x8FDB;&#x884C;&#x4F9D;&#x8D56;&#x7BA1;&#x7406;&#x3002;</p>
+<h4 id="maven">Maven</h4>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>net.jodah<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>expiringmap<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.5.9<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<h4 id="gradle">Gradle</h4>
+<pre><code class="lang-groovy">implementation <span class="hljs-string">&apos;net.jodah:expiringmap:0.5.9&apos;</span>
+</code></pre>
+<h3 id="2-&#x521B;&#x5EFA;&#x4E00;&#x4E2A;-expiringmap">2. &#x521B;&#x5EFA;&#x4E00;&#x4E2A; ExpiringMap</h3>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x793A;&#x4F8B;&#xFF0C;&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x548C;&#x4F7F;&#x7528; ExpiringMap&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> net.jodah.expiringmap.ExpiringMap;
+<span class="hljs-keyword">import</span> java.util.concurrent.TimeUnit;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExpiringMapExample</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A; ExpiringMap &#x5B9E;&#x4F8B;&#xFF0C;&#x8BBE;&#x7F6E;&#x6761;&#x76EE;&#x5728; 5 &#x79D2;&#x540E;&#x8FC7;&#x671F;</span>
+        ExpiringMap&lt;String, String&gt; map = ExpiringMap.builder()
+                                                     .expiration(<span class="hljs-number">5</span>, TimeUnit.SECONDS)
+                                                     .build();
+
+        <span class="hljs-comment">// &#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x6761;&#x76EE;</span>
+        map.put(<span class="hljs-string">&quot;key1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>);
+        map.put(<span class="hljs-string">&quot;key2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>);
+
+        <span class="hljs-comment">// &#x6253;&#x5370;&#x5F53;&#x524D; map &#x5185;&#x5BB9;</span>
+        System.out.println(<span class="hljs-string">&quot;Initial map: &quot;</span> + map);
+
+        <span class="hljs-comment">// &#x7B49;&#x5F85; 6 &#x79D2;&#xFF0C;&#x8D85;&#x8FC7;&#x6761;&#x76EE;&#x8FC7;&#x671F;&#x65F6;&#x95F4;</span>
+        Thread.sleep(<span class="hljs-number">6000</span>);
+
+        <span class="hljs-comment">// &#x6253;&#x5370; map &#x5185;&#x5BB9;&#xFF0C;&#x68C0;&#x67E5;&#x6761;&#x76EE;&#x662F;&#x5426;&#x8FC7;&#x671F;</span>
+        System.out.println(<span class="hljs-string">&quot;Map after 6 seconds: &quot;</span> + map);
+    }
+}
+</code></pre>
+<h3 id="3-&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;">3. &#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;</h3>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x4E2A;&#x6761;&#x76EE;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> net.jodah.expiringmap.ExpiringMap;
+<span class="hljs-keyword">import</span> java.util.concurrent.TimeUnit;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExpiringMapExample</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        ExpiringMap&lt;String, String&gt; map = ExpiringMap.builder()
+                                                     .expiration(<span class="hljs-number">10</span>, TimeUnit.SECONDS)
+                                                     .build();
+
+        <span class="hljs-comment">// &#x4E3A;&#x6BCF;&#x4E2A;&#x6761;&#x76EE;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;</span>
+        map.put(<span class="hljs-string">&quot;key1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>, <span class="hljs-number">5</span>, TimeUnit.SECONDS);
+        map.put(<span class="hljs-string">&quot;key2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>, <span class="hljs-number">10</span>, TimeUnit.SECONDS);
+
+        <span class="hljs-comment">// &#x6253;&#x5370;&#x5F53;&#x524D; map &#x5185;&#x5BB9;</span>
+        System.out.println(<span class="hljs-string">&quot;Initial map: &quot;</span> + map);
+
+        <span class="hljs-comment">// &#x7B49;&#x5F85; 6 &#x79D2;</span>
+        Thread.sleep(<span class="hljs-number">6000</span>);
+
+        <span class="hljs-comment">// &#x6253;&#x5370; map &#x5185;&#x5BB9;&#xFF0C;&#x68C0;&#x67E5;&#x6761;&#x76EE;&#x662F;&#x5426;&#x8FC7;&#x671F;</span>
+        System.out.println(<span class="hljs-string">&quot;Map after 6 seconds: &quot;</span> + map);
+
+        <span class="hljs-comment">// &#x7B49;&#x5F85;&#x518D; 5 &#x79D2;</span>
+        Thread.sleep(<span class="hljs-number">5000</span>);
+
+        <span class="hljs-comment">// &#x6253;&#x5370; map &#x5185;&#x5BB9;&#xFF0C;&#x68C0;&#x67E5;&#x6761;&#x76EE;&#x662F;&#x5426;&#x8FC7;&#x671F;</span>
+        System.out.println(<span class="hljs-string">&quot;Map after 11 seconds: &quot;</span> + map);
+    }
+}
+</code></pre>
+<h3 id="4-&#x8FC7;&#x671F;&#x56DE;&#x8C03;">4. &#x8FC7;&#x671F;&#x56DE;&#x8C03;</h3>
+<p>ExpiringMap &#x5141;&#x8BB8;&#x4F60;&#x5728;&#x6761;&#x76EE;&#x8FC7;&#x671F;&#x65F6;&#x6267;&#x884C;&#x56DE;&#x8C03;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> net.jodah.expiringmap.ExpiringMap;
+<span class="hljs-keyword">import</span> net.jodah.expiringmap.ExpirationListener;
+<span class="hljs-keyword">import</span> java.util.concurrent.TimeUnit;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExpiringMapExample</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x8FC7;&#x671F;&#x76D1;&#x542C;&#x5668;&#x7684; ExpiringMap</span>
+        ExpiringMap&lt;String, String&gt; map = ExpiringMap.builder()
+                                                     .expiration(<span class="hljs-number">5</span>, TimeUnit.SECONDS)
+                                                     .expirationListener(<span class="hljs-keyword">new</span> ExpirationListener&lt;String, String&gt;() {
+                                                         <span class="hljs-meta">@Override</span>
+                                                         <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">expired</span><span class="hljs-params">(String key, String value)</span> </span>{
+                                                             System.out.println(<span class="hljs-string">&quot;Expired: &quot;</span> + key + <span class="hljs-string">&quot; =&gt; &quot;</span> + value);
+                                                         }
+                                                     })
+                                                     .build();
+
+        <span class="hljs-comment">// &#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x6761;&#x76EE;</span>
+        map.put(<span class="hljs-string">&quot;key1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>);
+        map.put(<span class="hljs-string">&quot;key2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>);
+
+        <span class="hljs-comment">// &#x6253;&#x5370;&#x5F53;&#x524D; map &#x5185;&#x5BB9;</span>
+        System.out.println(<span class="hljs-string">&quot;Initial map: &quot;</span> + map);
+
+        <span class="hljs-comment">// &#x7B49;&#x5F85; 6 &#x79D2;&#xFF0C;&#x8D85;&#x8FC7;&#x6761;&#x76EE;&#x8FC7;&#x671F;&#x65F6;&#x95F4;</span>
+        Thread.sleep(<span class="hljs-number">6000</span>);
+
+        <span class="hljs-comment">// &#x6253;&#x5370; map &#x5185;&#x5BB9;&#xFF0C;&#x68C0;&#x67E5;&#x6761;&#x76EE;&#x662F;&#x5426;&#x8FC7;&#x671F;</span>
+        System.out.println(<span class="hljs-string">&quot;Map after 6 seconds: &quot;</span> + map);
+    }
+}
+</code></pre>
+<h3 id="5-&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x671F;&#x7B56;&#x7565;">5. &#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x671F;&#x7B56;&#x7565;</h3>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x8FC7;&#x671F;&#x7B56;&#x7565;&#xFF0C;&#x4F8B;&#x5982;&#x8BBF;&#x95EE;&#x540E;&#x8FC7;&#x671F;&#x6216;&#x521B;&#x5EFA;&#x540E;&#x8FC7;&#x671F;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> net.jodah.expiringmap.ExpiringMap;
+<span class="hljs-keyword">import</span> net.jodah.expiringmap.ExpirationPolicy;
+<span class="hljs-keyword">import</span> java.util.concurrent.TimeUnit;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExpiringMapExample</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A; ExpiringMap &#x5B9E;&#x4F8B;&#xFF0C;&#x8BBE;&#x7F6E;&#x6761;&#x76EE;&#x5728; 5 &#x79D2;&#x540E;&#x8BBF;&#x95EE;&#x8FC7;&#x671F;</span>
+        ExpiringMap&lt;String, String&gt; map = ExpiringMap.builder()
+                                                     .expiration(<span class="hljs-number">5</span>, TimeUnit.SECONDS)
+                                                     .expirationPolicy(ExpirationPolicy.ACCESSED)
+                                                     .build();
+
+        <span class="hljs-comment">// &#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x6761;&#x76EE;</span>
+        map.put(<span class="hljs-string">&quot;key1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>);
+        map.put(<span class="hljs-string">&quot;key2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>);
+
+        <span class="hljs-comment">// &#x6253;&#x5370;&#x5F53;&#x524D; map &#x5185;&#x5BB9;</span>
+        System.out.println(<span class="hljs-string">&quot;Initial map: &quot;</span> + map);
+
+        <span class="hljs-comment">// &#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x6761;&#x76EE;&#xFF0C;&#x5EF6;&#x957F;&#x5176;&#x8FC7;&#x671F;&#x65F6;&#x95F4;</span>
+        map.get(<span class="hljs-string">&quot;key1&quot;</span>);
+
+        <span class="hljs-comment">// &#x7B49;&#x5F85; 4 &#x79D2;</span>
+        Thread.sleep(<span class="hljs-number">4000</span>);
+
+        <span class="hljs-comment">// &#x6253;&#x5370; map &#x5185;&#x5BB9;&#xFF0C;&#x68C0;&#x67E5;&#x6761;&#x76EE;&#x662F;&#x5426;&#x8FC7;&#x671F;</span>
+        System.out.println(<span class="hljs-string">&quot;Map after 4 seconds: &quot;</span> + map);
+
+        <span class="hljs-comment">// &#x518D;&#x7B49;&#x5F85; 2 &#x79D2;</span>
+        Thread.sleep(<span class="hljs-number">2000</span>);
+
+        <span class="hljs-comment">// &#x6253;&#x5370; map &#x5185;&#x5BB9;&#xFF0C;&#x68C0;&#x67E5;&#x6761;&#x76EE;&#x662F;&#x5426;&#x8FC7;&#x671F;</span>
+        System.out.println(<span class="hljs-string">&quot;Map after 6 seconds: &quot;</span> + map);
+    }
+}
+</code></pre>
+<p><code>ExpirationPolicy.ACCESSED</code> &#x662F; ExpiringMap &#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x79CD;&#x8FC7;&#x671F;&#x7B56;&#x7565;&#x3002;&#x5B83;&#x7684;&#x542B;&#x4E49;&#x662F;&#xFF1A;&#x6761;&#x76EE;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x4F1A;&#x5728;&#x6BCF;&#x6B21;&#x8BBF;&#x95EE;&#xFF08;&#x8BFB;&#x53D6;&#xFF09;&#x65F6;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x8BBF;&#x95EE;&#x4E86;&#x67D0;&#x4E2A;&#x6761;&#x76EE;&#xFF0C;&#x5B83;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x4F1A;&#x88AB;&#x5EF6;&#x957F;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x201C;&#x5237;&#x65B0;&#x201D;&#x4E86;&#x5B83;&#x7684;&#x5B58;&#x5728;&#x65F6;&#x95F4;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x6765;&#x8BF4;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x6761;&#x76EE;&#x88AB;&#x653E;&#x5165; <code>ExpiringMap</code> &#x65F6;&#xFF0C;&#x521D;&#x59CB;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x3002;&#x5982;&#x679C;&#x5728;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x5230;&#x8FBE;&#x4E4B;&#x524D;&#xFF0C;&#x8BE5;&#x6761;&#x76EE;&#x88AB;&#x8BBF;&#x95EE;&#xFF08;&#x901A;&#x8FC7; <code>get</code> &#x65B9;&#x6CD5;&#x8BFB;&#x53D6;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x4F1A;&#x88AB;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#xFF0C;&#x4ECE;&#x8BBF;&#x95EE;&#x7684;&#x65F6;&#x523B;&#x5F00;&#x59CB;&#x91CD;&#x65B0;&#x8BA1;&#x65F6;&#x3002;&#x8FD9;&#x79CD;&#x7B56;&#x7565;&#x5728;&#x67D0;&#x4E9B;&#x573A;&#x666F;&#x4E0B;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x4F8B;&#x5982;&#x5B9E;&#x73B0;&#x5E26;&#x6709;&#x81EA;&#x52A8;&#x7EED;&#x671F;&#x529F;&#x80FD;&#x7684;&#x7F13;&#x5B58;&#x3002;</p>
+<h3 id="&#x7ED3;&#x8BBA;">&#x7ED3;&#x8BBA;</h3>
+<p>ExpiringMap &#x662F;&#x4E00;&#x4E2A;&#x5F3A;&#x5927;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x5730;&#x7BA1;&#x7406;&#x5E26;&#x6709;&#x81EA;&#x52A8;&#x8FC7;&#x671F;&#x529F;&#x80FD;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x96C6;&#x5408;&#x3002;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x7075;&#x6D3B;&#x7684;&#x914D;&#x7F6E;&#x9009;&#x9879;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x8FC7;&#x671F;&#x7B56;&#x7565;&#x548C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x5404;&#x79CD;&#x573A;&#x666F;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ScheduleTaskExample.html" class="navigation navigation-prev " aria-label="Previous page: Schedule定时任务示例">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ThreadPoolTaskExecutorExample1.html" class="navigation navigation-next " aria-label="Next page: ThreadPoolTaskExecutor使用示例">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ExpiringMap示例","level":"1.2.2","depth":2,"next":{"title":"ThreadPoolTaskExecutor使用示例","level":"1.2.3","depth":2,"path":"Java/ThreadPoolTaskExecutorExample1.md","ref":"Java/ThreadPoolTaskExecutorExample1.md","articles":[]},"previous":{"title":"Schedule定时任务示例","level":"1.2.1","depth":2,"path":"Java/ScheduleTaskExample.md","ref":"Java/ScheduleTaskExample.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Java/ExpiringMapExample.md","mtime":"2024-06-25T08:44:53.036Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-25T08:45:00.198Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
