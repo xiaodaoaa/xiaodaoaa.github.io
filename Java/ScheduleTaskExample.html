@@ -1,0 +1,746 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Schedule定时任务示例 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ThreadPoolTaskExecutorExample1.html" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="ScheduleTaskExample.html">
+            
+                <a href="ScheduleTaskExample.html">
+            
+                    
+                    Schedule定时任务示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="ThreadPoolTaskExecutorExample1.html">
+            
+                <a href="ThreadPoolTaskExecutorExample1.html">
+            
+                    
+                    ThreadPoolTaskExecutor使用示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="ThreadPoolTaskExecutorExample2.html">
+            
+                <a href="ThreadPoolTaskExecutorExample2.html">
+            
+                    
+                    ThreadPoolTaskExecutor-Async使用示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../C++/">
+            
+                <a href="../C++/">
+            
+                    
+                    C++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../C++/Cpp11-Demo.html">
+            
+                <a href="../C++/Cpp11-Demo.html">
+            
+                    
+                    C++11 示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../C++/WinCppPowerOnAutoStart.html">
+            
+                <a href="../C++/WinCppPowerOnAutoStart.html">
+            
+                    
+                    Windows程序开机自启
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../C++/CppNewArrayInit.html">
+            
+                <a href="../C++/CppNewArrayInit.html">
+            
+                    
+                    new内存初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../C++/libcurl-down-file.html">
+            
+                <a href="../C++/libcurl-down-file.html">
+            
+                    
+                    利用libcurl下载文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../C++/librdkafka-example.html">
+            
+                <a href="../C++/librdkafka-example.html">
+            
+                    
+                    librdkafka示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../C++/ParseTLV.html">
+            
+                <a href="../C++/ParseTLV.html">
+            
+                    
+                    TLV数据格式解析示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../C++/RabbitMQ-example.html">
+            
+                <a href="../C++/RabbitMQ-example.html">
+            
+                    
+                    RabbitMQ示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../C++/SingletonTemplate.html">
+            
+                <a href="../C++/SingletonTemplate.html">
+            
+                    
+                    单实例模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../C++/socket-bind-iface.html">
+            
+                <a href="../C++/socket-bind-iface.html">
+            
+                    
+                    Socket绑定网络接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../C++/spdlog-examples.html">
+            
+                <a href="../C++/spdlog-examples.html">
+            
+                    
+                    Spdlog示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Qt5/">
+            
+                <a href="../Qt5/">
+            
+                    
+                    Qt5
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Qt5/GridLayout.html">
+            
+                <a href="../Qt5/GridLayout.html">
+            
+                    
+                    网格示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Linux/">
+            
+                <a href="../Linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Linux/CMakeListTemplate.html">
+            
+                <a href="../Linux/CMakeListTemplate.html">
+            
+                    
+                    CMakeLists基础通用模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Linux/LibraryRpath.html">
+            
+                <a href="../Linux/LibraryRpath.html">
+            
+                    
+                    动态库加载路径设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Linux/ssh-key-copy.html">
+            
+                <a href="../Linux/ssh-key-copy.html">
+            
+                    
+                    SSH免密登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../Linux/tcpsock-reuseport.html">
+            
+                <a href="../Linux/tcpsock-reuseport.html">
+            
+                    
+                    Linux TCP套接字地址复用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Other/">
+            
+                <a href="../Other/">
+            
+                    
+                    Other
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Other/GuoHomeLetter.html">
+            
+                <a href="../Other/GuoHomeLetter.html">
+            
+                    
+                    郭德纲家书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Other/ChickenSoup.html">
+            
+                <a href="../Other/ChickenSoup.html">
+            
+                    
+                    毒鸡汤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Other/Tiandao-Wu.html">
+            
+                <a href="../Other/Tiandao-Wu.html">
+            
+                    
+                    天道·悟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Other/tools-collection.html">
+            
+                <a href="../Other/tools-collection.html">
+            
+                    
+                    实用小工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Other/MyPicture.html">
+            
+                <a href="../Other/MyPicture.html">
+            
+                    
+                    图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Schedule定时任务示例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x5728; Java &#x4E2D;&#xFF0C;<code>@Scheduled</code> &#x662F;&#x4E00;&#x4E2A;&#x6CE8;&#x89E3;&#xFF0C;&#x7528;&#x4E8E;&#x5728; Spring &#x6846;&#x67B6;&#x4E2D;&#x914D;&#x7F6E;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x5728;&#x7279;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x6216;&#x7279;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x70B9;&#x6267;&#x884C;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;<code>@Scheduled</code> &#x6CE8;&#x89E3;&#x901A;&#x5E38;&#x548C; <code>@EnableScheduling</code> &#x6CE8;&#x89E3;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x4EE5;&#x542F;&#x7528; Spring &#x7684;&#x8C03;&#x5EA6;&#x529F;&#x80FD;&#x3002;</p>
+<h3 id="1-&#x57FA;&#x672C;&#x4F7F;&#x7528;">1. &#x57FA;&#x672C;&#x4F7F;&#x7528;</h3>
+<h4 id="11-&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;">1.1 &#x6DFB;&#x52A0;&#x4F9D;&#x8D56;</h4>
+<p>&#x786E;&#x4FDD;&#x4F60;&#x7684; Spring &#x9879;&#x76EE;&#x4E2D;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x4F9D;&#x8D56;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<h4 id="12-&#x542F;&#x7528;&#x8C03;&#x5EA6;&#x529F;&#x80FD;">1.2 &#x542F;&#x7528;&#x8C03;&#x5EA6;&#x529F;&#x80FD;</h4>
+<p>&#x5728;&#x4F60;&#x7684;&#x914D;&#x7F6E;&#x7C7B;&#x6216;&#x542F;&#x52A8;&#x7C7B;&#x4E2D;&#x6DFB;&#x52A0; <code>@EnableScheduling</code> &#x6CE8;&#x89E3;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;
+<span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+<span class="hljs-keyword">import</span> org.springframework.scheduling.annotation.EnableScheduling;
+
+<span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-meta">@EnableScheduling</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyApplication</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        SpringApplication.run(MyApplication.class, args);
+    }
+}
+</code></pre>
+<h4 id="13-&#x4F7F;&#x7528;-scheduled-&#x6CE8;&#x89E3;">1.3 &#x4F7F;&#x7528; <code>@Scheduled</code> &#x6CE8;&#x89E3;</h4>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E26;&#x6709; <code>@Scheduled</code> &#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> org.springframework.scheduling.annotation.Scheduled;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Component;
+
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScheduledTasks</span> </span>{
+
+    <span class="hljs-meta">@Scheduled</span>(fixedRate = <span class="hljs-number">5000</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">reportCurrentTime</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Current Time: &quot;</span> + System.currentTimeMillis());
+    }
+}
+</code></pre>
+<h3 id="2-scheduled-&#x6CE8;&#x89E3;&#x7684;&#x53C2;&#x6570;">2. <code>@Scheduled</code> &#x6CE8;&#x89E3;&#x7684;&#x53C2;&#x6570;</h3>
+<p><code>@Scheduled</code> &#x6CE8;&#x89E3;&#x63D0;&#x4F9B;&#x4E86;&#x591A;&#x79CD;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x6216;&#x95F4;&#x9694;&#xFF1A;</p>
+<h4 id="21-fixedrate">2.1 <code>fixedRate</code></h4>
+<p><code>fixedRate</code> &#x8868;&#x793A;&#x4EFB;&#x52A1;&#x4EE5;&#x56FA;&#x5B9A;&#x7684;&#x9891;&#x7387;&#x6267;&#x884C;&#xFF0C;&#x5355;&#x4F4D;&#x4E3A;&#x6BEB;&#x79D2;&#x3002;&#x4E0A;&#x4E00;&#x6B21;&#x4EFB;&#x52A1;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x548C;&#x4E0B;&#x4E00;&#x6B21;&#x4EFB;&#x52A1;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x4E4B;&#x95F4;&#x7684;&#x95F4;&#x9694;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Scheduled</span>(fixedRate = <span class="hljs-number">5000</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fixedRateTask</span><span class="hljs-params">()</span> </span>{
+    System.out.println(<span class="hljs-string">&quot;Fixed rate task - &quot;</span> + System.currentTimeMillis());
+}
+</code></pre>
+<h4 id="22-fixeddelay">2.2 <code>fixedDelay</code></h4>
+<p><code>fixedDelay</code> &#x8868;&#x793A;&#x4EFB;&#x52A1;&#x5728;&#x524D;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x5EF6;&#x8FDF;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x540E;&#x518D;&#x6267;&#x884C;&#xFF0C;&#x5355;&#x4F4D;&#x4E3A;&#x6BEB;&#x79D2;&#x3002;&#x4E0A;&#x4E00;&#x6B21;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x7684;&#x65F6;&#x95F4;&#x548C;&#x4E0B;&#x4E00;&#x6B21;&#x4EFB;&#x52A1;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x4E4B;&#x95F4;&#x7684;&#x95F4;&#x9694;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Scheduled</span>(fixedDelay = <span class="hljs-number">5000</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fixedDelayTask</span><span class="hljs-params">()</span> </span>{
+    System.out.println(<span class="hljs-string">&quot;Fixed delay task - &quot;</span> + System.currentTimeMillis());
+}
+</code></pre>
+<h4 id="23-initialdelay">2.3 <code>initialDelay</code></h4>
+<p><code>initialDelay</code> &#x8868;&#x793A;&#x4EFB;&#x52A1;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x524D;&#x7684;&#x5EF6;&#x8FDF;&#x65F6;&#x95F4;&#xFF0C;&#x5355;&#x4F4D;&#x4E3A;&#x6BEB;&#x79D2;&#x3002;&#x901A;&#x5E38;&#x548C; <code>fixedRate</code> &#x6216; <code>fixedDelay</code> &#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Scheduled</span>(fixedRate = <span class="hljs-number">5000</span>, initialDelay = <span class="hljs-number">10000</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initialDelayTask</span><span class="hljs-params">()</span> </span>{
+    System.out.println(<span class="hljs-string">&quot;Initial delay task - &quot;</span> + System.currentTimeMillis());
+}
+</code></pre>
+<h4 id="24-cron">2.4 <code>cron</code></h4>
+<p><code>cron</code> &#x8868;&#x793A;&#x4EFB;&#x52A1;&#x6839;&#x636E; Cron &#x8868;&#x8FBE;&#x5F0F;&#x6267;&#x884C;&#x3002;Cron &#x8868;&#x8FBE;&#x5F0F;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#xFF0C;&#x53EF;&#x4EE5;&#x7CBE;&#x786E;&#x5230;&#x79D2;&#x7EA7;&#x522B;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Scheduled</span>(cron = <span class="hljs-string">&quot;0 * * * * *&quot;</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cronTask</span><span class="hljs-params">()</span> </span>{
+    System.out.println(<span class="hljs-string">&quot;Cron task - &quot;</span> + System.currentTimeMillis());
+}
+</code></pre>
+<p>Cron &#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x683C;&#x5F0F;&#x4E3A;&#xFF1A;<code>&#x79D2; &#x5206; &#x5C0F;&#x65F6; &#x65E5; &#x6708; &#x661F;&#x671F; [&#x5E74;]</code>&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<ul>
+<li><code>&quot;0 0 12 * * ?&quot;</code>: &#x6BCF;&#x5929;&#x4E2D;&#x5348;12&#x70B9;&#x89E6;&#x53D1;</li>
+<li><code>&quot;0 15 10 * * ?&quot;</code>: &#x6BCF;&#x5929;&#x4E0A;&#x5348;10:15&#x89E6;&#x53D1;</li>
+<li><code>&quot;0 0/5 14 * * ?&quot;</code>: &#x6BCF;&#x5929;&#x4E0B;&#x5348;2&#x70B9;&#x5230;2:55&#x4E4B;&#x95F4;&#x6BCF;5&#x5206;&#x949F;&#x89E6;&#x53D1;</li>
+</ul>
+<h3 id="3-&#x5B8C;&#x6574;&#x793A;&#x4F8B;">3. &#x5B8C;&#x6574;&#x793A;&#x4F8B;</h3>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684; Spring Boot &#x5E94;&#x7528;&#x793A;&#x4F8B;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x4E86; <code>@Scheduled</code> &#x6CE8;&#x89E3;&#x7684;&#x5404;&#x79CD;&#x7528;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;
+<span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+<span class="hljs-keyword">import</span> org.springframework.scheduling.annotation.EnableScheduling;
+<span class="hljs-keyword">import</span> org.springframework.scheduling.annotation.Scheduled;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Component;
+
+<span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-meta">@EnableScheduling</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyApplication</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        SpringApplication.run(MyApplication.class, args);
+    }
+}
+
+<span class="hljs-meta">@Component</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScheduledTasks</span> </span>{
+
+    <span class="hljs-meta">@Scheduled</span>(fixedRate = <span class="hljs-number">5000</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fixedRateTask</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Fixed rate task - &quot;</span> + System.currentTimeMillis());
+    }
+
+    <span class="hljs-meta">@Scheduled</span>(fixedDelay = <span class="hljs-number">5000</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fixedDelayTask</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Fixed delay task - &quot;</span> + System.currentTimeMillis());
+    }
+
+    <span class="hljs-meta">@Scheduled</span>(fixedRate = <span class="hljs-number">5000</span>, initialDelay = <span class="hljs-number">10000</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initialDelayTask</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Initial delay task - &quot;</span> + System.currentTimeMillis());
+    }
+
+    <span class="hljs-meta">@Scheduled</span>(cron = <span class="hljs-string">&quot;0 * * * * *&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cronTask</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Cron task - &quot;</span> + System.currentTimeMillis());
+    }
+}
+</code></pre>
+<h3 id="&#x7ED3;&#x8BBA;">&#x7ED3;&#x8BBA;</h3>
+<p>&#x901A;&#x8FC7; <code>@Scheduled</code> &#x6CE8;&#x89E3;&#xFF0C;Spring &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x7B80;&#x6D01;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x914D;&#x7F6E;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x9009;&#x62E9;&#x4E0D;&#x540C;&#x7684;&#x53C2;&#x6570;&#x6765;&#x63A7;&#x5236;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x548C;&#x9891;&#x7387;&#x3002;&#x6CE8;&#x610F;&#xFF0C;<code>@Scheduled</code> &#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x6CD5;&#x4E0D;&#x80FD;&#x6709;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x5E94;&#x4E3A; <code>void</code>&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x4E3A;&#x4E86;&#x786E;&#x4FDD;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#xFF0C;&#x5EFA;&#x8BAE;&#x5728;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#x5904;&#x7406;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x7684;&#x5F02;&#x5E38;&#x60C5;&#x51B5;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Java">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ThreadPoolTaskExecutorExample1.html" class="navigation navigation-next " aria-label="Next page: ThreadPoolTaskExecutor使用示例">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Schedule定时任务示例","level":"1.2.1","depth":2,"next":{"title":"ThreadPoolTaskExecutor使用示例","level":"1.2.2","depth":2,"path":"Java/ThreadPoolTaskExecutorExample1.md","ref":"Java/ThreadPoolTaskExecutorExample1.md","articles":[]},"previous":{"title":"Java","level":"1.2","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"Schedule定时任务示例","level":"1.2.1","depth":2,"path":"Java/ScheduleTaskExample.md","ref":"Java/ScheduleTaskExample.md","articles":[]},{"title":"ThreadPoolTaskExecutor使用示例","level":"1.2.2","depth":2,"path":"Java/ThreadPoolTaskExecutorExample1.md","ref":"Java/ThreadPoolTaskExecutorExample1.md","articles":[]},{"title":"ThreadPoolTaskExecutor-Async使用示例","level":"1.2.3","depth":2,"path":"Java/ThreadPoolTaskExecutorExample2.md","ref":"Java/ThreadPoolTaskExecutorExample2.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Java/ScheduleTaskExample.md","mtime":"2024-06-25T01:55:05.588Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-25T07:11:30.873Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
