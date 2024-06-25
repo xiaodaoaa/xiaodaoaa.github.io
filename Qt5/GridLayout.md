@@ -52,7 +52,7 @@ Widget::Widget(QWidget *parent) :
 
 效果展示：
 
-![](/uploads/011.png)
+![](/Resources/011.png)
 
 
 
@@ -145,7 +145,7 @@ void Widget::doAction()
 
 鼠标右键点击效果：
 
-![](/uploads/012.png)
+![](/Resources/012.png)
 
 
 
@@ -211,4 +211,4 @@ bool Widget::eventFilter(QObject *watched, QEvent *event)
 
 效果展示：
 
-![](/uploads/013.gif)
+![](/Resources/013.gif)
