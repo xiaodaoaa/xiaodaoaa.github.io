@@ -20,7 +20,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 **网址**：[图吧工具箱](http://www.tbtool.cn/)
 
-![](/uploads/002.jpg)
+![](/Resources/002.jpg)
 
 
 
@@ -32,7 +32,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 **网址**：[Snipaste](https://zh.snipaste.com/)
 
-![](/uploads/003.png)
+![](/Resources/003.png)
 
 
 
@@ -42,7 +42,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 **网址**：[TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)
 
-![](/uploads/004.png)
+![](/Resources/004.png)
 
 
 
@@ -57,7 +57,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 **网址**：[Everything](https://www.voidtools.com/zh-cn/)
 
-![](/uploads/005.png)
+![](/Resources/005.png)
 
 
 
@@ -69,7 +69,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 <font face="黑体" color=red size=4>**破解补丁**</font>：[MobaXterm-Keygen](https://github.com/mzjdy/MobaXterm-Keygen)
 
-![](/uploads/006.jpg)
+![](/Resources/006.jpg)
 
 
 
@@ -79,7 +79,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 **网址**：[ScreenToGif ](https://www.screentogif.com/)
 
-![](/uploads/008.gif)
+![](/Resources/008.gif)
 
 
 
@@ -91,7 +91,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 **网址**：[Bandicam](https://www.bandicam.cn/)    
 
-![](/uploads/007.jpg)
+![](/Resources/007.jpg)
 
 
 
@@ -105,9 +105,9 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 **网址**：[Typora](https://typora.io/)
 
-![](/uploads/010.png)
+![](/Resources/010.png)
 
-![](/uploads/009.gif)
+![](/Resources/009.gif)
 
 
 
@@ -119,7 +119,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 **网址**：[VeryCapture](https://verycapture.com/cn/index.html)
 
-![](/uploads/014.png)
+![](/Resources/014.png)
 
 &nbsp;
 
