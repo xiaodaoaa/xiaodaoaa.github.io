@@ -67,7 +67,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 **网址**：[MobaXterm](https://mobaxterm.mobatek.net/)
 
-**破解补丁**：[MobaXtermKeygen](https://inused.github.io/pages/file/tool/MobaXtermKeygen.html)
+**<font color=red>破解补丁</font>**：[MobaXtermKeygen](https://inused.github.io/pages/file/tool/MobaXtermKeygen.html)
 
 ![MobaXterm](/Resources/006.jpg)
 
@@ -83,7 +83,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 ​    
 
-## Bandicam
+## Bandicam(<font color=red>不推荐</font>)
 
 > Bandicam（班迪录屏）一款简单好用的录屏大师，录屏幕，录游戏，录视频的功能强大的屏幕录像软件，比起其他软件其性能更加卓越。与其他软件相比，用Bandicam录制的视频大小更小，不仅保证原文件的质量。<font color=red>下载免费版，可录制时间最长为10分钟，录制视频打上`www.BANDICAM.com`水印。购买Bandicam授权，能够永久使用无功能限制的正式版。</font> 
 >
@@ -101,9 +101,11 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 > Typora于2021年11月23日起发布1.0版本，开始成为收费软件，售价14.99美元。
 > 在编辑时，除了通过传统的Markdown代码的方式来实现富文本之外，Typora支持通过菜单栏或者鼠标右键选取命令的方式来实现富文本，也支持通过快捷键的方式插入。Typora也支持通过以TeX的格式来插入行间公式和行内公式。在完成编辑后导出文件时，Typora支持以PDF或Html的形式导出，如果安装了Pandoc，也能够以Word、RTF、MediaWiki、LaTeX等形式导出。在定制方面，Typora提供有几种主题，并支持通过自定义CSS的方式进行个性化定制。
 >
-> <font face="黑体" color=red size=3>**注：如需破解版，请自行百度/谷歌。**</font>
+> **<font color=red>注：如需破解版，请自行百度/谷歌。</font>**
 
 **网址**：[Typora](https://typora.io/)
+
+**<font color=red>破解方法</font>**：[Activated version:1.9.3&1.8.10](https://blog.csdn.net/m0_58416529/article/details/136098186?depth_1-utm_source=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-136098186-blog-null.262^v1^pc_404_mixedpud)
 
 ![](/Resources/010.png)
 
@@ -124,7 +126,7 @@ description: 集合了博主平时经常用并且自认为特别好用的软件�
 
 
 
-## EV录屏
+## EV录屏(<font color=red>推荐</font>)
 >   EV录屏软件 [1]是一款非常好用的桌面视频录制软件，这款软件可以帮助用户轻松的录制电脑屏幕，并且功能全免费无水印，是一款非常好用的桌面视频录制软件。由湖南一唯信息科技有限公司开发制作。
 
 -   支持添加“文字水印”和“图片水印”；
