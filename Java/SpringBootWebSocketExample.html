@@ -1,0 +1,881 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SpringBoot-WebSocket示例 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="MapEntryExample.html" />
+    
+    
+    <link rel="prev" href="ScheduleTaskExample.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="ScheduleTaskExample.html">
+            
+                <a href="ScheduleTaskExample.html">
+            
+                    
+                    Schedule定时任务示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="SpringBootWebSocketExample.html">
+            
+                <a href="SpringBootWebSocketExample.html">
+            
+                    
+                    SpringBoot-WebSocket示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="MapEntryExample.html">
+            
+                <a href="MapEntryExample.html">
+            
+                    
+                    Map.Entry示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="SettableFutureExample.html">
+            
+                <a href="SettableFutureExample.html">
+            
+                    
+                    SettableFuture示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="RequestContextHolderExample.html">
+            
+                <a href="RequestContextHolderExample.html">
+            
+                    
+                    获取当前请求的网络信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="HutoolHttpUtilExample.html">
+            
+                <a href="HutoolHttpUtilExample.html">
+            
+                    
+                    Hutool-HttpUtil示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="ExpiringMapExample.html">
+            
+                <a href="ExpiringMapExample.html">
+            
+                    
+                    ExpiringMap示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="ThreadPoolTaskExecutorExample1.html">
+            
+                <a href="ThreadPoolTaskExecutorExample1.html">
+            
+                    
+                    ThreadPoolTaskExecutor使用示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="ThreadPoolTaskExecutorExample2.html">
+            
+                <a href="ThreadPoolTaskExecutorExample2.html">
+            
+                    
+                    ThreadPoolTaskExecutor-Async使用示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../C++/">
+            
+                <a href="../C++/">
+            
+                    
+                    C++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../C++/Cpp11-Demo.html">
+            
+                <a href="../C++/Cpp11-Demo.html">
+            
+                    
+                    C++11 示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../C++/FwriteNotes.html">
+            
+                <a href="../C++/FwriteNotes.html">
+            
+                    
+                    fwrite使用歧义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../C++/WinCppPowerOnAutoStart.html">
+            
+                <a href="../C++/WinCppPowerOnAutoStart.html">
+            
+                    
+                    Windows程序开机自启
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../C++/CppNewArrayInit.html">
+            
+                <a href="../C++/CppNewArrayInit.html">
+            
+                    
+                    new内存初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../C++/libcurl-down-file.html">
+            
+                <a href="../C++/libcurl-down-file.html">
+            
+                    
+                    利用libcurl下载文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../C++/librdkafka-example.html">
+            
+                <a href="../C++/librdkafka-example.html">
+            
+                    
+                    librdkafka示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../C++/ParseTLV.html">
+            
+                <a href="../C++/ParseTLV.html">
+            
+                    
+                    TLV数据格式解析示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../C++/RabbitMQ-example.html">
+            
+                <a href="../C++/RabbitMQ-example.html">
+            
+                    
+                    RabbitMQ示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../C++/SingletonTemplate.html">
+            
+                <a href="../C++/SingletonTemplate.html">
+            
+                    
+                    单实例模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../C++/socket-bind-iface.html">
+            
+                <a href="../C++/socket-bind-iface.html">
+            
+                    
+                    Socket绑定网络接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../C++/spdlog-examples.html">
+            
+                <a href="../C++/spdlog-examples.html">
+            
+                    
+                    Spdlog示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Qt5/">
+            
+                <a href="../Qt5/">
+            
+                    
+                    Qt5
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Qt5/GridLayout.html">
+            
+                <a href="../Qt5/GridLayout.html">
+            
+                    
+                    网格示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Linux/">
+            
+                <a href="../Linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Linux/CMakeListTemplate.html">
+            
+                <a href="../Linux/CMakeListTemplate.html">
+            
+                    
+                    CMakeLists基础通用模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Linux/LibraryRpath.html">
+            
+                <a href="../Linux/LibraryRpath.html">
+            
+                    
+                    动态库加载路径设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Linux/ssh-key-copy.html">
+            
+                <a href="../Linux/ssh-key-copy.html">
+            
+                    
+                    SSH免密登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../Linux/tcpsock-reuseport.html">
+            
+                <a href="../Linux/tcpsock-reuseport.html">
+            
+                    
+                    Linux TCP套接字地址复用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Other/">
+            
+                <a href="../Other/">
+            
+                    
+                    Other
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Other/GuoHomeLetter.html">
+            
+                <a href="../Other/GuoHomeLetter.html">
+            
+                    
+                    郭德纲家书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Other/ChickenSoup.html">
+            
+                <a href="../Other/ChickenSoup.html">
+            
+                    
+                    毒鸡汤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Other/Tiandao-Wu.html">
+            
+                <a href="../Other/Tiandao-Wu.html">
+            
+                    
+                    天道·悟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Other/tools-collection.html">
+            
+                <a href="../Other/tools-collection.html">
+            
+                    
+                    实用小工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Other/MyPicture.html">
+            
+                <a href="../Other/MyPicture.html">
+            
+                    
+                    图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >SpringBoot-WebSocket示例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x5728;&#x4F7F;&#x7528; <code>javax.websocket.server.ServerEndpoint</code> &#x548C; Spring Boot &#x65F6;&#xFF0C;&#x901A;&#x5E38;&#x4F1A;&#x7ED3;&#x5408; <code>ServerEndpointExporter</code> &#x6765;&#x81EA;&#x52A8;&#x6CE8;&#x518C; WebSocket &#x7AEF;&#x70B9;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x793A;&#x4F8B;&#xFF0C;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x5728; Spring Boot &#x9879;&#x76EE;&#x4E2D;&#x4F7F;&#x7528; <code>ServerEndpointExporter</code> &#x548C; <code>ServerEndpoint</code> &#x6CE8;&#x89E3;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; WebSocket &#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<h3 id="1-&#x521B;&#x5EFA;-spring-boot-&#x9879;&#x76EE;">1. &#x521B;&#x5EFA; Spring Boot &#x9879;&#x76EE;</h3>
+<p>&#x9996;&#x5148;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Spring Boot &#x9879;&#x76EE;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Spring Initializr &#x5E76;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4F9D;&#x8D56;&#xFF1A;</p>
+<ul>
+<li>Spring Web</li>
+<li>Spring WebSocket</li>
+</ul>
+<p>&#x6216;&#x8005;&#x76F4;&#x63A5;&#x5728; <code>pom.xml</code> &#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4F9D;&#x8D56;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-websocket<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>javax.websocket<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>javax.websocket-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<h3 id="2-&#x521B;&#x5EFA;-websocket-&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x70B9;">2. &#x521B;&#x5EFA; WebSocket &#x670D;&#x52A1;&#x5668;&#x7AEF;&#x70B9;</h3>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A; WebSocket &#x670D;&#x52A1;&#x5668;&#x7AEF;&#x70B9;&#xFF0C;&#x5904;&#x7406;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8FDE;&#x63A5;&#x548C;&#x6D88;&#x606F;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> javax.websocket.OnClose;
+<span class="hljs-keyword">import</span> javax.websocket.OnMessage;
+<span class="hljs-keyword">import</span> javax.websocket.OnOpen;
+<span class="hljs-keyword">import</span> javax.websocket.Session;
+<span class="hljs-keyword">import</span> javax.websocket.server.ServerEndpoint;
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> java.util.Collections;
+<span class="hljs-keyword">import</span> java.util.HashSet;
+<span class="hljs-keyword">import</span> java.util.Set;
+
+<span class="hljs-meta">@ServerEndpoint</span>(<span class="hljs-string">&quot;/chat&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NotifyWebSocket</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> List&lt;Session&gt; SESSION_LIST = <span class="hljs-keyword">new</span> CopyOnWriteArrayList&lt;&gt;();
+
+    <span class="hljs-meta">@OnOpen</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onOpen</span><span class="hljs-params">(Session session)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        SESSION_LIST.add(session);
+    }
+
+    <span class="hljs-meta">@OnMessage</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onMessage</span><span class="hljs-params">(String msg)</span> </span>{
+        log.debug(<span class="hljs-string">&quot;&#x6536;&#x5230;&#x4FE1;&#x606F; {}&quot;</span>, msg);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sendInfo</span><span class="hljs-params">(String msg)</span> </span>{
+        SESSION_LIST.forEach(session -&gt; {
+            <span class="hljs-keyword">try</span> {
+                session.getBasicRemote().sendText(msg);
+            } <span class="hljs-keyword">catch</span> (IOException e) {
+                log.error(<span class="hljs-string">&quot;&#x4FE1;&#x606F;:{}&#x53D1;&#x9001;&#x5BA2;&#x6237;&#x7AEF;{}&#x5931;&#x8D25;&quot;</span>, msg, session.getId());
+            }
+        });
+    }
+
+
+    <span class="hljs-meta">@OnError</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(Session session, Throwable error)</span> </span>{
+        log.error(<span class="hljs-string">&quot;&#x7CFB;&#x7EDF;&#x9519;&#x8BEF;[{}]&quot;</span>, session.getUserPrincipal().getName(), error);
+        <span class="hljs-keyword">try</span> {
+            session.getBasicRemote().sendText(error.getMessage());
+        } <span class="hljs-keyword">catch</span> (IOException e) {
+            log.error(<span class="hljs-string">&quot;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x53D1;&#x9001;&#x5931;&#x8D25;&quot;</span>, e);
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * &#x8FDE;&#x63A5;&#x5173;&#x95ED;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;
+     */</span>
+    <span class="hljs-meta">@OnClose</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClose</span><span class="hljs-params">(Session session)</span> </span>{
+        SESSION_LIST.remove(session);
+        log.debug(<span class="hljs-string">&quot;a websocket closed!session id is:{}&quot;</span>, session.getId());
+    }
+}
+</code></pre>
+<h3 id="3-&#x914D;&#x7F6E;-serverendpointexporter">3. &#x914D;&#x7F6E; <code>ServerEndpointExporter</code></h3>
+<p>&#x5728; Spring Boot &#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x4E00;&#x4E2A; <code>ServerEndpointExporter</code> bean &#x6765;&#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x5E26;&#x6709; <code>@ServerEndpoint</code> &#x6CE8;&#x89E3;&#x7684; WebSocket &#x7AEF;&#x70B9;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;
+<span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;
+<span class="hljs-keyword">import</span> org.springframework.web.socket.server.standard.ServerEndpointExporter;
+
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebSocketConfig</span> </span>{
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ServerEndpointExporter <span class="hljs-title">serverEndpointExporter</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ServerEndpointExporter();
+    }
+}
+</code></pre>
+<h3 id="4-&#x542F;&#x52A8;&#x7C7B;">4. &#x542F;&#x52A8;&#x7C7B;</h3>
+<p>&#x786E;&#x4FDD;&#x4F60;&#x7684;&#x4E3B;&#x7C7B;&#x6807;&#x6CE8;&#x4E86; <code>@SpringBootApplication</code> &#x6CE8;&#x89E3;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;
+<span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+
+<span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebSocketDemoApplication</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        SpringApplication.run(WebSocketDemoApplication.class, args);
+    }
+}
+</code></pre>
+<h3 id="5&#x53D1;&#x9001;&#x6D88;&#x606F;">5.&#x53D1;&#x9001;&#x6D88;&#x606F;</h3>
+<pre><code class="lang-java"><span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TestService</span> </span>{
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> NotifyWebSocket notifyWebSocket;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">exec</span><span class="hljs-params">()</span> </span>{
+        notifyWebSocket.sendInfo(<span class="hljs-string">&quot;spring websocket test.&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;send success&quot;</span>;
+    }
+}
+</code></pre>
+<h3 id="6-&#x521B;&#x5EFA;&#x524D;&#x7AEF;&#x5BA2;&#x6237;&#x7AEF;">6. &#x521B;&#x5EFA;&#x524D;&#x7AEF;&#x5BA2;&#x6237;&#x7AEF;</h3>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; HTML &#x6587;&#x4EF6;&#x4F5C;&#x4E3A;&#x524D;&#x7AEF;&#x5BA2;&#x6237;&#x7AEF;&#x6765;&#x6D4B;&#x8BD5; WebSocket &#x8FDE;&#x63A5;&#x3002;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6; <code>src/main/resources/static/index.html</code>&#xFF1A;</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>WebSocket Chat<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
+        <span class="hljs-keyword">var</span> ws;
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">connect</span>(<span class="hljs-params"></span>) </span>{
+            ws = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">&quot;ws://localhost:8080/chat&quot;</span>);
+
+            ws.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
+                <span class="hljs-keyword">var</span> chatBox = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;chatBox&quot;</span>);
+                chatBox.value += event.data + <span class="hljs-string">&quot;\n&quot;</span>;
+            };
+
+            ws.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Connected&quot;</span>);
+            };
+
+            ws.onclose = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Disconnected&quot;</span>);
+            };
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sendMessage</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">var</span> message = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;message&quot;</span>).value;
+            ws.send(message);
+            <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;message&quot;</span>).value = <span class="hljs-string">&apos;&apos;</span>;
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">onload</span>=<span class="hljs-string">&quot;connect()&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>WebSocket Chat<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;chatBox&quot;</span> <span class="hljs-attr">cols</span>=<span class="hljs-string">&quot;100&quot;</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">&quot;20&quot;</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;message&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;100&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;sendMessage()&quot;</span>&gt;</span>Send<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h3 id="7-&#x8FD0;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;">7. &#x8FD0;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</h3>
+<p>&#x542F;&#x52A8; Spring Boot &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x7136;&#x540E;&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE; <code>http://localhost:8080/index.html</code>&#x3002;&#x4F60;&#x5E94;&#x8BE5;&#x80FD;&#x591F;&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x804A;&#x5929;&#x754C;&#x9762;&#xFF0C;&#x591A;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x4E4B;&#x95F4;&#x53EF;&#x4EE5;&#x5B9E;&#x65F6;&#x53D1;&#x9001;&#x548C;&#x63A5;&#x6536;&#x6D88;&#x606F;&#x3002;</p>
+<h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
+<p>&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x5728; Spring Boot &#x9879;&#x76EE;&#x4E2D;&#x4F7F;&#x7528; <code>javax.websocket.server.ServerEndpoint</code> &#x6CE8;&#x89E3;&#x6765;&#x5B9A;&#x4E49; WebSocket &#x7AEF;&#x70B9;&#xFF0C;&#x5E76;&#x7ED3;&#x5408; <code>ServerEndpointExporter</code> &#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x8FD9;&#x4E9B;&#x7AEF;&#x70B9;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5B9E;&#x65F6;&#x7684;&#x53CC;&#x5411;&#x901A;&#x4FE1;&#xFF0C;&#x975E;&#x5E38;&#x9002;&#x5408;&#x804A;&#x5929;&#x5E94;&#x7528;&#x3001;&#x5728;&#x7EBF;&#x6E38;&#x620F;&#x548C;&#x5B9E;&#x65F6;&#x6570;&#x636E;&#x63A8;&#x9001;&#x7B49;&#x573A;&#x666F;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ScheduleTaskExample.html" class="navigation navigation-prev " aria-label="Previous page: Schedule定时任务示例">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="MapEntryExample.html" class="navigation navigation-next " aria-label="Next page: Map.Entry示例">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SpringBoot-WebSocket示例","level":"1.2.2","depth":2,"next":{"title":"Map.Entry示例","level":"1.2.3","depth":2,"path":"Java/MapEntryExample.md","ref":"Java/MapEntryExample.md","articles":[]},"previous":{"title":"Schedule定时任务示例","level":"1.2.1","depth":2,"path":"Java/ScheduleTaskExample.md","ref":"Java/ScheduleTaskExample.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Java/SpringBootWebSocketExample.md","mtime":"2024-06-28T07:35:36.873Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-28T07:36:41.624Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
