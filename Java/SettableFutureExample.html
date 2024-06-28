@@ -1,0 +1,825 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SettableFuture示例 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="RequestContextHolderExample.html" />
+    
+    
+    <link rel="prev" href="MapEntryExample.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="ScheduleTaskExample.html">
+            
+                <a href="ScheduleTaskExample.html">
+            
+                    
+                    Schedule定时任务示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="MapEntryExample.html">
+            
+                <a href="MapEntryExample.html">
+            
+                    
+                    Map.Entry示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="SettableFutureExample.html">
+            
+                <a href="SettableFutureExample.html">
+            
+                    
+                    SettableFuture示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="RequestContextHolderExample.html">
+            
+                <a href="RequestContextHolderExample.html">
+            
+                    
+                    获取当前请求的网络信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="HutoolHttpUtilExample.html">
+            
+                <a href="HutoolHttpUtilExample.html">
+            
+                    
+                    Hutool-HttpUtil示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="ExpiringMapExample.html">
+            
+                <a href="ExpiringMapExample.html">
+            
+                    
+                    ExpiringMap示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="ThreadPoolTaskExecutorExample1.html">
+            
+                <a href="ThreadPoolTaskExecutorExample1.html">
+            
+                    
+                    ThreadPoolTaskExecutor使用示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="ThreadPoolTaskExecutorExample2.html">
+            
+                <a href="ThreadPoolTaskExecutorExample2.html">
+            
+                    
+                    ThreadPoolTaskExecutor-Async使用示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../C++/">
+            
+                <a href="../C++/">
+            
+                    
+                    C++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../C++/Cpp11-Demo.html">
+            
+                <a href="../C++/Cpp11-Demo.html">
+            
+                    
+                    C++11 示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../C++/WinCppPowerOnAutoStart.html">
+            
+                <a href="../C++/WinCppPowerOnAutoStart.html">
+            
+                    
+                    Windows程序开机自启
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../C++/CppNewArrayInit.html">
+            
+                <a href="../C++/CppNewArrayInit.html">
+            
+                    
+                    new内存初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../C++/libcurl-down-file.html">
+            
+                <a href="../C++/libcurl-down-file.html">
+            
+                    
+                    利用libcurl下载文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../C++/librdkafka-example.html">
+            
+                <a href="../C++/librdkafka-example.html">
+            
+                    
+                    librdkafka示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../C++/ParseTLV.html">
+            
+                <a href="../C++/ParseTLV.html">
+            
+                    
+                    TLV数据格式解析示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../C++/RabbitMQ-example.html">
+            
+                <a href="../C++/RabbitMQ-example.html">
+            
+                    
+                    RabbitMQ示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../C++/SingletonTemplate.html">
+            
+                <a href="../C++/SingletonTemplate.html">
+            
+                    
+                    单实例模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../C++/socket-bind-iface.html">
+            
+                <a href="../C++/socket-bind-iface.html">
+            
+                    
+                    Socket绑定网络接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../C++/spdlog-examples.html">
+            
+                <a href="../C++/spdlog-examples.html">
+            
+                    
+                    Spdlog示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Qt5/">
+            
+                <a href="../Qt5/">
+            
+                    
+                    Qt5
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Qt5/GridLayout.html">
+            
+                <a href="../Qt5/GridLayout.html">
+            
+                    
+                    网格示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Linux/">
+            
+                <a href="../Linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Linux/CMakeListTemplate.html">
+            
+                <a href="../Linux/CMakeListTemplate.html">
+            
+                    
+                    CMakeLists基础通用模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Linux/LibraryRpath.html">
+            
+                <a href="../Linux/LibraryRpath.html">
+            
+                    
+                    动态库加载路径设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Linux/ssh-key-copy.html">
+            
+                <a href="../Linux/ssh-key-copy.html">
+            
+                    
+                    SSH免密登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../Linux/tcpsock-reuseport.html">
+            
+                <a href="../Linux/tcpsock-reuseport.html">
+            
+                    
+                    Linux TCP套接字地址复用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Other/">
+            
+                <a href="../Other/">
+            
+                    
+                    Other
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Other/GuoHomeLetter.html">
+            
+                <a href="../Other/GuoHomeLetter.html">
+            
+                    
+                    郭德纲家书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Other/ChickenSoup.html">
+            
+                <a href="../Other/ChickenSoup.html">
+            
+                    
+                    毒鸡汤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Other/Tiandao-Wu.html">
+            
+                <a href="../Other/Tiandao-Wu.html">
+            
+                    
+                    天道·悟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Other/tools-collection.html">
+            
+                <a href="../Other/tools-collection.html">
+            
+                    
+                    实用小工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Other/MyPicture.html">
+            
+                <a href="../Other/MyPicture.html">
+            
+                    
+                    图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >SettableFuture示例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p><code>SettableFuture</code> &#x662F; Guava &#x5E93;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x53EF;&#x8BBE;&#x7F6E;&#x5176;&#x7ED3;&#x679C;&#x7684; <code>Future</code>&#x3002;&#x4E0E;&#x6807;&#x51C6;&#x7684; <code>Future</code> &#x4E0D;&#x540C;&#xFF0C;<code>SettableFuture</code> &#x5141;&#x8BB8;&#x4F60;&#x624B;&#x52A8;&#x8BBE;&#x7F6E;&#x5176;&#x7ED3;&#x679C;&#x6216;&#x5F02;&#x5E38;&#xFF0C;&#x8FD9;&#x4F7F;&#x5F97;&#x5B83;&#x5728;&#x67D0;&#x4E9B;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x573A;&#x666F;&#x4E2D;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;&#x4EE5;&#x4E0B;&#x662F; <code>SettableFuture</code> &#x7684;&#x8BE6;&#x7EC6;&#x793A;&#x4F8B;&#x548C;&#x89E3;&#x91CA;&#xFF1A;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x786E;&#x4FDD;&#x4F60;&#x5DF2;&#x7ECF;&#x6DFB;&#x52A0;&#x4E86; Guava &#x4F9D;&#x8D56;&#x9879;&#x3002;Maven &#x9879;&#x76EE;&#x7684; <code>pom.xml</code> &#x6587;&#x4EF6;&#x4E2D;&#x9700;&#x8981;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x4F9D;&#x8D56;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.google.guava<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>guava<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>31.1-jre<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<p>&#x6216;&#x8005;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528; Gradle&#xFF0C;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#xFF1A;</p>
+<pre><code class="lang-gradle">implementation <span class="hljs-string">&apos;com.google.guava:guava:31.1-jre&apos;</span>
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528; <code>SettableFuture</code> &#x7684;&#x5B8C;&#x6574;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> com.google.common.util.concurrent.ListenableFuture;
+<span class="hljs-keyword">import</span> com.google.common.util.concurrent.MoreExecutors;
+<span class="hljs-keyword">import</span> com.google.common.util.concurrent.SettableFuture;
+
+<span class="hljs-keyword">import</span> java.util.concurrent.ExecutionException;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SettableFutureExample</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A; SettableFuture &#x5B9E;&#x4F8B;</span>
+        SettableFuture&lt;String&gt; settableFuture = SettableFuture.create();
+
+        <span class="hljs-comment">// &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x76D1;&#x542C; future &#x7684;&#x5B8C;&#x6210;&#x60C5;&#x51B5;</span>
+        settableFuture.addListener(() -&gt; {
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5E76;&#x6253;&#x5370; future &#x7684;&#x7ED3;&#x679C;</span>
+                String result = settableFuture.get();
+                System.out.println(<span class="hljs-string">&quot;Future completed with result: &quot;</span> + result);
+            } <span class="hljs-keyword">catch</span> (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+        }, MoreExecutors.directExecutor());
+
+        <span class="hljs-comment">// &#x6A21;&#x62DF;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5E76;&#x8BBE;&#x7F6E;&#x7ED3;&#x679C;</span>
+        <span class="hljs-keyword">new</span> Thread(() -&gt; {
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-comment">// &#x6A21;&#x62DF;&#x4E00;&#x4E9B;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;</span>
+                Thread.sleep(<span class="hljs-number">2000</span>);
+                <span class="hljs-comment">// &#x8BBE;&#x7F6E; future &#x7684;&#x7ED3;&#x679C;</span>
+                settableFuture.set(<span class="hljs-string">&quot;Hello, SettableFuture!&quot;</span>);
+            } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        <span class="hljs-comment">// &#x4E3B;&#x7EBF;&#x7A0B;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;</span>
+        System.out.println(<span class="hljs-string">&quot;Main thread is doing other tasks...&quot;</span>);
+
+        <span class="hljs-comment">// &#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x7B49;&#x5F85; future &#x5B8C;&#x6210;&#xFF08;&#x4EC5;&#x7528;&#x4E8E;&#x793A;&#x4F8B;&#x76EE;&#x7684;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x5728;&#x751F;&#x4EA7;&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;&#xFF09;</span>
+        <span class="hljs-keyword">try</span> {
+            String result = settableFuture.get();
+            System.out.println(<span class="hljs-string">&quot;Main thread received future result: &quot;</span> + result);
+        } <span class="hljs-keyword">catch</span> (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<h3 id="&#x89E3;&#x91CA;">&#x89E3;&#x91CA;</h3>
+<ol>
+<li><strong>&#x521B;&#x5EFA; <code>SettableFuture</code> &#x5B9E;&#x4F8B;</strong>&#xFF1A;&#x4F7F;&#x7528; <code>SettableFuture.create()</code> &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>SettableFuture</code> &#x5BF9;&#x8C61;&#x3002;</li>
+<li><strong>&#x6DFB;&#x52A0;&#x76D1;&#x542C;&#x5668;</strong>&#xFF1A;&#x4F7F;&#x7528; <code>addListener</code> &#x65B9;&#x6CD5;&#x4E3A; <code>SettableFuture</code> &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x8BE5;&#x76D1;&#x542C;&#x5668;&#x5C06;&#x5728; <code>SettableFuture</code> &#x5B8C;&#x6210;&#x65F6;&#x6267;&#x884C;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4F7F;&#x7528; <code>MoreExecutors.directExecutor()</code> &#x76F4;&#x63A5;&#x5728;&#x8C03;&#x7528;&#x7EBF;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#x76D1;&#x542C;&#x5668;&#x3002;</li>
+<li><strong>&#x6A21;&#x62DF;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;</strong>&#xFF1A;&#x5728;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#x6A21;&#x62DF;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x3002;&#x4F7F;&#x7528; <code>Thread.sleep</code> &#x6A21;&#x62DF;&#x5EF6;&#x8FDF;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528; <code>set</code> &#x65B9;&#x6CD5;&#x8BBE;&#x7F6E; <code>SettableFuture</code> &#x7684;&#x7ED3;&#x679C;&#x3002;</li>
+<li><strong>&#x4E3B;&#x7EBF;&#x7A0B;&#x7EE7;&#x7EED;&#x6267;&#x884C;</strong>&#xFF1A;&#x4E3B;&#x7EBF;&#x7A0B;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#xFF0C;&#x540C;&#x65F6;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x7B49;&#x5F85; <code>SettableFuture</code> &#x5B8C;&#x6210;&#x5E76;&#x83B7;&#x53D6;&#x7ED3;&#x679C;&#x3002;</li>
+</ol>
+<h3 id="&#x6CE8;&#x610F;&#x4E8B;&#x9879;">&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h3>
+<ul>
+<li><code>SettableFuture</code> &#x7684; <code>set</code> &#x65B9;&#x6CD5;&#x53EA;&#x80FD;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x540E;&#x7EED;&#x7684;&#x8C03;&#x7528;&#x5C06;&#x4F1A;&#x5931;&#x8D25;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>setException</code> &#x65B9;&#x6CD5;&#x6765;&#x8BBE;&#x7F6E;&#x5F02;&#x5E38;&#xFF0C;&#x8FD9;&#x6837;&#x76D1;&#x542C;&#x5668;&#x4E2D;&#x7684; <code>get</code> &#x65B9;&#x6CD5;&#x4F1A;&#x629B;&#x51FA;&#x8BE5;&#x5F02;&#x5E38;&#x3002;</li>
+<li>&#x76D1;&#x542C;&#x5668;&#x5728; <code>SettableFuture</code> &#x5B8C;&#x6210;&#x65F6;&#x6267;&#x884C;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x6216;&#x6307;&#x5B9A;&#x7684;&#x6267;&#x884C;&#x5668;&#x4E2D;&#x8FD0;&#x884C;&#x3002;</li>
+</ul>
+<p>&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x793A;&#x4F8B;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230; <code>SettableFuture</code> &#x5728;&#x5904;&#x7406;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x65F6;&#x7684;&#x7075;&#x6D3B;&#x6027;&#x548C;&#x4FBF;&#x5229;&#x6027;&#xFF0C;&#x5C24;&#x5176;&#x9002;&#x5408;&#x9700;&#x8981;&#x624B;&#x52A8;&#x63A7;&#x5236;&#x4EFB;&#x52A1;&#x7ED3;&#x679C;&#x7684;&#x573A;&#x666F;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x4E00;&#x4E2A;&#x66F4;&#x5B8C;&#x6574;&#x7684;Java&#x793A;&#x4F8B;&#xFF0C;&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;Google Guava&#x5E93;&#x4E2D;&#x7684;<code>SettableFuture</code>&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x5904;&#x7406;&#x6D41;&#x7A0B;&#xFF0C;&#x5305;&#x62EC;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x6765;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x3001;&#x8BBE;&#x7F6E;&#x7ED3;&#x679C;&#x3001;&#x4EE5;&#x53CA;&#x5728;&#x7ED3;&#x679C;&#x53EF;&#x7528;&#x65F6;&#x901A;&#x8FC7;&#x76D1;&#x542C;&#x5668;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> com.google.common.util.concurrent.SettableFuture;
+<span class="hljs-keyword">import</span> com.google.common.util.concurrent.MoreExecutors;
+<span class="hljs-keyword">import</span> java.util.concurrent.ExecutionException;
+<span class="hljs-keyword">import</span> java.util.concurrent.ExecutorService;
+<span class="hljs-keyword">import</span> java.util.concurrent.Executors;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SettableFutureExample</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;SettableFuture&#x5B9E;&#x4F8B;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x7ED3;&#x679C;</span>
+        <span class="hljs-keyword">final</span> SettableFuture&lt;Integer&gt; futureResult = SettableFuture.create();
+
+        <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x6765;&#x6267;&#x884C;&#x540E;&#x53F0;&#x4EFB;&#x52A1;</span>
+        ExecutorService executor = Executors.newFixedThreadPool(<span class="hljs-number">1</span>);
+
+        <span class="hljs-comment">// &#x63D0;&#x4EA4;&#x4E00;&#x4E2A;Runnable&#x4EFB;&#x52A1;&#x5230;&#x7EBF;&#x7A0B;&#x6C60;</span>
+        executor.submit(<span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">try</span> {
+                    <span class="hljs-comment">// &#x6A21;&#x62DF;&#x8017;&#x65F6;&#x64CD;&#x4F5C;</span>
+                    Thread.sleep(<span class="hljs-number">2000</span>);
+                    <span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x7ED3;&#x679C;</span>
+                    futureResult.set(<span class="hljs-number">42</span>); <span class="hljs-comment">// &#x5047;&#x8BBE;&#x8FD9;&#x662F;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x540E;&#x7684;&#x7ED3;&#x679C;</span>
+                } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+                    <span class="hljs-comment">// &#x5982;&#x679C;&#x5728;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x9047;&#x5230;&#x5F02;&#x5E38;&#xFF0C;&#x8BBE;&#x7F6E;&#x5F02;&#x5E38;&#x7ED3;&#x679C;</span>
+                    futureResult.setException(e);
+                }
+            }
+        });
+
+        <span class="hljs-comment">// &#x6DFB;&#x52A0;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5F53;&#x7ED3;&#x679C;&#x53EF;&#x7528;&#x65F6;&#xFF08;&#x65E0;&#x8BBA;&#x662F;&#x6210;&#x529F;&#x8FD8;&#x662F;&#x5931;&#x8D25;&#xFF09;&#xFF0C;&#x5C06;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#x8BE5;&#x76D1;&#x542C;&#x5668;</span>
+        futureResult.addListener(<span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">try</span> {
+                    Integer result = futureResult.get(); <span class="hljs-comment">// &#x963B;&#x585E;&#x7B49;&#x5F85;&#x7ED3;&#x679C;</span>
+                    System.out.println(<span class="hljs-string">&quot;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;&#x7ED3;&#x679C;&#x662F;: &quot;</span> + result);
+                } <span class="hljs-keyword">catch</span> (InterruptedException | ExecutionException e) {
+                    System.err.println(<span class="hljs-string">&quot;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5931;&#x8D25;: &quot;</span> + e.getCause());
+                }
+            }
+        }, MoreExecutors.directExecutor());
+
+        <span class="hljs-comment">// &#x5173;&#x95ED;&#x7EBF;&#x7A0B;&#x6C60;</span>
+        executor.shutdown();
+        System.out.println(<span class="hljs-string">&quot;&#x4E3B;&#x7EBF;&#x7A0B;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;...&quot;</span>);
+    }
+}
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF1A;</p>
+<ol>
+<li><strong>&#x521B;&#x5EFA;<code>SettableFuture</code></strong>: &#x7528;&#x6765;&#x4FDD;&#x5B58;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x7ED3;&#x679C;&#x3002;</li>
+<li><strong>&#x542F;&#x52A8;&#x540E;&#x53F0;&#x4EFB;&#x52A1;</strong>: &#x4F7F;&#x7528;<code>ExecutorService</code>&#x63D0;&#x4EA4;&#x4E00;&#x4E2A;<code>Runnable</code>&#x5230;&#x7EBF;&#x7A0B;&#x6C60;&#x6267;&#x884C;&#xFF0C;&#x6A21;&#x62DF;&#x4E00;&#x4E2A;&#x8017;&#x65F6;&#x64CD;&#x4F5C;&#x5E76;&#x6700;&#x7EC8;&#x8BBE;&#x7F6E;<code>SettableFuture</code>&#x7684;&#x7ED3;&#x679C;&#x3002;</li>
+<li><strong>&#x6DFB;&#x52A0;&#x76D1;&#x542C;&#x5668;</strong>: &#x901A;&#x8FC7;<code>addListener</code>&#x65B9;&#x6CD5;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;<code>Runnable</code>&#x4F5C;&#x4E3A;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5F53;<code>SettableFuture</code>&#x7684;&#x7ED3;&#x679C;&#x88AB;&#x8BBE;&#x7F6E;&#x65F6;&#xFF08;&#x65E0;&#x8BBA;&#x6210;&#x529F;&#x8FD8;&#x662F;&#x5931;&#x8D25;&#xFF09;&#xFF0C;&#x8FD9;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#x3002;</li>
+<li><strong>&#x5173;&#x95ED;&#x7EBF;&#x7A0B;&#x6C60;</strong>: &#x5728;&#x4EFB;&#x52A1;&#x63D0;&#x4EA4;&#x540E;&#xFF0C;&#x8BB0;&#x5F97;&#x5173;&#x95ED;&#x7EBF;&#x7A0B;&#x6C60;&#x4EE5;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#x3002;</li>
+</ol>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6B64;&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#x9700;&#x8981;&#x5F15;&#x5165;Guava&#x5E93;&#x624D;&#x80FD;&#x7F16;&#x8BD1;&#x548C;&#x8FD0;&#x884C;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="MapEntryExample.html" class="navigation navigation-prev " aria-label="Previous page: Map.Entry示例">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="RequestContextHolderExample.html" class="navigation navigation-next " aria-label="Next page: 获取当前请求的网络信息">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SettableFuture示例","level":"1.2.3","depth":2,"next":{"title":"获取当前请求的网络信息","level":"1.2.4","depth":2,"path":"Java/RequestContextHolderExample.md","ref":"Java/RequestContextHolderExample.md","articles":[]},"previous":{"title":"Map.Entry示例","level":"1.2.2","depth":2,"path":"Java/MapEntryExample.md","ref":"Java/MapEntryExample.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Java/SettableFutureExample.md","mtime":"2024-06-28T03:54:55.378Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-28T06:14:43.415Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
