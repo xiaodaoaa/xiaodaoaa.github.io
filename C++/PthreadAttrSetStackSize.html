@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>利用libcurl下载文件 · 小道的书籍</title>
+        <title>设置线程栈大小 · 小道的书籍</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="利用libcurl下载文件。">
+        <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
         <meta name="author" content="小道">
         
@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="librdkafka-example.html" />
+    <link rel="next" href="FwriteNotes.html" />
     
     
-    <link rel="prev" href="CppNewArrayInit.html" />
+    <link rel="prev" href="Cpp11-Demo.html" />
     
 
     </head>
@@ -290,7 +290,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="PthreadAttrSetStackSize.html">
+        <li class="chapter active" data-level="1.3.2" data-path="PthreadAttrSetStackSize.html">
             
                 <a href="PthreadAttrSetStackSize.html">
             
@@ -342,7 +342,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.6" data-path="libcurl-down-file.html">
+        <li class="chapter " data-level="1.3.6" data-path="libcurl-down-file.html">
             
                 <a href="libcurl-down-file.html">
             
@@ -668,7 +668,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >利用libcurl下载文件</a>
+        <a href=".." >设置线程栈大小</a>
     </h1>
 </div>
 
@@ -683,89 +683,73 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+                                <p>&#x7EBF;&#x7A0B;&#x7684;&#x6808;&#x5927;&#x5C0F;&#x6307;&#x7684;&#x662F;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x5206;&#x914D;&#x7684;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x6808;&#x7684;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x3002;&#x6808;&#x662F;&#x7EBF;&#x7A0B;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3001;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x3001;&#x8FD4;&#x56DE;&#x5730;&#x5740;&#x548C;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x7684;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x3002;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x72EC;&#x7ACB;&#x7684;&#x6808;&#xFF0C;&#x4EE5;&#x786E;&#x4FDD;&#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x4E92;&#x76F8;&#x5E72;&#x6270;&#x3002;</p>
+<h3 id="&#x6808;&#x5927;&#x5C0F;&#x7684;&#x91CD;&#x8981;&#x6027;">&#x6808;&#x5927;&#x5C0F;&#x7684;&#x91CD;&#x8981;&#x6027;</h3>
+<ol>
+<li><strong>&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x5B58;&#x50A8;</strong>&#xFF1A;&#x6808;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x548C;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x3002;</li>
+<li><strong>&#x51FD;&#x6570;&#x8C03;&#x7528;&#x94FE;</strong>&#xFF1A;&#x6BCF;&#x6B21;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x5730;&#x5740;&#x548C;&#x8C03;&#x7528;&#x73B0;&#x573A;&#xFF08;&#x5373;&#x8C03;&#x7528;&#x70B9;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x72B6;&#x6001;&#x7B49;&#xFF09;&#x90FD;&#x4F1A;&#x88AB;&#x63A8;&#x5165;&#x6808;&#x4E2D;&#x3002;</li>
+<li><strong>&#x9012;&#x5F52;&#x8C03;&#x7528;</strong>&#xFF1A;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4F1A;&#x5360;&#x7528;&#x5927;&#x91CF;&#x6808;&#x7A7A;&#x95F4;&#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x4E2A;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x5728;&#x6808;&#x4E0A;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6808;&#x5E27;&#x3002;</li>
+</ol>
+<h3 id="&#x9ED8;&#x8BA4;&#x6808;&#x5927;&#x5C0F;">&#x9ED8;&#x8BA4;&#x6808;&#x5927;&#x5C0F;</h3>
+<p>&#x5728;&#x5927;&#x591A;&#x6570; Linux &#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x9ED8;&#x8BA4;&#x7684;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;&#x901A;&#x5E38;&#x662F; 8MB&#x3002;&#x8FD9;&#x4E2A;&#x5927;&#x5C0F;&#x662F;&#x7531;&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x7684;&#xFF0C;&#x4F46;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x8C03;&#x6574;&#x3002;</p>
+<h3 id="&#x67E5;&#x770B;&#x548C;&#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;">&#x67E5;&#x770B;&#x548C;&#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;</h3>
+<h4 id="1-&#x4F7F;&#x7528;-ulimit-&#x67E5;&#x770B;&#x548C;&#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;">1. &#x4F7F;&#x7528; <code>ulimit</code> &#x67E5;&#x770B;&#x548C;&#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;</h4>
+<p><code>ulimit</code> &#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x67E5;&#x770B;&#x548C;&#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;&#xFF08;&#x4EE5; KB &#x4E3A;&#x5355;&#x4F4D;&#xFF09;&#x3002;</p>
+<p>&#x67E5;&#x770B;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;&#xFF1A;</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">ulimit</span> <span class="hljs-_">-s</span>
+</code></pre>
+<p>&#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;&#xFF08;&#x4F8B;&#x5982;&#x8BBE;&#x7F6E;&#x4E3A; 2MB&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">ulimit</span> <span class="hljs-_">-s</span> 2048
+</code></pre>
+<h4 id="2-&#x5728;&#x7F16;&#x7A0B;&#x4E2D;&#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;">2. &#x5728;&#x7F16;&#x7A0B;&#x4E2D;&#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;</h4>
+<p>&#x5728;&#x7F16;&#x7A0B;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7EBF;&#x7A0B;&#x5E93;&#xFF08;&#x5982; pthread&#xFF09;&#x63D0;&#x4F9B;&#x7684;&#x63A5;&#x53E3;&#x6765;&#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x7684;&#x6808;&#x5927;&#x5C0F;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x4F7F;&#x7528; pthread &#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>pthread_attr_setstacksize</code> &#x51FD;&#x6570;&#x6765;&#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;pthread.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
 
-<span class="hljs-comment">//&#x4E0B;&#x8F7D;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x63A5;&#x6536;&#x51FD;&#x6570;</span>
-<span class="hljs-keyword">size_t</span> dlReqReply(<span class="hljs-keyword">void</span> *buffer, <span class="hljs-keyword">size_t</span> size, <span class="hljs-keyword">size_t</span> nmemb, <span class="hljs-keyword">void</span> *user)
-{
-    FILE *fp = (FILE *)user;
-    <span class="hljs-keyword">size_t</span> sizeWrite = fwrite(buffer, size, nmemb, fp);
-    <span class="hljs-keyword">return</span> sizeWrite;
+<span class="hljs-function"><span class="hljs-keyword">void</span>* <span class="hljs-title">thread_function</span><span class="hljs-params">(<span class="hljs-keyword">void</span>* arg)</span> </span>{
+    <span class="hljs-comment">// &#x7EBF;&#x7A0B;&#x7684;&#x4EE3;&#x7801;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
 }
 
-<span class="hljs-comment">//http GET&#x8BF7;&#x6C42;&#x6587;&#x4EF6;&#x4E0B;&#x8F7D;</span>
-<span class="hljs-function">CURLcode <span class="hljs-title">dlCurlGetReq</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;url, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> filename)</span>
-</span>{
-    FILE *fp = fopen(filename.c_str(), <span class="hljs-string">&quot;wb&quot;</span>);
-    <span class="hljs-keyword">if</span>(<span class="hljs-literal">NULL</span> == fp){
-        LOG_ERROR(<span class="hljs-string">&quot;Open file&lt;{}&gt; failed.&quot;</span>, filename);
-        <span class="hljs-keyword">return</span> CURL_LAST;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">pthread_t</span> thread;
+    <span class="hljs-keyword">pthread_attr_t</span> attr;
+    <span class="hljs-keyword">size_t</span> stack_size = <span class="hljs-number">2</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>; <span class="hljs-comment">// 2MB</span>
+
+    <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x7EBF;&#x7A0B;&#x5C5E;&#x6027;&#x5BF9;&#x8C61;</span>
+    pthread_attr_init(&amp;attr);
+
+    <span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;</span>
+    pthread_attr_setstacksize(&amp;attr, stack_size);
+
+    <span class="hljs-comment">// &#x521B;&#x5EFA;&#x7EBF;&#x7A0B;</span>
+    <span class="hljs-keyword">if</span> (pthread_create(&amp;thread, &amp;attr, thread_function, <span class="hljs-literal">NULL</span>) != <span class="hljs-number">0</span>) {
+        perror(<span class="hljs-string">&quot;pthread_create&quot;</span>);
+        <span class="hljs-built_in">exit</span>(EXIT_FAILURE);
     }
 
-    CURLcode curlCode = CURL_LAST;
-    <span class="hljs-comment">//curl&#x521D;&#x59CB;&#x5316;</span>
-    CURL *curl = curl_easy_init();
-    <span class="hljs-keyword">if</span> (curl)
-    {
-        <span class="hljs-comment">//&#x8BBE;&#x7F6E;curl&#x7684;&#x8BF7;&#x6C42;&#x5934;</span>
-        <span class="hljs-keyword">struct</span> curl_slist* header_list = <span class="hljs-literal">NULL</span>;
-        header_list = curl_slist_append(header_list, <span class="hljs-string">&quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko&quot;</span>);
-        curl_easy_setopt(curl, CURLOPT_HTTPHEADER, header_list);
+    <span class="hljs-comment">// &#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x5B8C;&#x6210;</span>
+    pthread_join(thread, <span class="hljs-literal">NULL</span>);
 
-        <span class="hljs-comment">//&#x4E0D;&#x63A5;&#x6536;&#x54CD;&#x5E94;&#x5934;&#x6570;&#x636E;0&#x4EE3;&#x8868;&#x4E0D;&#x63A5;&#x6536; 1&#x4EE3;&#x8868;&#x63A5;&#x6536;</span>
-        curl_easy_setopt(curl, CURLOPT_HEADER, <span class="hljs-number">0</span>);
-
-        <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x7684;URL&#x5730;&#x5740;</span>
-        curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-
-        <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x91CD;&#x5B9A;&#x5411;</span>
-        curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, <span class="hljs-number">1L</span>);
-
-        <span class="hljs-comment">/*&#x8BBE;&#x7F6E;&#x6700;&#x5927;&#x91CD;&#x5B9A;&#x5411;&#x6B21;&#x6570;*/</span>
-        curl_easy_setopt(curl, CURLOPT_MAXREDIRS, <span class="hljs-number">9L</span>);
-
-        <span class="hljs-comment">//&#x8BBE;&#x7F6E;ssl&#x9A8C;&#x8BC1;</span>
-        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, <span class="hljs-literal">false</span>);
-        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, <span class="hljs-literal">false</span>);
-
-        <span class="hljs-comment">//CURLOPT_VERBOSE&#x7684;&#x503C;&#x4E3A;1&#x65F6;&#xFF0C;&#x4F1A;&#x663E;&#x793A;&#x8BE6;&#x7EC6;&#x7684;&#x8C03;&#x8BD5;&#x4FE1;&#x606F;</span>
-        curl_easy_setopt(curl, CURLOPT_VERBOSE, <span class="hljs-number">0</span>);
-
-        curl_easy_setopt(curl, CURLOPT_READFUNCTION, <span class="hljs-literal">NULL</span>);
-
-        <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x6570;&#x636E;&#x63A5;&#x6536;&#x51FD;&#x6570;</span>
-        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &amp;dlReqReply);
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
-
-        curl_easy_setopt(curl, CURLOPT_NOSIGNAL, <span class="hljs-number">1</span>);
-
-        <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x8D85;&#x65F6;&#x65F6;&#x95F4;</span>
-        curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, <span class="hljs-number">6</span>); <span class="hljs-comment">// set transport and time out time</span>
-        curl_easy_setopt(curl, CURLOPT_TIMEOUT, <span class="hljs-number">6</span>);
-
-        <span class="hljs-comment">// &#x5F00;&#x542F;&#x8BF7;&#x6C42;</span>
-        curlCode = curl_easy_perform(curl);
-    }
-    <span class="hljs-comment">// &#x91CA;&#x653E;curl</span>
-    curl_easy_cleanup(curl);
-    <span class="hljs-comment">//&#x91CA;&#x653E;&#x6587;&#x4EF6;&#x8D44;&#x6E90;</span>
-    fclose(fp);
-
-    <span class="hljs-keyword">return</span> curlCode;
-}
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
-</span>{
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strUrl = <span class="hljs-string">&quot;&quot;</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strPicturePath = <span class="hljs-string">&quot;xiaodaoaa.jpg&quot;</span>;
-
-    <span class="hljs-keyword">if</span>(CURLE_OK != dlCurlGetReq(strUrl, strPicturePath)){
-        LOG_ERROR(<span class="hljs-string">&quot;Download failed&lt;{}&gt;.&quot;</span>, strUrl);
-    }
+    <span class="hljs-comment">// &#x9500;&#x6BC1;&#x7EBF;&#x7A0B;&#x5C5E;&#x6027;&#x5BF9;&#x8C61;</span>
+    pthread_attr_destroy(&amp;attr);
 
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
+<h3 id="&#x6808;&#x5927;&#x5C0F;&#x7684;&#x8C03;&#x6574;">&#x6808;&#x5927;&#x5C0F;&#x7684;&#x8C03;&#x6574;</h3>
+<p>&#x6839;&#x636E;&#x5E94;&#x7528;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x5408;&#x7406;&#x8C03;&#x6574;&#x7EBF;&#x7A0B;&#x7684;&#x6808;&#x5927;&#x5C0F;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x6808;&#x6EA2;&#x51FA;&#xFF08;stack overflow&#xFF09;&#x6216;&#x8FC7;&#x591A;&#x7684;&#x5185;&#x5B58;&#x6D6A;&#x8D39;&#xFF1A;</p>
+<ul>
+<li><strong>&#x589E;&#x52A0;&#x6808;&#x5927;&#x5C0F;</strong>&#xFF1A;&#x5982;&#x679C;&#x4F60;&#x7684;&#x7A0B;&#x5E8F;&#x4E2D;&#x6709;&#x6DF1;&#x5EA6;&#x9012;&#x5F52;&#x6216;&#x5927;&#x91CF;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x589E;&#x52A0;&#x7EBF;&#x7A0B;&#x7684;&#x6808;&#x5927;&#x5C0F;&#x3002;</li>
+<li><strong>&#x51CF;&#x5C11;&#x6808;&#x5927;&#x5C0F;</strong>&#xFF1A;&#x5982;&#x679C;&#x4F60;&#x7684;&#x7A0B;&#x5E8F;&#x4E2D;&#x7EBF;&#x7A0B;&#x6570;&#x5F88;&#x591A;&#xFF0C;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;&#x6808;&#x5927;&#x5C0F;&#x4F1A;&#x5360;&#x7528;&#x5927;&#x91CF;&#x5185;&#x5B58;&#xFF0C;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x51CF;&#x5C11;&#x7EBF;&#x7A0B;&#x7684;&#x6808;&#x5927;&#x5C0F;&#x3002;</li>
+</ul>
+<h3 id="&#x6CE8;&#x610F;&#x4E8B;&#x9879;">&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h3>
+<ol>
+<li><strong>&#x7CFB;&#x7EDF;&#x9650;&#x5236;</strong>&#xFF1A;&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x8C03;&#x6574;&#x7EBF;&#x7A0B;&#x6808;&#x5927;&#x5C0F;&#xFF0C;&#x4F46;&#x53D7;&#x9650;&#x4E8E;&#x7CFB;&#x7EDF;&#x7684;&#x603B;&#x5185;&#x5B58;&#x548C;&#x6BCF;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x6700;&#x5927;&#x53EF;&#x7528;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x3002;</li>
+<li><strong>&#x5408;&#x7406;&#x6027;</strong>&#xFF1A;&#x8FC7;&#x5927;&#x7684;&#x6808;&#x5927;&#x5C0F;&#x4F1A;&#x6D6A;&#x8D39;&#x5185;&#x5B58;&#xFF0C;&#x8FC7;&#x5C0F;&#x7684;&#x6808;&#x5927;&#x5C0F;&#x4F1A;&#x5BFC;&#x81F4;&#x6808;&#x6EA2;&#x51FA;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5E94;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x9700;&#x6C42;&#x8BBE;&#x7F6E;&#x5408;&#x9002;&#x7684;&#x6808;&#x5927;&#x5C0F;&#x3002;</li>
+</ol>
+<p>&#x8C03;&#x6574;&#x7EBF;&#x7A0B;&#x7684;&#x6808;&#x5927;&#x5C0F;&#x662F;&#x4E00;&#x79CD;&#x4F18;&#x5316;&#x624B;&#x6BB5;&#xFF0C;&#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x7A0B;&#x5E8F;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#x548C;&#x6027;&#x80FD;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x5E94;&#x7528;&#x4E2D;&#x3002;</p>
 
                                 
                                 </section>
@@ -793,12 +777,12 @@
 
             
                 
-                <a href="CppNewArrayInit.html" class="navigation navigation-prev " aria-label="Previous page: new内存初始化">
+                <a href="Cpp11-Demo.html" class="navigation navigation-prev " aria-label="Previous page: C++11 示例">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="librdkafka-example.html" class="navigation navigation-next " aria-label="Next page: librdkafka示例">
+                <a href="FwriteNotes.html" class="navigation navigation-next " aria-label="Next page: fwrite使用歧义">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -809,7 +793,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"利用libcurl下载文件","date":"2021-12-06T14:36:04.000Z","tags":"libcurl","categories":"C/C++","description":"利用libcurl下载文件。","level":"1.3.6","depth":2,"next":{"title":"librdkafka示例","level":"1.3.7","depth":2,"path":"C++/librdkafka-example.md","ref":"C++/librdkafka-example.md","articles":[]},"previous":{"title":"new内存初始化","level":"1.3.5","depth":2,"path":"C++/CppNewArrayInit.md","ref":"C++/CppNewArrayInit.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","donate","theme-comscore"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"https://xiaodaoaa.github.io/Resources/alipay.png","alipayText":"支付宝扫码","button":"赞赏","title":"","wechat":"https://xiaodaoaa.github.io/Resources/wechatpay.png","wechatText":"微信扫码"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"小道","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"小道的书籍","language":"zh-hans","gitbook":"*","description":"多睡觉的孩子长得高~"},"file":{"path":"C++/libcurl-down-file.md","mtime":"2024-06-25T03:39:03.186Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-03T09:03:29.186Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"设置线程栈大小","level":"1.3.2","depth":2,"next":{"title":"fwrite使用歧义","level":"1.3.3","depth":2,"path":"C++/FwriteNotes.md","ref":"C++/FwriteNotes.md","articles":[]},"previous":{"title":"C++11 示例","level":"1.3.1","depth":2,"path":"C++/Cpp11-Demo.md","ref":"C++/Cpp11-Demo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","donate","theme-comscore"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"https://xiaodaoaa.github.io/Resources/alipay.png","alipayText":"支付宝扫码","button":"赞赏","title":"","wechat":"https://xiaodaoaa.github.io/Resources/wechatpay.png","wechatText":"微信扫码"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"小道","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"小道的书籍","language":"zh-hans","gitbook":"*","description":"多睡觉的孩子长得高~"},"file":{"path":"C++/PthreadAttrSetStackSize.md","mtime":"2024-07-03T08:56:06.207Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-03T09:03:29.186Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
