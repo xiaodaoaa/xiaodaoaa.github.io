@@ -53,8 +53,8 @@ protected:
 		}
 	}
 private:
-	singleton(const singleton&);// {}
-	singleton& operator=(const singleton&);// {}
+	singleton(const singleton&) = delete;// {}
+	singleton& operator=(const singleton&) = delete;// {}
 
 private:
 	static T* instance_;
