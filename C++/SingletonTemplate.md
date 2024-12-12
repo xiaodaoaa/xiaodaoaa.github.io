@@ -7,6 +7,9 @@ description: C/C++单实例模板。
 ---
 
 ```c++
+#include <mutex>
+#include <iostream>
+
 template<typename T>
 class singleton
 {
@@ -19,24 +22,13 @@ public:
 			if (instance_ == 0)
 			{
 				instance_ = new T;
+				static CGarbo cGarbo;
 			}
 			lock_.unlock();
 		}
 		return instance_;
 	}
-
-	static inline void free()
-	{
-		free_ = true;
-		lock_.lock();
-		if (instance_ != 0)
-		{
-			delete instance_;
-			instance_ = 0;
-		}
-		lock_.unlock();
-	}
-
+	
 protected:
 	singleton() {}
 	virtual ~singleton()
@@ -52,21 +44,45 @@ protected:
 			lock_.unlock();
 		}
 	}
+
+private:
+	static inline void free()
+	{
+		free_ = true;
+		lock_.lock();
+		if (instance_ != 0)
+		{
+			delete instance_;
+			instance_ = 0;
+		}
+		lock_.unlock();
+	}
+
+private:
+	class CGarbo
+	{
+	public:
+		~CGarbo() {
+			singleton<T>::free();
+		}
+	};
+
+
 private:
 	singleton(const singleton&) = delete;// {}
 	singleton& operator=(const singleton&) = delete;// {}
 
 private:
 	static T* instance_;
-	static mutex lock_;
+	static std::mutex lock_;
 	static bool free_;
 };
 
 template<typename T>
-T* singleton<T>::instance_ = NULL;
+T* singleton<T>::instance_ = 0;
 
 template<typename T>
-mutex singleton<T>::lock_;
+std::mutex singleton<T>::lock_;
 
 template<typename T>
 bool singleton<T>::free_ = false;
