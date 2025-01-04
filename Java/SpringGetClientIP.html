@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>SpringBoot-WebSocket示例 · 小道的书籍</title>
+        <title>SpringBoot获取客户端IP · 小道的书籍</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="MapEntryExample.html" />
+    <link rel="next" href="SpringGetClientIPByHutool.html" />
     
     
-    <link rel="prev" href="GetHostIPByInetAddress.html" />
+    <link rel="prev" href="ScheduleTaskExample.html" />
     
 
     </head>
@@ -141,7 +141,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="SpringGetClientIP.html">
+        <li class="chapter active" data-level="1.2.2" data-path="SpringGetClientIP.html">
             
                 <a href="SpringGetClientIP.html">
             
@@ -219,7 +219,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.8" data-path="SpringBootWebSocketExample.html">
+        <li class="chapter " data-level="1.2.8" data-path="SpringBootWebSocketExample.html">
             
                 <a href="SpringBootWebSocketExample.html">
             
@@ -798,7 +798,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >SpringBoot-WebSocket示例</a>
+        <a href=".." >SpringBoot获取客户端IP</a>
     </h1>
 </div>
 
@@ -813,169 +813,168 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x5728;&#x4F7F;&#x7528; <code>javax.websocket.server.ServerEndpoint</code> &#x548C; Spring Boot &#x65F6;&#xFF0C;&#x901A;&#x5E38;&#x4F1A;&#x7ED3;&#x5408; <code>ServerEndpointExporter</code> &#x6765;&#x81EA;&#x52A8;&#x6CE8;&#x518C; WebSocket &#x7AEF;&#x70B9;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x793A;&#x4F8B;&#xFF0C;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x5728; Spring Boot &#x9879;&#x76EE;&#x4E2D;&#x4F7F;&#x7528; <code>ServerEndpointExporter</code> &#x548C; <code>ServerEndpoint</code> &#x6CE8;&#x89E3;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; WebSocket &#x670D;&#x52A1;&#x5668;&#x3002;</p>
-<h3 id="1-&#x521B;&#x5EFA;-spring-boot-&#x9879;&#x76EE;">1. &#x521B;&#x5EFA; Spring Boot &#x9879;&#x76EE;</h3>
-<p>&#x9996;&#x5148;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Spring Boot &#x9879;&#x76EE;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Spring Initializr &#x5E76;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4F9D;&#x8D56;&#xFF1A;</p>
+                                <p>&#x5728; Java Spring Boot &#x4E2D;&#xFF0C;&#x83B7;&#x53D6; HTTP &#x8BF7;&#x6C42;&#x5BA2;&#x6237;&#x7AEF;&#x7684; IP &#x5730;&#x5740;&#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x89C1;&#x7684;&#x9700;&#x6C42;&#x3002;&#x7531;&#x4E8E;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x53EF;&#x80FD;&#x4F1A;&#x7ECF;&#x8FC7;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x3001;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5668;&#x7B49;&#x4E2D;&#x95F4;&#x8282;&#x70B9;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x6B63;&#x786E;&#x5904;&#x7406; <code>X-Forwarded-For</code> &#x7B49; HTTP &#x5934;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x51E0;&#x79CD;&#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF; IP &#x5730;&#x5740;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<hr>
+<h3 id="&#x65B9;&#x6CD5;-1&#xFF1A;&#x4F7F;&#x7528;-httpservletrequest-&#x76F4;&#x63A5;&#x83B7;&#x53D6;">&#x65B9;&#x6CD5; 1&#xFF1A;&#x4F7F;&#x7528; <code>HttpServletRequest</code> &#x76F4;&#x63A5;&#x83B7;&#x53D6;</h3>
+<p>&#x5728; Spring Boot &#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>HttpServletRequest</code> &#x5BF9;&#x8C61;&#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x7684; IP &#x5730;&#x5740;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;
+
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IpController</span> </span>{
+
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/get-ip&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getClientIp</span><span class="hljs-params">(HttpServletRequest request)</span> </span>{
+        <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF; IP &#x5730;&#x5740;</span>
+        String ipAddress = request.getRemoteAddr();
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Client IP: &quot;</span> + ipAddress;
+    }
+}
+</code></pre>
+<h4 id="&#x8BF4;&#x660E;&#xFF1A;">&#x8BF4;&#x660E;&#xFF1A;</h4>
 <ul>
-<li>Spring Web</li>
-<li>Spring WebSocket</li>
+<li><code>request.getRemoteAddr()</code> &#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x5BA2;&#x6237;&#x7AEF;&#x7684; IP &#x5730;&#x5740;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x7ECF;&#x8FC7;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x6216;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5668;&#xFF0C;<code>getRemoteAddr()</code> &#x53EF;&#x80FD;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684; IP&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x771F;&#x5B9E; IP&#x3002;</li>
 </ul>
-<p>&#x6216;&#x8005;&#x76F4;&#x63A5;&#x5728; <code>pom.xml</code> &#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4F9D;&#x8D56;&#xFF1A;</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-websocket<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>javax.websocket<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>javax.websocket-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-</code></pre>
-<h3 id="2-&#x521B;&#x5EFA;-websocket-&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x70B9;">2. &#x521B;&#x5EFA; WebSocket &#x670D;&#x52A1;&#x5668;&#x7AEF;&#x70B9;</h3>
-<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A; WebSocket &#x670D;&#x52A1;&#x5668;&#x7AEF;&#x70B9;&#xFF0C;&#x5904;&#x7406;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8FDE;&#x63A5;&#x548C;&#x6D88;&#x606F;&#xFF1A;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">import</span> javax.websocket.OnClose;
-<span class="hljs-keyword">import</span> javax.websocket.OnMessage;
-<span class="hljs-keyword">import</span> javax.websocket.OnOpen;
-<span class="hljs-keyword">import</span> javax.websocket.Session;
-<span class="hljs-keyword">import</span> javax.websocket.server.ServerEndpoint;
-<span class="hljs-keyword">import</span> java.io.IOException;
-<span class="hljs-keyword">import</span> java.util.Collections;
-<span class="hljs-keyword">import</span> java.util.HashSet;
-<span class="hljs-keyword">import</span> java.util.Set;
+<hr>
+<h3 id="&#x65B9;&#x6CD5;-2&#xFF1A;&#x5904;&#x7406;-x-forwarded-for-&#x5934;&#x4FE1;&#x606F;">&#x65B9;&#x6CD5; 2&#xFF1A;&#x5904;&#x7406; <code>X-Forwarded-For</code> &#x5934;&#x4FE1;&#x606F;</h3>
+<p>&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x7ECF;&#x8FC7;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x6216;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5668;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x771F;&#x5B9E; IP &#x901A;&#x5E38;&#x4F1A;&#x5B58;&#x50A8;&#x5728; <code>X-Forwarded-For</code> &#x5934;&#x4FE1;&#x606F;&#x4E2D;&#x3002;<code>X-Forwarded-For</code> &#x662F;&#x4E00;&#x4E2A;&#x9017;&#x53F7;&#x5206;&#x9694;&#x7684; IP &#x5730;&#x5740;&#x5217;&#x8868;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A; IP &#x662F;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x771F;&#x5B9E; IP&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;
 
-<span class="hljs-meta">@ServerEndpoint</span>(<span class="hljs-string">&quot;/chat&quot;</span>)
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NotifyWebSocket</span> </span>{
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> List&lt;Session&gt; SESSION_LIST = <span class="hljs-keyword">new</span> CopyOnWriteArrayList&lt;&gt;();
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IpController</span> </span>{
 
-    <span class="hljs-meta">@OnOpen</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onOpen</span><span class="hljs-params">(Session session)</span> <span class="hljs-keyword">throws</span> Exception </span>{
-        SESSION_LIST.add(session);
-    }
-
-    <span class="hljs-meta">@OnMessage</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onMessage</span><span class="hljs-params">(String msg)</span> </span>{
-        log.debug(<span class="hljs-string">&quot;&#x6536;&#x5230;&#x4FE1;&#x606F; {}&quot;</span>, msg);
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sendInfo</span><span class="hljs-params">(String msg)</span> </span>{
-        SESSION_LIST.forEach(session -&gt; {
-            <span class="hljs-keyword">try</span> {
-                session.getBasicRemote().sendText(msg);
-            } <span class="hljs-keyword">catch</span> (IOException e) {
-                log.error(<span class="hljs-string">&quot;&#x4FE1;&#x606F;:{}&#x53D1;&#x9001;&#x5BA2;&#x6237;&#x7AEF;{}&#x5931;&#x8D25;&quot;</span>, msg, session.getId());
-            }
-        });
-    }
-
-
-    <span class="hljs-meta">@OnError</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(Session session, Throwable error)</span> </span>{
-        log.error(<span class="hljs-string">&quot;&#x7CFB;&#x7EDF;&#x9519;&#x8BEF;[{}]&quot;</span>, session.getUserPrincipal().getName(), error);
-        <span class="hljs-keyword">try</span> {
-            session.getBasicRemote().sendText(error.getMessage());
-        } <span class="hljs-keyword">catch</span> (IOException e) {
-            log.error(<span class="hljs-string">&quot;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x53D1;&#x9001;&#x5931;&#x8D25;&quot;</span>, e);
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/get-ip&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getClientIp</span><span class="hljs-params">(HttpServletRequest request)</span> </span>{
+        <span class="hljs-comment">// &#x4ECE; X-Forwarded-For &#x5934;&#x4FE1;&#x606F;&#x4E2D;&#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF; IP</span>
+        String ipAddress = request.getHeader(<span class="hljs-string">&quot;X-Forwarded-For&quot;</span>);
+        <span class="hljs-keyword">if</span> (ipAddress == <span class="hljs-keyword">null</span> || ipAddress.isEmpty() || <span class="hljs-string">&quot;unknown&quot;</span>.equalsIgnoreCase(ipAddress)) {
+            ipAddress = request.getRemoteAddr();
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">// &#x53D6;&#x7B2C;&#x4E00;&#x4E2A; IP&#xFF08;&#x5BA2;&#x6237;&#x7AEF;&#x771F;&#x5B9E; IP&#xFF09;</span>
+            ipAddress = ipAddress.split(<span class="hljs-string">&quot;,&quot;</span>)[<span class="hljs-number">0</span>].trim();
         }
-    }
-
-    <span class="hljs-comment">/**
-     * &#x8FDE;&#x63A5;&#x5173;&#x95ED;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;
-     */</span>
-    <span class="hljs-meta">@OnClose</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClose</span><span class="hljs-params">(Session session)</span> </span>{
-        SESSION_LIST.remove(session);
-        log.debug(<span class="hljs-string">&quot;a websocket closed!session id is:{}&quot;</span>, session.getId());
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Client IP: &quot;</span> + ipAddress;
     }
 }
 </code></pre>
-<h3 id="3-&#x914D;&#x7F6E;-serverendpointexporter">3. &#x914D;&#x7F6E; <code>ServerEndpointExporter</code></h3>
-<p>&#x5728; Spring Boot &#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x4E00;&#x4E2A; <code>ServerEndpointExporter</code> bean &#x6765;&#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x5E26;&#x6709; <code>@ServerEndpoint</code> &#x6CE8;&#x89E3;&#x7684; WebSocket &#x7AEF;&#x70B9;&#xFF1A;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;
-<span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;
-<span class="hljs-keyword">import</span> org.springframework.web.socket.server.standard.ServerEndpointExporter;
+<h4 id="&#x8BF4;&#x660E;&#xFF1A;">&#x8BF4;&#x660E;&#xFF1A;</h4>
+<ul>
+<li><code>X-Forwarded-For</code> &#x5934;&#x4FE1;&#x606F;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x591A;&#x4E2A; IP &#x5730;&#x5740;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;<code>client_ip, proxy1_ip, proxy2_ip</code>&#xFF09;&#x3002;</li>
+<li>&#x5982;&#x679C; <code>X-Forwarded-For</code> &#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x56DE;&#x9000;&#x5230; <code>request.getRemoteAddr()</code>&#x3002;</li>
+</ul>
+<hr>
+<h3 id="&#x65B9;&#x6CD5;-3&#xFF1A;&#x4F7F;&#x7528;-spring-&#x7684;&#x5DE5;&#x5177;&#x7C7B;">&#x65B9;&#x6CD5; 3&#xFF1A;&#x4F7F;&#x7528; Spring &#x7684;&#x5DE5;&#x5177;&#x7C7B;</h3>
+<p>Spring &#x63D0;&#x4F9B;&#x4E86; <code>RequestContextHolder</code> &#x5DE5;&#x5177;&#x7C7B;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x7684; <code>HttpServletRequest</code> &#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Component;
+<span class="hljs-keyword">import</span> org.springframework.web.context.request.RequestContextHolder;
+<span class="hljs-keyword">import</span> org.springframework.web.context.request.ServletRequestAttributes;
 
-<span class="hljs-meta">@Configuration</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebSocketConfig</span> </span>{
-    <span class="hljs-meta">@Bean</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> ServerEndpointExporter <span class="hljs-title">serverEndpointExporter</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ServerEndpointExporter();
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IpService</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getClientIp</span><span class="hljs-params">()</span> </span>{
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
+        String ipAddress = request.getHeader(<span class="hljs-string">&quot;X-Forwarded-For&quot;</span>);
+        <span class="hljs-keyword">if</span> (ipAddress == <span class="hljs-keyword">null</span> || ipAddress.isEmpty() || <span class="hljs-string">&quot;unknown&quot;</span>.equalsIgnoreCase(ipAddress)) {
+            ipAddress = request.getRemoteAddr();
+        } <span class="hljs-keyword">else</span> {
+            ipAddress = ipAddress.split(<span class="hljs-string">&quot;,&quot;</span>)[<span class="hljs-number">0</span>].trim();
+        }
+        <span class="hljs-keyword">return</span> ipAddress;
     }
 }
 </code></pre>
-<h3 id="4-&#x542F;&#x52A8;&#x7C7B;">4. &#x542F;&#x52A8;&#x7C7B;</h3>
-<p>&#x786E;&#x4FDD;&#x4F60;&#x7684;&#x4E3B;&#x7C7B;&#x6807;&#x6CE8;&#x4E86; <code>@SpringBootApplication</code> &#x6CE8;&#x89E3;&#xFF1A;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;
-<span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+<h4 id="&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;">&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</h4>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;
 
-<span class="hljs-meta">@SpringBootApplication</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebSocketDemoApplication</span> </span>{
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IpController</span> </span>{
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        SpringApplication.run(WebSocketDemoApplication.class, args);
-    }
-}
-</code></pre>
-<h3 id="5&#x53D1;&#x9001;&#x6D88;&#x606F;">5.&#x53D1;&#x9001;&#x6D88;&#x606F;</h3>
-<pre><code class="lang-java"><span class="hljs-meta">@Service</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TestService</span> </span>{
     <span class="hljs-meta">@Autowired</span>
-    <span class="hljs-keyword">private</span> NotifyWebSocket notifyWebSocket;
+    <span class="hljs-keyword">private</span> IpService ipService;
+
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/get-ip&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getClientIp</span><span class="hljs-params">()</span> </span>{
+        String ipAddress = ipService.getClientIp();
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Client IP: &quot;</span> + ipAddress;
+    }
+}
+</code></pre>
+<hr>
+<h3 id="&#x65B9;&#x6CD5;-4&#xFF1A;&#x4F7F;&#x7528;-spring-cloud-gateway-&#x6216;-zuul-&#x7684;&#x8FC7;&#x6EE4;&#x5668;">&#x65B9;&#x6CD5; 4&#xFF1A;&#x4F7F;&#x7528; Spring Cloud Gateway &#x6216; Zuul &#x7684;&#x8FC7;&#x6EE4;&#x5668;</h3>
+<p>&#x5982;&#x679C;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x4F7F;&#x7528;&#x4E86; Spring Cloud Gateway &#x6216; Zuul &#x4F5C;&#x4E3A;&#x7F51;&#x5173;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x7F51;&#x5173;&#x5C42;&#x9762;&#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x7684; IP &#x5730;&#x5740;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x4F20;&#x9012;&#x5230;&#x4E0B;&#x6E38;&#x670D;&#x52A1;&#x3002;</p>
+<h4 id="&#x793A;&#x4F8B;&#xFF08;spring-cloud-gateway&#xFF09;&#xFF1A;">&#x793A;&#x4F8B;&#xFF08;Spring Cloud Gateway&#xFF09;&#xFF1A;</h4>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> org.springframework.cloud.gateway.filter.GatewayFilterChain;
+<span class="hljs-keyword">import</span> org.springframework.cloud.gateway.filter.GlobalFilter;
+<span class="hljs-keyword">import</span> org.springframework.core.Ordered;
+<span class="hljs-keyword">import</span> org.springframework.http.server.reactive.ServerHttpRequest;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Component;
+<span class="hljs-keyword">import</span> org.springframework.web.server.ServerWebExchange;
+<span class="hljs-keyword">import</span> reactor.core.publisher.Mono;
+
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClientIpFilter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">GlobalFilter</span>, <span class="hljs-title">Ordered</span> </span>{
 
     <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">exec</span><span class="hljs-params">()</span> </span>{
-        notifyWebSocket.sendInfo(<span class="hljs-string">&quot;spring websocket test.&quot;</span>);
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;send success&quot;</span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;Void&gt; <span class="hljs-title">filter</span><span class="hljs-params">(ServerWebExchange exchange, GatewayFilterChain chain)</span> </span>{
+        ServerHttpRequest request = exchange.getRequest();
+        String clientIp = request.getHeaders().getFirst(<span class="hljs-string">&quot;X-Forwarded-For&quot;</span>);
+        <span class="hljs-keyword">if</span> (clientIp == <span class="hljs-keyword">null</span> || clientIp.isEmpty() || <span class="hljs-string">&quot;unknown&quot;</span>.equalsIgnoreCase(clientIp)) {
+            clientIp = request.getRemoteAddress() != <span class="hljs-keyword">null</span> ? request.getRemoteAddress().getAddress().getHostAddress() : <span class="hljs-keyword">null</span>;
+        } <span class="hljs-keyword">else</span> {
+            clientIp = clientIp.split(<span class="hljs-string">&quot;,&quot;</span>)[<span class="hljs-number">0</span>].trim();
+        }
+
+        <span class="hljs-comment">// &#x5C06;&#x5BA2;&#x6237;&#x7AEF; IP &#x6DFB;&#x52A0;&#x5230;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;</span>
+        ServerHttpRequest modifiedRequest = request.mutate()
+                .header(<span class="hljs-string">&quot;X-Client-IP&quot;</span>, clientIp)
+                .build();
+
+        <span class="hljs-keyword">return</span> chain.filter(exchange.mutate().request(modifiedRequest).build());
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getOrder</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> Ordered.HIGHEST_PRECEDENCE;
     }
 }
 </code></pre>
-<h3 id="6-&#x521B;&#x5EFA;&#x524D;&#x7AEF;&#x5BA2;&#x6237;&#x7AEF;">6. &#x521B;&#x5EFA;&#x524D;&#x7AEF;&#x5BA2;&#x6237;&#x7AEF;</h3>
-<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; HTML &#x6587;&#x4EF6;&#x4F5C;&#x4E3A;&#x524D;&#x7AEF;&#x5BA2;&#x6237;&#x7AEF;&#x6765;&#x6D4B;&#x8BD5; WebSocket &#x8FDE;&#x63A5;&#x3002;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6; <code>src/main/resources/static/index.html</code>&#xFF1A;</p>
-<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>WebSocket Chat<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
-        <span class="hljs-keyword">var</span> ws;
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">connect</span>(<span class="hljs-params"></span>) </span>{
-            ws = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">&quot;ws://localhost:8080/chat&quot;</span>);
-
-            ws.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
-                <span class="hljs-keyword">var</span> chatBox = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;chatBox&quot;</span>);
-                chatBox.value += event.data + <span class="hljs-string">&quot;\n&quot;</span>;
-            };
-
-            ws.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Connected&quot;</span>);
-            };
-
-            ws.onclose = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Disconnected&quot;</span>);
-            };
-        }
-
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sendMessage</span>(<span class="hljs-params"></span>) </span>{
-            <span class="hljs-keyword">var</span> message = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;message&quot;</span>).value;
-            ws.send(message);
-            <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;message&quot;</span>).value = <span class="hljs-string">&apos;&apos;</span>;
-        }
-    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">onload</span>=<span class="hljs-string">&quot;connect()&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>WebSocket Chat<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;chatBox&quot;</span> <span class="hljs-attr">cols</span>=<span class="hljs-string">&quot;100&quot;</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">&quot;20&quot;</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;message&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;100&quot;</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;sendMessage()&quot;</span>&gt;</span>Send<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code></pre>
-<h3 id="7-&#x8FD0;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;">7. &#x8FD0;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</h3>
-<p>&#x542F;&#x52A8; Spring Boot &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x7136;&#x540E;&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE; <code>http://localhost:8080/index.html</code>&#x3002;&#x4F60;&#x5E94;&#x8BE5;&#x80FD;&#x591F;&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x804A;&#x5929;&#x754C;&#x9762;&#xFF0C;&#x591A;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x4E4B;&#x95F4;&#x53EF;&#x4EE5;&#x5B9E;&#x65F6;&#x53D1;&#x9001;&#x548C;&#x63A5;&#x6536;&#x6D88;&#x606F;&#x3002;</p>
+<hr>
+<h3 id="&#x6CE8;&#x610F;&#x4E8B;&#x9879;">&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h3>
+<ol>
+<li><p><strong>&#x5B89;&#x5168;&#x6027;</strong>&#xFF1A;</p>
+<ul>
+<li>&#x4E0D;&#x8981;&#x5B8C;&#x5168;&#x4FE1;&#x4EFB; <code>X-Forwarded-For</code> &#x5934;&#x4FE1;&#x606F;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x4EE5;&#x88AB;&#x5BA2;&#x6237;&#x7AEF;&#x4F2A;&#x9020;&#x3002;</li>
+<li>&#x786E;&#x4FDD;&#x4F60;&#x7684;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x6216;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5668;&#x6B63;&#x786E;&#x8BBE;&#x7F6E;&#x4E86; <code>X-Forwarded-For</code>&#x3002;</li>
+</ul>
+</li>
+<li><p><strong>IPv6 &#x652F;&#x6301;</strong>&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528; IPv6 &#x5730;&#x5740;&#xFF0C;&#x786E;&#x4FDD;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x80FD;&#x591F;&#x6B63;&#x786E;&#x5904;&#x7406; IPv6 &#x683C;&#x5F0F;&#x3002;</li>
+</ul>
+</li>
+<li><p><strong>&#x591A;&#x7EA7;&#x4EE3;&#x7406;</strong>&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x7ECF;&#x8FC7;&#x591A;&#x7EA7;&#x4EE3;&#x7406;&#xFF0C;<code>X-Forwarded-For</code> &#x53EF;&#x80FD;&#x5305;&#x542B;&#x591A;&#x4E2A; IP &#x5730;&#x5740;&#xFF0C;&#x9700;&#x8981;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x5904;&#x7406;&#x3002;</li>
+</ul>
+</li>
+</ol>
+<hr>
 <h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
-<p>&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x5728; Spring Boot &#x9879;&#x76EE;&#x4E2D;&#x4F7F;&#x7528; <code>javax.websocket.server.ServerEndpoint</code> &#x6CE8;&#x89E3;&#x6765;&#x5B9A;&#x4E49; WebSocket &#x7AEF;&#x70B9;&#xFF0C;&#x5E76;&#x7ED3;&#x5408; <code>ServerEndpointExporter</code> &#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x8FD9;&#x4E9B;&#x7AEF;&#x70B9;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5B9E;&#x65F6;&#x7684;&#x53CC;&#x5411;&#x901A;&#x4FE1;&#xFF0C;&#x975E;&#x5E38;&#x9002;&#x5408;&#x804A;&#x5929;&#x5E94;&#x7528;&#x3001;&#x5728;&#x7EBF;&#x6E38;&#x620F;&#x548C;&#x5B9E;&#x65F6;&#x6570;&#x636E;&#x63A8;&#x9001;&#x7B49;&#x573A;&#x666F;&#x3002;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x4E0D;&#x7ECF;&#x8FC7;&#x4EE3;&#x7406;&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528; <code>request.getRemoteAddr()</code>&#x3002;</li>
+<li>&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x7ECF;&#x8FC7;&#x4EE3;&#x7406;&#xFF0C;&#x4F18;&#x5148;&#x4ECE; <code>X-Forwarded-For</code> &#x5934;&#x4FE1;&#x606F;&#x4E2D;&#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF; IP&#x3002;</li>
+<li>&#x5728; Spring Boot &#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>HttpServletRequest</code> &#x6216; <code>RequestContextHolder</code> &#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF; IP&#x3002;</li>
+</ul>
+<p>&#x5E0C;&#x671B;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x80FD;&#x5E2E;&#x52A9;&#x4F60;&#x6210;&#x529F;&#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x7684; IP &#x5730;&#x5740;&#xFF01;&#x5982;&#x679C;&#x6709;&#x5176;&#x4ED6;&#x95EE;&#x9898;&#xFF0C;&#x6B22;&#x8FCE;&#x968F;&#x65F6;&#x63D0;&#x95EE;&#x3002;</p>
 
                                 
                                 </section>
@@ -1003,12 +1002,12 @@
 
             
                 
-                <a href="GetHostIPByInetAddress.html" class="navigation navigation-prev " aria-label="Previous page: 获取本机IP">
+                <a href="ScheduleTaskExample.html" class="navigation navigation-prev " aria-label="Previous page: Schedule定时任务示例">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="MapEntryExample.html" class="navigation navigation-next " aria-label="Next page: Map.Entry示例">
+                <a href="SpringGetClientIPByHutool.html" class="navigation navigation-next " aria-label="Next page: 利用Hutool获取客户端IP">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1019,7 +1018,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SpringBoot-WebSocket示例","level":"1.2.8","depth":2,"next":{"title":"Map.Entry示例","level":"1.2.9","depth":2,"path":"Java/MapEntryExample.md","ref":"Java/MapEntryExample.md","articles":[]},"previous":{"title":"获取本机IP","level":"1.2.7","depth":2,"path":"Java/GetHostIPByInetAddress.md","ref":"Java/GetHostIPByInetAddress.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","donate","theme-comscore","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"https://xiaodaoaa.github.io/Resources/alipay.png","alipayText":"支付宝扫码","button":"赞赏","title":"","wechat":"https://xiaodaoaa.github.io/Resources/wechatpay.png","wechatText":"微信扫码"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"小道","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"小道的书籍","language":"zh-hans","gitbook":"*","description":"多睡觉的孩子长得高~"},"file":{"path":"Java/SpringBootWebSocketExample.md","mtime":"2024-06-28T07:35:36.873Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-04T03:13:26.337Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SpringBoot获取客户端IP","level":"1.2.2","depth":2,"next":{"title":"利用Hutool获取客户端IP","level":"1.2.3","depth":2,"path":"Java/SpringGetClientIPByHutool.md","ref":"Java/SpringGetClientIPByHutool.md","articles":[]},"previous":{"title":"Schedule定时任务示例","level":"1.2.1","depth":2,"path":"Java/ScheduleTaskExample.md","ref":"Java/ScheduleTaskExample.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","donate","theme-comscore","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"https://xiaodaoaa.github.io/Resources/alipay.png","alipayText":"支付宝扫码","button":"赞赏","title":"","wechat":"https://xiaodaoaa.github.io/Resources/wechatpay.png","wechatText":"微信扫码"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"小道","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"小道的书籍","language":"zh-hans","gitbook":"*","description":"多睡觉的孩子长得高~"},"file":{"path":"Java/SpringGetClientIP.md","mtime":"2025-01-04T03:11:26.361Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-04T03:13:26.337Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
